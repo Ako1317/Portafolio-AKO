@@ -3,38 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AKO - Menú Fullscreen</title>
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- CSS personalizado -->
+    <title>AKO</title>
     <link rel="stylesheet" href="../assets/css/AKO.css" />
   </head>
   <body>
-    <!-- NAVBAR -->
     <nav class="ako-nav">
       <!-- LOGO -->
       <div class="logo">
         <img src="../assets/img/pepe.webp" alt="Mi logo" />
       </div>
 
-      <!-- CHECKBOX oculto para controlar menú -->
+      <!-- ENLACES desktop/tablet -->
+      <ul class="nav-links desktop-links">
+        <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
+        <li>
+          <a href="#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME">SOBRE MI</a>
+        </li>
+        <li>
+          <a href="#portafolio" data-es="PORTAFOLIO" data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="#contacto" data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
+        </li>
+      </ul>
+
+      <!-- SELECTOR DE IDIOMA -->
+      <div class="language-selector">
+        <select id="lang-select">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
+      <!-- CHECKBOX oculto -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
 
       <!-- BOTÓN hamburguesa -->
       <label for="menu-toggle" class="menu-btn">☰</label>
 
-      <!-- ENLACES -->
-      <ul class="nav-links">
-        <li><a href="#site-awwwards">INICIO</a></li>
-        <li><a href="#site-webby">SOBRE MI</a></li>
-        <li><a href="#site-fwa">PORTAFOLIO</a></li>
-        <li><a href="#site-cssda">CONTACTO</a></li>
+      <!-- MENÚ FULLSCREEN MÓVIL -->
+      <ul class="nav-links mobile-links">
+        <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
+        <li>
+          <a href="#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME">SOBRE MI</a>
+        </li>
+        <li>
+          <a href="#portafolio" data-es="PORTAFOLIO" data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="#contacto" data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
+        </li>
+        <li><a href="#" class="close-menu">✕</a></li>
       </ul>
     </nav>
+
+    <main style="padding-top: 90px">
+      <section id="inicio" style="height: 400px; padding: 20px">INICIO</section>
+      <section id="sobre-mi" style="height: 400px; padding: 20px">
+        SOBRE MI
+      </section>
+      <section id="portafolio" style="height: 400px; padding: 20px">
+        PORTAFOLIO
+      </section>
+      <section id="contacto" style="height: 400px; padding: 20px">
+        CONTACTO
+      </section>
+    </main>
+
+    <script>
+      const langSelect = document.getElementById("lang-select");
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeBtn = document.querySelector(".close-menu");
+
+      // Cambio de idioma
+      langSelect.addEventListener("change", () => {
+        const lang = langSelect.value;
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          if (link.dataset[lang]) link.textContent = link.dataset[lang];
+        });
+      });
+
+      // Bloqueo de scroll cuando el menú está abierto
+      function toggleBodyScroll() {
+        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+      }
+      menuToggle.addEventListener("change", toggleBodyScroll);
+
+      // Cerrar menú con botón ✕ en móvil
+      closeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        menuToggle.checked = false;
+        toggleBodyScroll();
+      });
+
+      // Scroll suave y cierre del menú al hacer click
+      document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href").substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+
+            // Cerrar menú si está abierto (móvil)
+            if (menuToggle.checked) {
+              menuToggle.checked = false;
+              toggleBodyScroll();
+            }
+          }
+        });
+      });
+    </script>
   </body>
 </html>
