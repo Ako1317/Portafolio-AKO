@@ -7,8 +7,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: rgba(23, 23, 23, 0.9);
-  color: white;
+  background: rgba(18, 17, 17, 0.975);
+  color: rgb(231, 231, 231);
   scroll-behavior: smooth;
 }
 
@@ -18,13 +18,13 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(31, 31, 31, 0.9);
+  background: rgba(24, 24, 24, 0.882);
   padding: 5px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 9999;
-  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.696);
+  box-shadow: 0 4px 8px rgba(213, 88, 88, 0.696);
 }
 
 /* LOGO */
@@ -37,7 +37,7 @@ body {
 .language-selector select {
   background: rgba(38, 38, 38, 0.9);
   color: #fff;
-  border: 1px solid #ff0000;
+  border: 1px solid rgba(213, 88, 88, 0.696);
   border-radius: 5px;
   padding: 3px 6px;
   font-weight: bold;
@@ -59,7 +59,7 @@ body {
 }
 
 .desktop-links a:hover {
-  color: #ff0000;
+  color: rgb(255, 138, 138);
   transform: translateY(-2px);
 }
 
@@ -71,7 +71,7 @@ body {
 .menu-btn {
   display: none;
   font-size: 36px;
-  color: #ff0000;
+  color: rgb(255, 138, 138);
   font-weight: bold;
   cursor: pointer;
   z-index: 10001;
@@ -137,12 +137,12 @@ body {
   /* Botón cerrar */
   .mobile-links a.close-menu {
     font-size: 1.5rem;
-    color: #ff0000;
+    color: rgb(255, 138, 138);
     margin-top: 20px;
   }
 
   .mobile-links a:hover {
-    color: #ff0000;
+    color: rgb(255, 138, 138);
   }
 }
 /* VIDEO INICIO */
@@ -150,7 +150,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 40px;
+  padding: 110px 10px;
 }
 
 .video-wrapper {
@@ -173,7 +173,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: 1px;
   flex-wrap: wrap;
 }
 
@@ -187,7 +187,7 @@ body {
 
 .about-text h1 {
   font-size: 3.5rem;
-  color: #b50000;
+  color: rgb(255, 138, 138);
   margin-bottom: 50px;
 }
 
@@ -351,5 +351,149 @@ body {
   }
   .mini-images img {
     width: 30px;
+  }
+}
+/* PORTAFOLIO */
+.portfolio-section {
+  padding: 250px 40px;
+  text-align: center;
+}
+
+.portfolio-title {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  color: rgb(255, 138, 138);
+  font-weight: 900;
+  margin-bottom: 80px;
+  transition: all 0.3s ease;
+}
+
+.portfolio-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255, 138, 138);
+}
+
+.portfolio-categories {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.portfolio-item {
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.portfolio-categories:hover .portfolio-item {
+  opacity: 0.3;
+  transform: scale(0.8);
+}
+
+.portfolio-categories:hover .portfolio-item:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .desktop-links {
+    display: none;
+  }
+
+  .portfolio-categories {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+.contact-section {
+  padding: 250px 10px;
+  text-align: center;
+}
+
+/* Título hero */
+.contact-title {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: rgb(255, 138, 138);
+  margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+
+.contact-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255, 138, 138);
+}
+
+/* Contenedor de opciones */
+.contact-options {
+  display: flex;
+  justify-content: center;
+  gap: 350px;
+  flex-wrap: wrap;
+}
+
+/* Cada opción */
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: scale(1.1);
+}
+
+/* Wrapper icono + texto para alineación */
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 200px; /* fuerza la altura mínima */
+}
+
+/* Icono (imagen) */
+.contact-icon {
+  width: 150px;
+  height: auto;
+  transition: opacity 0.3s ease;
+  position: absolute;
+}
+
+/* Texto oculto */
+.contact-text {
+  font-size: 1.3rem;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+}
+
+/* Hover → mostrar texto y ocultar icono */
+.contact-item:hover .contact-icon {
+  opacity: 0;
+}
+
+.contact-item:hover .contact-text {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-options {
+    gap: 60px;
+  }
+
+  .contact-icon {
+    width: 50px;
+  }
+
+  .contact-text {
+    font-size: 1.2rem;
   }
 }
