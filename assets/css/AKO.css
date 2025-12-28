@@ -13,6 +13,10 @@ body {
 }
 
 /* NAVBAR */
+
+:root {
+  --nav-height: 70px;
+}
 .ako-nav {
   width: 100%;
   position: fixed;
@@ -145,12 +149,16 @@ body {
     color: rgb(255, 138, 138);
   }
 }
-/* VIDEO INICIO */
+/*------------------------------------//* VIDEO INICIO */
 .video-section {
+  min-height: calc(100vh - var(--nav-height));
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 110px 10px;
+  padding-top: 110px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
 }
 
 .video-wrapper {
@@ -164,16 +172,26 @@ body {
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
-/* SECCIÓN SOBRE MI */
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 90px;
+  }
+}
+/*------------------------------------//* SECCIÓN SOBRE MI */
+
+/* =========================
+   SECCIÓN ABOUT
+========================= */
 .about-section {
-  padding: 150px 165px;
+  padding: 150px 120px;
 }
 
 .about-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1px;
+  gap: 80px; /* separación cómoda en laptop */
   flex-wrap: wrap;
 }
 
@@ -182,7 +200,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 100px;
+  min-width: 70px;
+  padding: 10px 40px;
 }
 
 .about-text h1 {
@@ -192,12 +211,14 @@ body {
 }
 
 .about-text p {
-  font-size: 1.1rem;
-  max-width: 450px;
+  font-size: 1rem;
+  max-width: 300px;
   color: #d5d5d5;
 }
 
-/* Imagen interactiva */
+/* =========================
+   IMAGEN INTERACTIVA
+========================= */
 .about-image {
   position: relative;
   width: 400px;
@@ -241,7 +262,9 @@ body {
   z-index: 2;
 }
 
-/* Contenedor de iconos */
+/* =========================
+   ICONOS RADIALES
+========================= */
 .mini-images {
   position: absolute;
   top: 50%;
@@ -281,79 +304,114 @@ body {
   opacity: 1;
 }
 
-/* Distribución radial con rotate+translate */
+/* Distribución radial */
 .about-image:hover .mini-images img:nth-child(1) {
   transform: translate(-50%, -50%) rotate(0deg) translate(120px) rotate(-0deg);
   transition-delay: 0s;
 }
 .about-image:hover .mini-images img:nth-child(2) {
   transform: translate(-50%, -50%) rotate(36deg) translate(120px) rotate(-36deg);
-  transition-delay: 0.05s;
+  transition-delay: 0.1s;
 }
 .about-image:hover .mini-images img:nth-child(3) {
   transform: translate(-50%, -50%) rotate(72deg) translate(120px) rotate(-72deg);
-  transition-delay: 0.1s;
+  transition-delay: 0.2s;
 }
 .about-image:hover .mini-images img:nth-child(4) {
   transform: translate(-50%, -50%) rotate(108deg) translate(120px)
     rotate(-108deg);
-  transition-delay: 0.15s;
+  transition-delay: 0.3s;
 }
 .about-image:hover .mini-images img:nth-child(5) {
   transform: translate(-50%, -50%) rotate(144deg) translate(120px)
     rotate(-144deg);
-  transition-delay: 0.2s;
+  transition-delay: 0.4s;
 }
 .about-image:hover .mini-images img:nth-child(6) {
   transform: translate(-50%, -50%) rotate(180deg) translate(120px)
     rotate(-180deg);
-  transition-delay: 0.25s;
+  transition-delay: 0.5s;
 }
 .about-image:hover .mini-images img:nth-child(7) {
   transform: translate(-50%, -50%) rotate(216deg) translate(120px)
     rotate(-216deg);
-  transition-delay: 0.3s;
+  transition-delay: 0.6s;
 }
 .about-image:hover .mini-images img:nth-child(8) {
   transform: translate(-50%, -50%) rotate(252deg) translate(120px)
     rotate(-252deg);
-  transition-delay: 0.35s;
+  transition-delay: 0.7s;
 }
 .about-image:hover .mini-images img:nth-child(9) {
   transform: translate(-50%, -50%) rotate(288deg) translate(120px)
     rotate(-288deg);
-  transition-delay: 0.4s;
+  transition-delay: 0.8s;
 }
 .about-image:hover .mini-images img:nth-child(10) {
   transform: translate(-50%, -50%) rotate(324deg) translate(120px)
     rotate(-324deg);
-  transition-delay: 0.45s;
+  transition-delay: 0.9s;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+  ========================= */
 @media (max-width: 1024px) {
   .about-image {
     width: 300px;
   }
+
   .mini-images img {
     width: 35px;
   }
 }
 
 @media (max-width: 768px) {
+  :root {
+    --nav-height: 90px;
+  }
+
+  .about-section {
+    padding: 100px 20px;
+  }
+
   .about-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 40px;
   }
+
+  .about-text {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .about-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+
+  .about-text p {
+    max-width: 320px;
+    font-size: 1rem;
+  }
+
   .about-image {
     width: 250px;
+    margin-top: 20px;
   }
+
   .mini-images img {
     width: 30px;
   }
+
+  .image-hint {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
 }
-/* PORTAFOLIO */
+/*------------------------------------//* PORTAFOLIO */
 .portfolio-section {
   padding: 250px 40px;
   text-align: center;
@@ -395,24 +453,17 @@ body {
   opacity: 1;
   transform: scale(1.2);
 }
-
+/*------------------------------------//* CONTACTO */
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .desktop-links {
     display: none;
   }
-
-  .portfolio-categories {
-    flex-direction: column;
-    gap: 25px;
-  }
 }
 .contact-section {
   padding: 250px 10px;
   text-align: center;
-}
-
-/* Título hero */
+} /* Título hero */
 .contact-title {
   font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 900;
@@ -420,61 +471,83 @@ body {
   margin-bottom: 50px;
   transition: all 0.3s ease;
 }
-
 .contact-title:hover {
   color: transparent;
   -webkit-text-stroke: 2px rgb(255, 138, 138);
 }
+.contact-section {
+  padding: 250px 10px;
+  text-align: center;
+}
 
-/* Contenedor de opciones */
+/* Título hero */
+
+.contact-title {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: rgb(255, 138, 138);
+  margin-bottom: 50px;
+  transition: all 0.3s ease;
+}
+.contact-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255, 138, 138);
+}
+/* CONTENEDOR DE OPCIONES */
 .contact-options {
   display: flex;
   justify-content: center;
-  gap: 350px;
-  flex-wrap: wrap;
+  gap: 150px; /* separación entre opciones */
+  flex-wrap: nowrap;
 }
 
-/* Cada opción */
+/* CADA OPCIÓN */
 .contact-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease;
+  width: 180px; /* ancho basado en tamaño del icono */
+  min-height: 180px;
 }
 
 .contact-item:hover {
   transform: scale(1.1);
 }
 
-/* Wrapper icono + texto para alineación */
+/* WRAPPER ICONO + TEXTO */
 .icon-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  min-height: 200px; /* fuerza la altura mínima */
+  gap: 15px;
+  width: 100%;
+  min-height: auto;
+  position: relative; /* ahora relativo para que el tamaño funcione */
 }
 
-/* Icono (imagen) */
+/* ICONO */
 .contact-icon {
-  width: 150px;
+  width: 150px; /* tamaño base */
   height: auto;
   transition: opacity 0.3s ease;
-  position: absolute;
+  position: relative; /* permite que el width funcione */
 }
 
-/* Texto oculto */
+/* TEXTO OCULTO */
 .contact-text {
   font-size: 1.3rem;
   color: #ffffff;
   opacity: 0;
   transition: opacity 0.3s ease;
-  position: absolute;
+  text-align: center;
+  margin-top: 5px;
 }
 
-/* Hover → mostrar texto y ocultar icono */
+/* HOVER / CLICK */
 .contact-item:hover .contact-icon {
   opacity: 0;
 }
@@ -483,17 +556,122 @@ body {
   opacity: 1;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE – MÓVIL
+========================= */
 @media (max-width: 768px) {
   .contact-options {
-    gap: 60px;
+    gap: 80px; /* más cercano para pantallas pequeñas */
+  }
+
+  .contact-item {
+    width: 140px;
+    min-height: 140px;
   }
 
   .contact-icon {
-    width: 50px;
+    width: 120px; /* más grande que el anterior 50px */
   }
 
   .contact-text {
     font-size: 1.2rem;
   }
+} /* Contenedor de opciones */
+.contact-options {
+  display: flex;
+  justify-content: center;
+  gap: 250px;
+  flex-wrap: nowrap;
+}
+
+/* Cada opción */
+.contact-item {
+  width: 180px;
+  min-height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative; /* clave para centrar texto */
+  transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: scale(1.1);
+}
+
+/* Wrapper icono + texto */
+.icon-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Icono */
+.contact-icon {
+  width: 150px;
+  height: auto;
+  transition: opacity 0.3s ease;
+  display: block;
+}
+
+/* Texto centrado sobre la imagen */
+.contact-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.3rem;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Hace que el texto sea horizontal */
+  padding: 5px;
+}
+
+/* Hover / click */
+.contact-item:hover .contact-icon {
+  opacity: 0;
+}
+
+.contact-item:hover .contact-text {
+  opacity: 1;
+}
+
+/* =========================
+   Responsive – Móvil
+========================= */
+@media (max-width: 768px) {
+  .contact-options {
+    gap: 120px; /* más espacio entre elementos */
+  }
+
+  .contact-item {
+    width: 140px;
+    min-height: 140px;
+  }
+
+  .contact-icon {
+    width: 120px;
+  }
+
+  .contact-text {
+    font-size: 1.2rem;
+  }
+}
+
+/*------------------------------------//* Scoll reveal */
+.scroll-reveal {
+  opacity: 0; /* inicial invisible */
+  transform: translateY(30px); /* desplazamiento desde abajo */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

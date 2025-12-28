@@ -63,8 +63,8 @@
 
     <main style="padding-top: 90px">
       <!-- SECCIÓN INICIO CON VIDEO -->
-      <section id="inicio" class="video-section">
-        <div class="video-wrapper">
+      <section id="inicio" class="video-section scroll-reveal">
+        <div class="video-wrapper scroll-reveal">
           <video
             id="intro-video"
             src="../assets/video/ako.mp4"
@@ -74,12 +74,25 @@
         </div>
       </section>
       <!-- SECCIÓN SOBRE MI -->
-      <section id="sobre-mi" class="about-section">
-        <div class="about-container">
+      <section id="sobre-mi" class="about-section scroll-reveal">
+        <div class="about-container scroll-reveal">
           <!-- Lado izquierdo: texto -->
-          <div class="about-text">
+          <div class="about-text scroll-reveal">
             <h1>¡HOLA!</h1>
-            Mi nombre es
+            Mi nombre es Anahí, y ayudarte a encontrar soluciones es lo que hago
+            mejor.
+            <b> </b>
+            Mi misión es empatizar con las necesidades de mi cliente y llegar a
+            un resultado que cubra sus objetivos y las de su público.
+            <b> </b>Haber tenido la oportunidad de vivir, estudiar y trabajar en
+            países como México, Argentina, Italia, USA, Canadá, Suiza y España,
+            ha hecho que aumente mi interés y conocimientos sobre distintas
+            culturas, formas de comunicarse y resolver problemas.
+            <b> </b>“Conocimiento y entendimiento de múltiples culturas y por
+            ende múltiples audiencias”. <b> </b>Mi educación en UDIT (
+            Universidad de Diseño, Innovación y Tecnología ) me ha permitido
+            aprender las bases técnicas de la comunicación audiovisual, Design
+            Thinking y marketing.
           </div>
 
           <!-- Lado derecho: imagen interactiva -->
@@ -116,7 +129,7 @@
       </section>
 
       <!-- PORTAFOLIO -->
-      <section id="portafolio" class="portfolio-section">
+      <section id="portafolio" class="portfolio-section scroll-reveal">
         <h2 class="portfolio-title">PORTAFOLIO</h2>
 
         <div class="portfolio-categories">
@@ -128,9 +141,8 @@
           <a href="posters.html" class="portfolio-item">POSTERS</a>
         </div>
       </section>
-
-      <section id="contacto" class="contact-section">
-        <!-- TÍTULO HERO -->
+      <!-- CONTACTO -->
+      <section id="contacto" class="contact-section scroll-reveal">
         <h2 class="contact-title">CONTACTO</h2>
 
         <!-- OPCIONES DE CONTACTO -->
@@ -142,7 +154,7 @@
               alt="Correo"
               class="contact-icon"
             />
-            <span class="contact-text">contacto@tucorreo.com</span>
+            <span class="contact-text">akoanko03@gmail.com</span>
           </div>
 
           <!-- MÓVIL -->
@@ -152,7 +164,7 @@
               alt="Móvil"
               class="contact-icon"
             />
-            <span class="contact-text">+34 600 000 000</span>
+            <span class="contact-text">+34 641 588 992</span>
           </div>
         </div>
       </section>
@@ -162,6 +174,24 @@
       const langSelect = document.getElementById("lang-select");
       const menuToggle = document.getElementById("menu-toggle");
       const closeBtn = document.querySelector(".close-menu");
+
+      // storytelling
+      const revealElements = document.querySelectorAll(".scroll-reveal");
+
+      function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
+          const revealPoint = 150; // distancia desde la parte inferior del viewport
+          if (elementTop < windowHeight - revealPoint) {
+            el.classList.add("visible");
+          }
+        });
+      }
+
+      // Ejecutar al cargar la página y al hacer scroll
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
 
       // Cambio de idioma
       langSelect.addEventListener("change", () => {
