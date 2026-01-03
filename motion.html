@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKO</title>
+    <link rel="stylesheet" href="../assets/css/motion.css" />
+    <style>
+      /* ===== ESPACIO PARA NAVBAR ===== */
+      .motion-hero,
+      .video-section {
+        padding-top: calc(
+          var(--nav-height, 70px) + 60px
+        ); /* deja 60px extra sobre nav */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      /* ===== TÍTULO HERO ===== */
+      .motion-title {
+        width: 100%;
+        text-align: center;
+        font-size: clamp(4rem, 8vw, 7rem);
+        font-weight: 800;
+        color: rgb(255, 138, 138);
+        margin-bottom: 40px; /* separa de las opciones */
+        transition: all 0.3s ease;
+      }
+
+      .motion-title:hover {
+        color: transparent;
+        -webkit-text-stroke: 2px rgb(255, 138, 138);
+      }
+
+      /* ===== OPCIONES ===== */
+      .motion-options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
+        flex-wrap: wrap;
+      }
+
+      .motion-option {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: rgb(230, 230, 230);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .motion-option:hover {
+        transform: scale(1.3);
+      }
+
+      .motion-options:hover .motion-option {
+        opacity: 0.4;
+        transform: scale(0.9);
+      }
+
+      .motion-options:hover .motion-option:hover {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .motion-hero {
+          padding-top: calc(var(--nav-height, 70px) + 100px);
+        }
+
+        .motion-title {
+          font-size: clamp(3rem, 10vw, 5rem);
+        }
+
+        .motion-options {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .motion-option {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="ako-nav">
+      <!-- LOGO -->
+      <div class="logo">
+        <img src="../assets/img/logo b.png" alt="Mi logo" />
+      </div>
+
+      <!-- ENLACES desktop/tablet -->
+      <ul class="nav-links desktop-links">
+        <li><a href="index.html#inicio">INICIO</a></li>
+        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
+        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
+        <li><a href="index.html#contacto">CONTACTO</a></li>
+      </ul>
+
+      <!-- SELECTOR DE IDIOMA -->
+      <div class="language-selector">
+        <select id="lang-select">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
+      <!-- CHECKBOX oculto -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+      <!-- BOTÓN hamburguesa -->
+      <label for="menu-toggle" class="menu-btn">☰</label>
+
+      <!-- MENÚ FULLSCREEN MÓVIL -->
+      <ul class="nav-links mobile-links">
+        <li><a href="index.html#inicio">INICIO</a></li>
+        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
+        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
+        <li><a href="index.html#contacto">CONTACTO</a></li>
+        <li><a href="#" class="close-menu">✕</a></li>
+      </ul>
+    </nav>
+
+    <!------------------ MOTION GRAPHICS HERO ------------------>
+    <section class="motion-hero scroll-reveal">
+      <h1 class="motion-title">MOTION GRAPHICS</h1>
+
+      <div class="motion-options">
+        <a href="#madoka" class="motion-option">MADOKA</a>
+      </div>
+    </section>
+
+    <!------------------ VIDEO ------------------>
+    <section id="madoka" class="video-section scroll-reveal">
+      <div class="video-wrapper scroll-reveal">
+        <video
+          id="intro-video"
+          src="../assets/video/Madoka ako.mp4"
+          controls
+          playsinline
+        ></video>
+      </div>
+    </section>
+     <!------------------ info ------------------>
+     <div class="homura-block">
+  <div class="homura-text">
+    <p>
+      Se me presentó el objetivo de crear los créditos de una película, serie o videojuego.
+      <br>Es así que elegí trabajar con la película Puella Magi Madoka Magica: Rebellion.
+      <br>Para la misma utilicé las herramientas Procreate, Photoshop y After Effects.
+      <br>Apliqué un estilo stop motion que complementa el collage y el estilo Gekidan INU Curry. 
+    </p>
+  </div>
+
+  <div class="homura-image">
+    <img src="../assets/img/homura.jpg" alt="homura" />
+  </div>
+</div>
+</section>
+<!------------------ MATERIALES ------------------>
+<section class="seccion-fondo-completo" style="background-image: url('assets/img/homu.png'); background-size: cover; min-height: 600px; display: flex;">
+  <div class="contenido-texto">
+    <h2>MATERIALES</h2>
+    <p>
+      El material usado para la pieza consta tanto de elementos obtenidos del material original como de animaciones y collages hechos por mi misma.
+      <br>Busqué referencias de collage dadaísta así como animaciones rusas y checa.
+    </p>
+  </div>
+</section>
+
+    <script>
+      // MENÚ MÓVIL
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeBtn = document.querySelector(".close-menu");
+
+      function toggleBodyScroll() {
+        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+      }
+
+      menuToggle.addEventListener("change", toggleBodyScroll);
+      closeBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        menuToggle.checked = false;
+        toggleBodyScroll();
+      });
+
+      // SCROLL SUAVE
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href").substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            if (menuToggle.checked) {
+              menuToggle.checked = false;
+              toggleBodyScroll();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
