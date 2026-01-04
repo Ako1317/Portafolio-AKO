@@ -230,3 +230,140 @@ body {
     font-size: 1.8rem;
   }
 }
+/* ======================================== EVA ===== */
+.triple-media {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.media-item {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none; /* 🔒 evita interacción */
+}
+
+.gif {
+  width: 25%;
+}
+
+.center-img {
+  width: 40%;
+}
+
+@media (max-width: 768px) {
+  .gif {
+    width: 28%;
+  }
+
+  .center-img {
+    width: 44%;
+  }
+}
+/* ======================================== SECCIÓN CON FONDO PNG ===== */
+.seccion-fondo-completo {
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center; /* Centra el "cuadrado" verticalmente */
+  justify-content: flex-start; /* Lo mantiene pegado a la izquierda */
+  padding-left: 10%; /* Espacio desde el borde de la pantalla */
+
+  background-image: url("assets/img/homu.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contenido-texto {
+  /* 1. CREAR EL CUADRADO */
+  background-color: rgba(0, 0, 0, 0.792);
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+
+  /* 2. ESTILO OPCIONAL */
+  border: 2px solid rgb(199, 199, 199);
+  box-shadow: 10px 10px 0px rgb(199, 199, 199);
+}
+
+.contenido-texto h2 {
+  margin-top: 0;
+  color: #e9e9e9;
+  font-size: 1.5rem;
+  padding-bottom: 20px;
+}
+
+.contenido-texto p {
+  color: #dddddd;
+  line-height: 1.6;
+  margin: 5px;
+}
+
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 768px) {
+  .seccion-fondo-completo {
+    padding: 20px;
+    justify-content: center; /* Centra el cuadrado en pantallas pequeñas */
+  }
+
+  .contenido-texto {
+    max-width: 90%; /* El cuadrado ocupa casi todo el ancho en móvil */
+  }
+}
+/* ======================================== GALERÍA INTERACTIVA ===== */
+/* CONTENEDOR GENERAL */
+.galeria-interactiva {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 50px 20px;
+  width: 100%;
+}
+
+/* TARJETA */
+.tarjeta-imagen {
+  position: relative;
+  cursor: pointer;
+}
+
+/* IMÁGENES */
+.tarjeta-imagen img {
+  display: block;
+  max-width: 260px; /* 🔹 controla el tamaño real */
+  width: 100%;
+  height: auto; /* 🔹 mantiene proporción */
+  transition: opacity 0.5s ease;
+}
+
+/* Variante invisible */
+.tarjeta-imagen .img-variante {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* Hover */
+.tarjeta-imagen:hover .img-base {
+  opacity: 0;
+}
+
+.tarjeta-imagen:hover .img-variante {
+  opacity: 1;
+}
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tarjeta-imagen img {
+    max-width: 180px;
+  }
+}
