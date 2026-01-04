@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKO | Posters</title>
+    <link rel="stylesheet" href="/assets/css/poster.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="ako-nav">
+      <div class="logo">
+        <img src="/assets/img/logo b.png" alt="Mi logo" />
+      </div>
+      <ul class="nav-links desktop-links">
+        <li><a href="index.html#inicio">INICIO</a></li>
+        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
+        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
+        <li><a href="index.html#contacto">CONTACTO</a></li>
+      </ul>
+      <div class="language-selector">
+        <select id="lang-select">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">☰</label>
+      <ul class="nav-links mobile-links">
+        <li><a href="index.html#inicio">INICIO</a></li>
+        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
+        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
+        <li><a href="index.html#contacto">CONTACTO</a></li>
+        <li><a href="#" class="close-menu">✕</a></li>
+      </ul>
+    </nav>
+
+    <!----------------------------------------------------- HERO -->
+    <main>
+      <section class="hero-section">
+        <h1 class="hero-title">POSTERS</h1>
+      </section>
+
+      <!--------------------------------------------------- PORTFOLIO -->
+      <section class="image-section reveal">
+        <div class="image-container">
+          <img
+            src="/assets/img/zoo.png"
+            data-alt="/assets/img/zoo r.png"
+            alt="Imagen"
+          />
+        </div>
+      </section>
+      <section class="image-section reveal right">
+        <div class="image-container">
+          <img
+            src="/assets/img/fish.png"
+            data-alt="/assets/img/fish r.png"
+            alt="Imagen derecha"
+          />
+        </div>
+      </section>
+      <section class="image-section reveal">
+        <div class="image-container">
+          <img
+            src="/assets/img/soda.png"
+            data-alt="/assets/img/soda r.png"
+            alt="Imagen"
+          />
+        </div>
+      </section>
+      <section class="image-section reveal right">
+        <div class="image-container">
+          <img
+            src="/assets/img/flamenco.png"
+            data-alt="/assets/img/flamenco r.png"
+            alt="Imagen derecha"
+          />
+        </div>
+      </section>
+      <section class="image-section reveal">
+        <div class="image-container">
+          <img
+            src="/assets/img/color.png"
+            data-alt="/assets/img/color r.png"
+            alt="Imagen"
+          />
+        </div>
+      </section>
+      <section class="image-section reveal right">
+        <div class="image-container">
+          <img
+            src="/assets/img/vela.png"
+            data-alt="/assets/img/vela r.png"
+            alt="Imagen derecha"
+          />
+        </div>
+      </section>
+    </main>
+    <!--------------------------------------------------- FOOTER -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // SCROLL REVEAL
+        const sections = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        sections.forEach((el) => observer.observe(el));
+
+        // HOVER / CLICK IMAGEN
+        const images = document.querySelectorAll(".image-container img");
+        images.forEach((img) => {
+          const original = img.src;
+          const alt = img.dataset.alt;
+          let clicked = false;
+
+          img.addEventListener("mouseenter", () => {
+            if (!clicked) img.src = alt;
+          });
+
+          img.addEventListener("mouseleave", () => {
+            if (!clicked) img.src = original;
+          });
+
+          img.addEventListener("click", () => {
+            clicked = !clicked;
+            img.src = clicked ? alt : original;
+          });
+        });
+      });
+    </script>
+    <footer>
+      <p>© 2025 AKO.</p>
+    </footer>
+  </body>
+</html>

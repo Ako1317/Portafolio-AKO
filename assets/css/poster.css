@@ -1,0 +1,301 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: rgb(0, 0, 0);
+  color: rgb(231, 231, 231);
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+
+:root {
+  --nav-height: 70px;
+}
+.ako-nav {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(24, 24, 24, 0.882);
+  padding: 5px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9999;
+  box-shadow: 0 4px 8px rgba(213, 88, 88, 0.696);
+}
+
+/* LOGO */
+.ako-nav .logo img {
+  height: 70px;
+  width: auto;
+}
+
+/* SELECTOR IDIOMA */
+.language-selector select {
+  background: rgba(38, 38, 38, 0.9);
+  color: #fff;
+  border: 1px solid rgba(213, 88, 88, 0.696);
+  border-radius: 5px;
+  padding: 3px 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ENLACES DESKTOP */
+.desktop-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+}
+
+.desktop-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.desktop-links a:hover {
+  color: rgb(255, 138, 138);
+  transform: translateY(-2px);
+}
+
+/* MENÚ MÓVIL */
+.menu-toggle {
+  display: none;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 36px;
+  color: rgb(255, 138, 138);
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.mobile-links {
+  display: none;
+  list-style: none;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+  .desktop-links {
+    display: none;
+  }
+
+  /* Hamburguesa centrada */
+  .menu-btn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Menú fullscreen con fade + slide CSS */
+  .mobile-links {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(29, 29, 29, 0.9);
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10000;
+  }
+
+  .menu-toggle:checked ~ .mobile-links {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Enlaces solo texto, ligeramente grandes */
+  .mobile-links a {
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    padding: 0;
+  }
+
+  /* Botón cerrar */
+  .mobile-links a.close-menu {
+    font-size: 1.5rem;
+    color: rgb(255, 138, 138);
+    margin-top: 20px;
+  }
+
+  .mobile-links a:hover {
+    color: rgb(255, 138, 138);
+  }
+}
+/* -----------------------------------------------------------------------Poster */
+:root {
+  --nav-height: 70px;
+}
+
+body {
+  margin: 0;
+  background: #0b0b0b;
+  font-family: sans-serif;
+}
+
+.hero-section {
+  height: calc(100vh - var(--nav-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--nav-height);
+}
+
+.hero-title {
+  font-size: 6vw;
+  color: white;
+  transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
+}
+
+.hero-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+}
+/* -----------------------------------------------------------------------Poster zoo */
+.image-section {
+  display: flex;
+  justify-content: flex-start; /* Imagen a la izquierda */
+  padding: 70px 12%;
+  min-height: auto; /* No forzar altura */
+  background: #0b0b0b;
+}
+
+.image-container {
+  cursor: pointer;
+  overflow: hidden;
+  display: flex; /* importante para que no se estire */
+  align-items: flex-start;
+}
+
+.image-container img {
+  width: auto; /* respeta el ancho real */
+  height: auto; /* respeta la altura real */
+  max-width: 500px; /* tamaño máximo en escritorio */
+  max-height: 480px; /* altura máxima para no ser gigante */
+  display: block;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------- MEDIA QUERIES -------- */
+@media (max-width: 1024px) {
+  .image-container img {
+    max-width: 350px;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 808px) {
+  .image-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 5%;
+  }
+
+  .image-container img {
+    max-width: 100%; /* ocupa todo el ancho disponible */
+    max-height: 250px; /* altura proporcional en móvil */
+  }
+}
+/* -----------------------------------------------------------------------Poster fish */
+.image-section.right {
+  justify-content: flex-end; /* mueve la imagen a la derecha */
+  padding: 0.1px 12%;
+  min-height: auto;
+  background: #0b0b0b;
+}
+
+.image-container {
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.image-container img {
+  width: auto;
+  height: auto;
+  max-width: 500px;
+  max-height: 480px;
+  display: block;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* MEDIA QUERIES para laptops y móviles */
+@media (max-width: 1024px) {
+  .image-container img {
+    max-width: 350px;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 5%;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    max-height: 250px;
+  }
+}

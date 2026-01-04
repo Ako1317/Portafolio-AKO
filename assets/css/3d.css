@@ -150,31 +150,29 @@ body {
 }
 
 /* ---------------------------------------------------------------------------INICIO CONTENIDO 3D */
-.motion-section {
-  min-height: calc(100vh - var(--nav-height));
+body {
+  margin: 0;
+  background: #0b0b0b;
+  font-family: sans-serif;
+}
+
+.hero-section {
+  height: 200px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  box-sizing: border-box;
+  padding-top: var(--nav-height);
 }
 
-/* ===== TÍTULO HERO ===== */
-.motion-title {
-  width: 100%; /*  */
-  text-align: center; /*  */
-  font-size: clamp(4rem, 8vw, 7rem);
-  font-weight: 800;
-  color: rgb(255, 138, 138);
-  margin: 0 auto;
-  transition: all 0.3s ease;
+.hero-title {
+  font-size: 6vw;
+  color: white;
+  transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
 }
 
-.motion-title:hover {
+.hero-title:hover {
   color: transparent;
-  -webkit-text-stroke: 2px rgb(255, 138, 138);
+  -webkit-text-stroke: 2px white;
 }
 
 /* ===== OPCIONES ===== */
@@ -186,7 +184,7 @@ body {
   padding-top: 100px;
 }
 
-/* ===== CADA OPCIÓN ===== */
+/* ======================== CADA OPCIÓN ===== */
 .motion-option {
   font-size: 1.8rem;
   font-weight: 600;
@@ -320,40 +318,44 @@ body {
   }
 }
 /* ======================================== GALERÍA INTERACTIVA ===== */
-/* CONTENEDOR GENERAL */
 .galeria-interactiva {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 30px;
-  padding: 50px 20px;
+
+  gap: 80px; /* 🔹 Más separación horizontal (laptop) */
+  padding: 120px 20px; /* 🔹 Más aire arriba y abajo */
+
   width: 100%;
 }
 
-/* TARJETA */
+/* ===== CONTENEDOR DE CADA IMAGEN ===== */
 .tarjeta-imagen {
   position: relative;
   cursor: pointer;
 }
 
-/* IMÁGENES */
+/* ===== IMÁGENES ===== */
 .tarjeta-imagen img {
   display: block;
-  max-width: 260px; /* 🔹 controla el tamaño real */
+  max-width: 360px; /* 🔹 Más grandes en laptop */
   width: 100%;
-  height: auto; /* 🔹 mantiene proporción */
+  height: auto;
+  object-fit: contain; /* ✔ respeta proporciones originales */
+
   transition: opacity 0.5s ease;
 }
 
-/* Variante invisible */
+/* Imagen variante inicia oculta */
 .tarjeta-imagen .img-variante {
+  opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
-  opacity: 0;
 }
 
-/* Hover */
+/* Hover → intercambio */
 .tarjeta-imagen:hover .img-base {
   opacity: 0;
 }
@@ -362,8 +364,108 @@ body {
   opacity: 1;
 }
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
   .tarjeta-imagen img {
-    max-width: 180px;
+    max-width: 200px;
   }
+}
+/* ======================================== BLENDER ===== */
+/* ===== SECCIÓN SIMPLE ===== */
+.simple-section {
+  width: 100%;
+  padding: 80px 20px; /* aire arriba y abajo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===== TÍTULO ===== */
+.simple-title {
+  font-size: 1.4rem; /* pequeño pero legible */
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: rgb(230, 230, 230);
+}
+
+/* ===== CONTENEDOR IMAGEN ===== */
+.simple-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== IMAGEN ===== */
+.simple-image img {
+  max-width: 500px; /* tamaño controlado */
+  width: 100%;
+  height: auto;
+}
+
+/* ===== MÓVIL ===== */
+@media (max-width: 768px) {
+  .simple-section {
+    padding: 60px 16px;
+  }
+
+  .simple-title {
+    font-size: 1.2rem;
+  }
+
+  .simple-image img {
+    max-width: 450px;
+  }
+}
+/* ============================================================= MODELADO ===== */
+.seccion-animada-3d {
+  width: 100%;
+  padding: 50px 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.titulo-pequeno {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.contenedor-horizontal {
+  display: flex;
+  gap: 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.reveal-card {
+  flex: 1;
+  aspect-ratio: 1 / 1;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efecto cascada */
+.reveal-card:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.reveal-card:nth-child(3) {
+  transition-delay: 0.4s;
 }
