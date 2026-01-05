@@ -158,7 +158,8 @@ body {
   align-items: center;
   padding-left: 10px;
   padding-right: 10px;
-  box-sizing: border-box;
+
+  padding-top: 200px;
 }
 
 /* ===== TÍTULO HERO ===== */
@@ -169,6 +170,7 @@ body {
   font-weight: 800;
   color: rgb(255, 138, 138);
   margin: 0 auto;
+  padding-top: 80px;
   transition: all 0.3s ease;
 }
 
@@ -358,4 +360,17 @@ body {
   .contenido-texto {
     max-width: 90%; /* El cuadrado ocupa casi todo el ancho en móvil */
   }
+}
+/* =========================
+   SCROLL REVEAL BASE
+========================= */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

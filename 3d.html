@@ -81,16 +81,16 @@
       </ul>
     </nav>
     <!---------------------------------------------------------------------------------- Inicio contenido 3D -->
-    <section class="hero-section">
+    <section class="hero-section scroll-reveal">
       <h1 class="hero-title">3D</h1>
     </section>
 
-    <div class="motion-options">
+    <div class="motion-options scroll-reveal">
       <a href="#eva" class="motion-option">EVANGELION</a>
       <a href="#model" class="motion-option">MODEL</a>
     </div>
     <!---------------------------------------------------------------------------------- eva -->
-    <section class="triple-media">
+    <section class="triple-media scroll-reveal" id="eva">
       <!-- Video izquierdo -->
       <video
         class="media-item gif"
@@ -120,7 +120,7 @@
     </section>
     <!---------------------------------------------------------------------------------- eva info -->
     <section
-      class="seccion-fondo-completo"
+      class="seccion-fondo-completo scroll-reveal"
       style="
         background-image: url('assets/img/nerf.png');
         background-size: cover;
@@ -128,7 +128,7 @@
         display: flex;
       "
     >
-      <div class="contenido-texto">
+      <div class="contenido-texto scroll-reveal">
         <h2>NEON GENESIS EVANGELION COLAB</h2>
         <p>
           Se me presentó el objetivo de crear diseños inspirados en los mechas
@@ -140,7 +140,7 @@
       </div>
     </section>
     <!---------------------------------------------------------------------------------- eva draw -->
-    <section class="galeria-interactiva">
+    <section class="galeria-interactiva scroll-reveal">
       <div class="tarjeta-imagen">
         <img src="assets/img/n00.png" alt="Original 1" class="img-base" />
         <img src="assets/img/00.png" alt="Variante 1" class="img-variante" />
@@ -165,8 +165,8 @@
       </div>
     </section>
     <!---------------------------------------------------------------------------------- MODELO -->
-    <section class="seccion-animada-3d">
-      <h3 class="titulo-pequeno">Modelado 3D</h3>
+    <section class="simple-section scroll-reveal" id="model">
+      <h3 class="simple-title">MODELADO CINEMA4D</h3>
 
       <div class="contenedor-horizontal">
         <div class="reveal-card">
@@ -183,11 +183,16 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        /* ---------------- REVEAL CARDS---------------- */
         const cards = document.querySelectorAll(".reveal-card");
 
+        /* ---------------- SCROLL REVEAL GENERAL ---------------- */
+        const sections = document.querySelectorAll(".scroll-reveal");
+
         if (!("IntersectionObserver" in window)) {
-          // Fallback: muestra todo si el navegador no soporta observer
+          // Fallback: mostrar todo
           cards.forEach((card) => card.classList.add("is-visible"));
+          sections.forEach((section) => section.classList.add("is-visible"));
           return;
         }
 
@@ -206,8 +211,14 @@
           }
         );
 
+        /* Observa ambos tipos */
         cards.forEach((card) => observer.observe(card));
+        sections.forEach((section) => observer.observe(section));
       });
     </script>
+
+    <footer>
+      <p>© 2025 AKO</p>
+    </footer>
   </body>
 </html>

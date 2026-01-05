@@ -126,11 +126,11 @@
       </ul>
     </nav>
 
-    <!------------------ MOTION GRAPHICS HERO ------------------>
+    <!-------------------------------- MOTION GRAPHICS HERO ------------------>
     <section class="motion-hero scroll-reveal">
       <h1 class="motion-title">MOTION GRAPHICS</h1>
 
-      <div class="motion-options">
+      <div class="motion-options scroll-reveal">
         <a href="#madoka" class="motion-option">MADOKA</a>
       </div>
     </section>
@@ -147,7 +147,7 @@
       </div>
     </section>
      <!------------------ info ------------------>
-     <div class="homura-block">
+     <div class="homura-block scroll-reveal">
   <div class="homura-text">
     <p>
       Se me presentó el objetivo de crear los créditos de una película, serie o videojuego.
@@ -157,14 +157,14 @@
     </p>
   </div>
 
-  <div class="homura-image">
+  <div class="homura-image scroll-reveal">
     <img src="../assets/img/homura.jpg" alt="homura" />
   </div>
 </div>
 </section>
 <!------------------ MATERIALES ------------------>
-<section class="seccion-fondo-completo" style="background-image: url('assets/img/homu.png'); background-size: cover; min-height: 600px; display: flex;">
-  <div class="contenido-texto">
+<section class="seccion-fondo-completo scroll-reveal" style="background-image: url('assets/img/homu.png'); background-size: cover; min-height: 600px; display: flex;">
+  <div class="contenido-texto scroll-reveal">
     <h2>MATERIALES</h2>
     <p>
       El material usado para la pieza consta tanto de elementos obtenidos del material original como de animaciones y collages hechos por mi misma.
@@ -172,38 +172,89 @@
     </p>
   </div>
 </section>
+<!-- ✅ JAVASCRIPT -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    /* =========================
+       SCROLL SUAVE (ANCHORS)
+    ========================= */
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href").substring(1);
+        const targetEl = document.getElementById(targetId);
 
-    <script>
-      // MENÚ MÓVIL
-      const menuToggle = document.getElementById("menu-toggle");
-      const closeBtn = document.querySelector(".close-menu");
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
 
-      function toggleBodyScroll() {
-        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-      }
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+    const revealElements = document.querySelectorAll(".scroll-reveal");
 
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+      const revealPoint = 150;
+
+      revealElements.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add("visible");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    /* =========================
+       MENÚ MÓVIL
+    ========================= */
+    const menuToggle = document.getElementById("menu-toggle");
+    const closeBtn = document.querySelector(".close-menu");
+
+    function toggleBodyScroll() {
+      document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+    }
+
+    if (menuToggle) {
       menuToggle.addEventListener("change", toggleBodyScroll);
+    }
+
+    if (closeBtn) {
       closeBtn.addEventListener("click", (e) => {
         e.preventDefault();
         menuToggle.checked = false;
         toggleBodyScroll();
       });
+    }
 
-      // SCROLL SUAVE
-      document.querySelectorAll('a[href^="#"]').forEach((link) => {
-        link.addEventListener("click", (e) => {
-          const targetId = link.getAttribute("href").substring(1);
-          const targetEl = document.getElementById(targetId);
-          if (targetEl) {
-            e.preventDefault();
-            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-            if (menuToggle.checked) {
-              menuToggle.checked = false;
-              toggleBodyScroll();
-            }
+    /* =========================
+       SELECTOR DE IDIOMA
+    ========================= */
+    const langSelect = document.getElementById("lang-select");
+
+    if (langSelect) {
+      langSelect.addEventListener("change", () => {
+        const lang = langSelect.value;
+
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          if (link.dataset[lang]) {
+            link.textContent = link.dataset[lang];
           }
         });
       });
-    </script>
-  </body>
-</html>
+    }
+  });
+</script>
+<!-- ✅ FIN JAVASCRIPT -->
+<footer>
+  <p>© 2025 AKO.</p>
+</footer>

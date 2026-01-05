@@ -678,3 +678,16 @@ body {
     max-width: 100%;
   }
 }
+/* =========================
+   SCROLL REVEAL BASE
+========================= */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -151,13 +151,14 @@ body {
 
 /* ---------------------------------------------------------------------------INICIO CONTENIDO 3D */
 body {
-  margin: 0;
-  background: #0b0b0b;
+  margin: 170px;
+  margin-bottom: 10px;
+  background: #000000;
   font-family: sans-serif;
 }
 
 .hero-section {
-  height: 200px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,7 +166,7 @@ body {
 }
 
 .hero-title {
-  font-size: 6vw;
+  font-size: 6rem;
   color: white;
   transition: color 0.4s ease, -webkit-text-stroke 0.4s ease;
 }
@@ -181,7 +182,8 @@ body {
   justify-content: center;
   align-items: center;
   gap: 100px;
-  padding-top: 100px;
+  padding-top: 60px;
+  padding-bottom: 0.1px;
 }
 
 /* ======================== CADA OPCIÓN ===== */
@@ -239,7 +241,13 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  margin-top: 350px;
+  margin-bottom: 0px;
+  padding: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .media-item {
@@ -424,11 +432,11 @@ body {
   text-align: center;
 }
 
-.titulo-pequeno {
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
+.simple-title {
+  font-size: 1.4rem; /* pequeño pero legible */
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: rgb(230, 230, 230);
 }
 
 .contenedor-horizontal {
@@ -468,4 +476,15 @@ body {
 }
 .reveal-card:nth-child(3) {
   transition-delay: 0.4s;
+}
+/* ============================================================= scroll ===== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
