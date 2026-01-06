@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <link rel="icon" href="../assets/img/logo n.png" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 | AKO</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #0f0f0f;
+        color: #e5e5e5;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .error-container {
+        text-align: center;
+        padding: 40px;
+      }
+
+      .error-code {
+        font-size: clamp(6rem, 20vw, 10rem);
+        font-weight: 800;
+        color: rgb(255, 138, 138);
+        line-height: 1;
+      }
+
+      .error-title {
+        font-size: 1.8rem;
+        margin-top: 20px;
+      }
+
+      .error-text {
+        font-size: 1rem;
+        margin: 20px 0 40px;
+        color: #bdbdbd;
+      }
+
+      .error-button {
+        display: inline-block;
+        padding: 14px 28px;
+        border: 1px solid rgb(255, 138, 138);
+        color: rgb(255, 138, 138);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .error-button:hover {
+        background-color: rgb(255, 138, 138);
+        color: #0f0f0f;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="error-container">
+      <h1 class="error-code">404</h1>
+
+      <h2
+        class="error-title"
+        data-es="Página no encontrada"
+        data-en="Page not found"
+      >
+        Página no encontrada
+      </h2>
+
+      <p
+        class="error-text"
+        data-es="Lo sentimos, la página que estás buscando no existe o fue movida."
+        data-en="Sorry, the page you are looking for does not exist or was moved."
+      >
+        Lo sentimos, la página que estás buscando no existe o fue movida.
+      </p>
+
+      <a
+        href="index.html"
+        class="error-button"
+        data-es="Volver al inicio"
+        data-en="Back to home"
+      >
+        Volver al inicio
+      </a>
+    </main>
+
+    <script>
+      // =========================
+      // IDIOMA 404 (AUTOMÁTICO)
+      // =========================
+
+      function cambiarIdioma(lang) {
+        document.querySelectorAll("[data-es]").forEach((el) => {
+          if (el.dataset[lang]) {
+            el.textContent = el.dataset[lang];
+          }
+        });
+
+        // Actualiza atributo lang del HTML
+        document.documentElement.lang = lang;
+      }
+
+      // Lee idioma guardado o usa español por defecto
+      const langGuardado = localStorage.getItem("lang") || "es";
+
+      cambiarIdioma(langGuardado);
+    </script>
+  </body>
+</html>

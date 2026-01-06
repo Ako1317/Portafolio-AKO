@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AKO</title>
+    <title>AKO | UX/UI</title>
     <link rel="stylesheet" href="../assets/css/ux.css" />
   </head>
   <body>
+    <!-- ==================== NAVBAR ==================== -->
     <nav class="ako-nav">
-      <!-- LOGO -->
       <div class="logo">
         <img src="../assets/img/logo b.png" alt="Mi logo" />
       </div>
 
-      <!-- ENLACES desktop/tablet -->
       <ul class="nav-links desktop-links">
         <li>
           <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
@@ -38,7 +37,6 @@
         </li>
       </ul>
 
-      <!-- SELECTOR DE IDIOMA -->
       <div class="language-selector">
         <select id="lang-select">
           <option value="es">ES</option>
@@ -46,320 +44,374 @@
         </select>
       </div>
 
-      <!-- CHECKBOX oculto -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-
-      <!-- BOTÓN hamburguesa -->
       <label for="menu-toggle" class="menu-btn">☰</label>
 
-      <!-- MENÚ FULLSCREEN MÓVIL -->
       <ul class="nav-links mobile-links">
         <li>
-          <a href="../index.html#inicio" data-es="INICIO" data-en="HOME"
-            >INICIO</a
-          >
+          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
         </li>
         <li>
-          <a href="../index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
+          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
             >SOBRE MI</a
           >
         </li>
         <li>
           <a
-            href="../index.html#portafolio"
+            href="index.html#portafolio"
             data-es="PORTAFOLIO"
             data-en="PORTFOLIO"
             >PORTAFOLIO</a
           >
         </li>
         <li>
-          <a href="../index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
+          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
             >CONTACTO</a
           >
         </li>
         <li><a href="#" class="close-menu">✕</a></li>
       </ul>
     </nav>
-    <!---------------------------------------------------------------------------------- Inicio contenido UX/UI -->
-    <section class="ux-hero scroll-reveal">
-      <h1 class="ux-title">UX / UI</h1>
 
+    <!-- ==================== HERO UX/UI ==================== -->
+    <section class="ux-hero scroll-reveal">
+      <h1 class="ux-title" data-es="UX / UI" data-en="UX / UI">UX / UI</h1>
       <div class="ux-options scroll-reveal">
-        <a href="#colors" class="ux-option">COLORS</a>
-        <a href="#bikemore" class="ux-option">BIKEMORE</a>
-        <a href="#monster" class="ux-option">MONSTER</a>
+        <a href="#colors" class="ux-option" data-es="COLORES" data-en="COLORS"
+          >COLORES</a
+        >
+        <a
+          href="#bikemore"
+          class="ux-option"
+          data-es="BIKEMORE"
+          data-en="BIKEMORE"
+          >BIKEMORE</a
+        >
+        <a href="#monster" class="ux-option" data-es="MONSTER" data-en="MONSTER"
+          >MONSTER</a
+        >
       </div>
     </section>
-  </body>
-</html>
-<!---------------------------------------------------------------------------------- FIND MY COLORS -->
-<section id="colors" class="colors-section scroll-reveal">
-  <div class="colors-hero">
-    <h2 class="colors-title scroll-reveal">Find my Colors</h2>
-    <div class="colors-mockup scroll-reveal">
-      <img src="../assets/img/fmc 1.png" alt="Colors mockup" />
-    </div>
-  </div>
 
-  <div class="colors-block scroll-reveal">
-    <div class="colors-text">
-      <p>Se planteó crear una aplicación con una narrativa.</p>
-      <p>
-        El juego se centra en la interacción del usuario con una mascota
-        virtual. Para esta propuesta decidí crear un pequeño juego con selección
-        múltiple. Conforme progresas o decides terminar la historia se presentan
-        múltiples finales.
-      </p>
-    </div>
-
-    <div class="colors-animation">
-      <img
-        src="../assets/img/pipo 1.png"
-        alt="Mascota frame 1"
-        class="mascot-frame frame-1"
-      />
-      <img
-        src="../assets/img/pipo 2.png"
-        alt="Mascota frame 2"
-        class="mascot-frame frame-2"
-      />
-    </div>
-
-    <div class="colors-second-block scroll-reveal">
-      <div class="colors-text">
-        <p>
-          El diseño prioriza la claridad visual y la accesibilidad, utilizando
-          contrastes adecuados y una navegación simple que permite al usuario
-          enfocarse en la exploración del color.
-        </p>
+    <!-- ==================== FIND MY COLORS ==================== -->
+    <section id="colors" class="colors-section scroll-reveal">
+      <div class="colors-hero">
+        <h2
+          class="colors-title scroll-reveal"
+          data-es="Find my Colors"
+          data-en="Find my Colors"
+        >
+          Find my Colors
+        </h2>
+        <div class="colors-mockup scroll-reveal">
+          <img src="../assets/img/fmc 1.png" alt="Colors mockup" />
+        </div>
       </div>
 
-      <div class="colors-image">
-        <img src="../assets/img/fmc 2.png" alt="Colors extra" />
+      <div class="colors-block scroll-reveal">
+        <div class="colors-text">
+          <p
+            data-es="El juego se centra en la interacción del usuario con una mascota virtual. 
+            <br> Para esta propuesta decidí crear un pequeño juego con selección múltiple. 
+            <br>Conforme progresas o decides terminar la historia se presentan múltiples finales."
+            data-en="The game focuses on user interaction with a virtual pet. 
+            <br>For this proposal, I created a small multiple-choice game. 
+            <br>As you progress or choose to end the story, multiple endings are presented."
+          >
+            El juego se centra en la interacción del usuario con una mascota
+            virtual. <br />Para esta propuesta decidí crear un pequeño juego con
+            selección múltiple. Conforme progresas o decides terminar la
+            historia se presentan múltiples finales.
+          </p>
+          <p
+            data-es="El diseño prioriza la claridad visual y la accesibilidad, utilizando contrastes adecuados y una navegación simple que permite al usuario enfocarse en la exploración del color."
+            data-en="The design prioritizes visual clarity and accessibility, using proper contrasts and simple navigation that allows the user to focus on exploring color."
+          >
+            El diseño prioriza la claridad visual y la accesibilidad, utilizando
+            contrastes adecuados y una navegación simple que permite al usuario
+            enfocarse en la exploración del color.
+          </p>
+        </div>
+
+        <div class="colors-animation">
+          <img
+            src="../assets/img/pipo 1.png"
+            alt="Mascota frame 1"
+            class="mascot-frame frame-1"
+          />
+          <img
+            src="../assets/img/pipo 2.png"
+            alt="Mascota frame 2"
+            class="mascot-frame frame-2"
+          />
+        </div>
+
+        <div class="colors-second-block scroll-reveal">
+          <div class="colors-text">
+            <p
+              data-es="Se planteó crear una página dedicada a la venta de productos para ciclistas.
+              <br>Para esta propuesta trabajé sobre las necesidades de un target especifico. Necesidades que van desde la interacción hasta la experiencia visual."
+              data-en="The goal was to create a website dedicated to selling products for cyclists.
+              <br>For this proposal, I worked on the needs of a specific target audience, from interaction to visual experience."
+            >
+              Se planteó crear una página dedicada a la venta de productos para
+              ciclistas. <br />Para esta propuesta trabajé sobre las necesidades
+              de un target especifico. Necesidades que van desde la interacción
+              hasta la experiencia visual.
+            </p>
+          </div>
+          <div class="colors-image">
+            <img src="../assets/img/fmc 2.png" alt="Colors extra" />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<!---------------------------------------------------------------------------------- BIKEMORE -->
-<section id="bikemore" class="bikemore-section scroll-reveal">
-  <div class="bikemore-hero">
-    <h2 class="bikemore-title scroll-reveal">BikeMore</h2>
-    <div class="bikemore-mockup scroll-reveal">
-      <img src="../assets/img/bm 1.png" alt="bikemore mockup" />
-    </div>
-  </div>
+    </section>
 
-  <div class="bikemore-block scroll-reveal">
-    <div class="bikemore-text scroll-reveal">
-      <p>
-        Se planteó crear una página dedicada a la venta de productos para
-        ciclistas. Para esta propuesta trabajé sobre las necesidades de un
-        target especifico. Necesidades que van desde la interacción hasta la
-        experiencia visual.
-      </p>
-    </div>
-
-    <div class="bikemore-animation">
-      <img
-        src="../assets/img/bike 1.png"
-        alt="bike frame 1"
-        class="bike-frame frame-1"
-      />
-      <img
-        src="../assets/img/bike 2.png"
-        alt="bike frame 2"
-        class="bike-frame frame-2"
-      />
-      <img
-        src="../assets/img/bike 3.png"
-        alt="bike frame 3"
-        class="bike-frame frame-3"
-      />
-      <img
-        src="../assets/img/bike 4.png"
-        alt="bike frame 4"
-        class="bike-frame frame-4"
-      />
-    </div>
-
-    <div class="bikemore-second-block scroll-reveal">
-      <div class="bikemore-text">
-        <p>
-          Para la pagina decidí trabajar sobre un estilo moderno, en donde
-          predomine el negro y el blanco.
-          <br />
-          La información presentada va directo al punto, siguiendo las
-          necesidades de los clientes que se me presentaron. Junto a este estilo
-          se encuentran fotografías y pequeñas animaciones para hacer la
-          experiencia más atractiva. Además de un diseño responsivo capaz de
-          adaptarse a múltiples plataformas.
-        </p>
+    <!-- ==================== BIKE MORE ==================== -->
+    <section id="bikemore" class="bikemore-section scroll-reveal">
+      <div class="bikemore-hero">
+        <h2
+          class="bikemore-title scroll-reveal"
+          data-es="BikeMore"
+          data-en="BikeMore"
+        >
+          BikeMore
+        </h2>
+        <div class="bikemore-mockup scroll-reveal">
+          <img src="../assets/img/bm 1.png" alt="bikemore mockup" />
+        </div>
       </div>
 
-      <div class="bikemore-image">
-        <img src="../assets/img/bm 2.png" alt="bikemore extra" />
+      <div class="bikemore-block scroll-reveal">
+        <div class="bikemore-text scroll-reveal">
+          <p
+            data-es="Para la pagina decidí trabajar sobre un estilo moderno, en donde predomine el negro y el blanco. 
+            <br>La información presentada va directo al punto, siguiendo las necesidades de los clientes que se me presentaron. Junto a este estilo se encuentran fotografías y pequeñas animaciones para hacer la experiencia más atractiva. Además de un diseño responsivo capaz de adaptarse a múltiples plataformas."
+            data-en="For the page, I decided to work on a modern style dominated by black and white. 
+            <br>The information presented goes straight to the point, following the clients' needs. Along with this style are photos and small animations to make the experience more attractive, plus a responsive design adaptable to multiple platforms."
+          >
+            Para la pagina decidí trabajar sobre un estilo moderno, en donde
+            predomine el negro y el blanco. <br />La información presentada va
+            directo al punto, siguiendo las necesidades de los clientes que se
+            me presentaron. <br />Junto a este estilo se encuentran fotografías
+            y pequeñas animaciones para hacer la experiencia más atractiva.
+            <br />Además de un diseño responsivo capaz de adaptarse a múltiples
+            plataformas.
+          </p>
+        </div>
+
+        <div class="bikemore-animation">
+          <img
+            src="../assets/img/bike 1.png"
+            alt="bike frame 1"
+            class="bike-frame frame-1"
+          />
+          <img
+            src="../assets/img/bike 2.png"
+            alt="bike frame 2"
+            class="bike-frame frame-2"
+          />
+          <img
+            src="../assets/img/bike 3.png"
+            alt="bike frame 3"
+            class="bike-frame frame-3"
+          />
+          <img
+            src="../assets/img/bike 4.png"
+            alt="bike frame 4"
+            class="bike-frame frame-4"
+          />
+        </div>
+
+        <div class="bikemore-second-block scroll-reveal">
+          <div class="bikemore-text">
+            <p
+              data-es="Para la pagina decidí  trabajar sobre un estilo moderno, en donde predomine el negro y el blanco.
+              <br>La información presentada va directo al punto, siguiendo las necesidades de los clientes que se me presentaron.
+              <br>Junto a este estilo se encuentran fotografías y pequeñas animaciones para hacer la experiencia más atractiva. <br>Además de un diseño responsivo capaz de adaptarse a múltiples plataformas. "
+              data-en="For the website, I decided to work with a modern style, predominantly black and white. 
+              <br>The information presented gets straight to the point, following the needs of the clients who approached me.
+              <br>Alongside this style are photographs and small animations to make the experience more appealing. <br>In addition, the design is responsive and capable of adapting to multiple platforms. "
+            >
+              Para la pagina decidí trabajar sobre un estilo moderno, en donde
+              predomine el negro y el blanco. La información presentada va
+              directo al punto, siguiendo las necesidades de los clientes que se
+              me presentaron.
+              <br />
+              Junto a este estilo se encuentran fotografías y pequeñas
+              animaciones para hacer la experiencia más atractiva.
+              <br />
+              <br />Además de un diseño responsivo capaz de adaptarse a
+              múltiples plataformas.
+            </p>
+          </div>
+          <div class="bikemore-image">
+            <img src="../assets/img/bm 2.png" alt="bikemore extra" />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<!---------------------------------------------------------------------------------- MONSTER -->
-<section id="monster" class="monster-section scroll-reveal">
-  <div class="monster-hero">
-    <h2 class="monster-title">Monster</h2>
-    <video
-      id="intro-video"
-      src="../assets/video/monster.mp4"
-      controls
-      playsinline
-    ></video>
-  </div>
+    </section>
 
-  <div class="monster-block scroll-reveal">
-    <div class="monster-text">
-      <p>
-        Se planteó crear una rediseño de un apartado de una pagina existente.
-        <br />Para este trabajo decidí enfocarme en la pagina web de
-        <br />Monster Energy Drink. <br />
-        Específicamente la colección de Monster Juice
-      </p>
-    </div>
+    <!-- ==================== MONSTER ==================== -->
+    <section id="monster" class="monster-section scroll-reveal">
+      <div class="monster-hero">
+        <h2 class="monster-title" data-es="Monster" data-en="Monster">
+          Monster
+        </h2>
+        <video
+          id="intro-video"
+          src="../assets/video/monster.mp4"
+          controls
+          playsinline
+        ></video>
+      </div>
 
-    <div class="monster-animation scroll-reveal">
-      <img
-        src="../assets/img/can 1.png"
-        alt="can 1"
-        class="can-frame frame-1"
-      />
-      <img
-        src="../assets/img/can 2.png"
-        alt="can 2"
-        class="can-frame frame-2"
-      />
-      <img
-        src="../assets/img/can 3.png"
-        alt="can 3"
-        class="can-frame frame-3"
-      />
-      <img
-        src="../assets/img/can 4.png"
-        alt="can 4"
-        class="can-frame frame-4"
-      />
-      <img
-        src="../assets/img/can 5.png"
-        alt="can 5"
-        class="can-frame frame-5"
-      />
-      <img
-        src="../assets/img/can 6.png"
-        alt="can 6"
-        class="can-frame frame-6"
-      />
-      <img
-        src="../assets/img/can 7.png"
-        alt="can 7"
-        class="can-frame frame-7"
-      />
-    </div>
-  </div>
+      <!-- BLOQUE 1: Texto + Animación -->
+      <div class="monster-block scroll-reveal">
+        <div class="monster-text">
+          <p
+            data-es="Se planteó crear un rediseño de un apartado de una página existente.
+            <br>Para este trabajo decidí enfocarme en la página web de Monster Energy Drink. Específicamente la colección de Monster Juice."
+            data-en="The goal was to redesign a section of an existing website.
+            <br>For this work, I focused on Monster Energy Drink's website, specifically the Monster Juice collection."
+          >
+            Se planteó crear un rediseño de un apartado de una página existente.
+            <br />Para este trabajo decidí enfocarme en la página web de Monster
+            Energy Drink. Específicamente la colección de Monster Juice
+          </p>
+        </div>
 
-  <div class="monster-second-block scroll-reveal">
-    <div class="monster-text">
-      <p>
-        Para el rediseño jugué con los diseños y colores de cada lata de Monster
-        Juiced, convirtiendo la experiencia del usuario en una actividad más
-        inmersiva, en la que tienes la opción de ir directamente a tu selección
-        o explorar las otras opciones.
-      </p>
-    </div>
-    <div class="monster-image">
-      <img src="../assets/img/monster 2.png" alt="monster" />
-    </div>
-  </div>
-</section>
-<!-- ✅ JAVASCRIPT -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    /* =========================
-       SCROLL SUAVE (ANCHORS)
-    ========================= */
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href").substring(1);
-        const targetEl = document.getElementById(targetId);
+        <div class="monster-animation scroll-reveal">
+          <img
+            src="../assets/img/can 1.png"
+            alt="can 1"
+            class="can-frame frame-1"
+          />
+          <img
+            src="../assets/img/can 2.png"
+            alt="can 2"
+            class="can-frame frame-2"
+          />
+          <img
+            src="../assets/img/can 3.png"
+            alt="can 3"
+            class="can-frame frame-3"
+          />
+          <img
+            src="../assets/img/can 4.png"
+            alt="can 4"
+            class="can-frame frame-4"
+          />
+          <img
+            src="../assets/img/can 5.png"
+            alt="can 5"
+            class="can-frame frame-5"
+          />
+          <img
+            src="../assets/img/can 6.png"
+            alt="can 6"
+            class="can-frame frame-6"
+          />
+          <img
+            src="../assets/img/can 7.png"
+            alt="can 7"
+            class="can-frame frame-7"
+          />
+        </div>
+      </div>
 
-        if (targetEl) {
-          e.preventDefault();
-          targetEl.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+      <!-- BLOQUE 2: Imagen + Texto -->
+      <div class="monster-second-block scroll-reveal">
+        <div class="monster-image">
+          <img src="../assets/img/monster 2.png" alt="monster" />
+        </div>
+        <div class="monster-text">
+          <p
+            data-es="Para el rediseño jugué con los diseños y colores de cada lata de Monster Juiced, convirtiendo la experiencia del usuario en una actividad más inmersiva, en la que tienes la opción de ir directamente a tu selección o explorar las otras opciones."
+            data-en="For the redesign, I played with the designs and colors of each Monster Juiced can, turning the user experience into a more immersive activity, where you can go directly to your selection or explore other options."
+          >
+            Para el rediseño jugué con los diseños y colores de cada lata de
+            Monster Juiced, convirtiendo la experiencia del usuario en una
+            actividad más inmersiva, en la que tienes la opción de ir
+            directamente a tu selección o explorar las otras opciones.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // SCROLL SUAVE
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href").substring(1);
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+
+        // SCROLL REVEAL
+        const revealElements = document.querySelectorAll(".scroll-reveal");
+        function revealOnScroll() {
+          const windowHeight = window.innerHeight;
+          const revealPoint = 150;
+          revealElements.forEach((el) => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - revealPoint)
+              el.classList.add("visible");
+          });
+        }
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+
+        // MENÚ MÓVIL
+        const menuToggle = document.getElementById("menu-toggle");
+        const closeBtn = document.querySelector(".close-menu");
+        function toggleBodyScroll() {
+          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+        }
+        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
+        if (closeBtn)
+          closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            menuToggle.checked = false;
+            toggleBodyScroll();
+          });
+
+        // IDIOMA
+        const langSelect = document.getElementById("lang-select");
+        function cambiarIdioma(lang) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          });
+          document.querySelectorAll("[data-es]").forEach((el) => {
+            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+          });
+        }
+
+        // Leer idioma guardado
+        const langGuardado = localStorage.getItem("lang") || "es";
+        langSelect.value = langGuardado;
+        cambiarIdioma(langGuardado);
+
+        // Detectar cambio de idioma
+        if (langSelect) {
+          langSelect.addEventListener("change", () => {
+            const lang = langSelect.value;
+            localStorage.setItem("lang", lang);
+            cambiarIdioma(lang);
           });
         }
       });
-    });
+    </script>
 
-    /* =========================
-       SCROLL REVEAL
-    ========================= */
-    const revealElements = document.querySelectorAll(".scroll-reveal");
-
-    function revealOnScroll() {
-      const windowHeight = window.innerHeight;
-      const revealPoint = 150;
-
-      revealElements.forEach((el) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - revealPoint) {
-          el.classList.add("visible");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-
-    /* =========================
-       MENÚ MÓVIL
-    ========================= */
-    const menuToggle = document.getElementById("menu-toggle");
-    const closeBtn = document.querySelector(".close-menu");
-
-    function toggleBodyScroll() {
-      document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-    }
-
-    if (menuToggle) {
-      menuToggle.addEventListener("change", toggleBodyScroll);
-    }
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        menuToggle.checked = false;
-        toggleBodyScroll();
-      });
-    }
-
-    /* =========================
-       SELECTOR DE IDIOMA
-    ========================= */
-    const langSelect = document.getElementById("lang-select");
-
-    if (langSelect) {
-      langSelect.addEventListener("change", () => {
-        const lang = langSelect.value;
-
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-          if (link.dataset[lang]) {
-            link.textContent = link.dataset[lang];
-          }
-        });
-      });
-    }
-  });
-</script>
-<!-- ✅ FIN JAVASCRIPT -->
-<footer>
-  <p>© 2025 AKO.</p>
-</footer>
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+      <p data-es="© 2025 AKO." data-en="© 2025 AKO.">© 2025 AKO.</p>
+    </footer>
+  </body>
+</html>

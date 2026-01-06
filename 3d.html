@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+  <link rel="icon" href="../assets/img/logo n.png" />
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO</title>
     <link rel="stylesheet" href="../assets/css/3d.css" />
   </head>
+
   <body>
     <nav class="ako-nav">
       <!-- LOGO -->
@@ -80,16 +82,26 @@
         <li><a href="#" class="close-menu">✕</a></li>
       </ul>
     </nav>
-    <!---------------------------------------------------------------------------------- Inicio contenido 3D -->
+
+    <!-------------------------------- HERO ------------------>
     <section class="hero-section scroll-reveal">
-      <h1 class="hero-title">3D</h1>
+      <h1 class="hero-title" data-es="3D" data-en="3D">3D</h1>
     </section>
 
     <div class="motion-options scroll-reveal">
-      <a href="#eva" class="motion-option">EVANGELION</a>
-      <a href="#model" class="motion-option">MODEL</a>
+      <a
+        href="#eva"
+        class="motion-option"
+        data-es="EVANGELION"
+        data-en="EVANGELION"
+        >EVANGELION</a
+      >
+      <a href="#model" class="motion-option" data-es="MODEL" data-en="MODEL"
+        >MODEL</a
+      >
     </div>
-    <!---------------------------------------------------------------------------------- eva -->
+
+    <!-------------------------------- EVA ------------------>
     <section class="triple-media scroll-reveal" id="eva">
       <!-- Video izquierdo -->
       <video
@@ -118,7 +130,8 @@
         playsinline
       ></video>
     </section>
-    <!---------------------------------------------------------------------------------- eva info -->
+
+    <!-------------------------------- EVA INFO ------------------>
     <section
       class="seccion-fondo-completo scroll-reveal"
       style="
@@ -129,17 +142,26 @@
       "
     >
       <div class="contenido-texto scroll-reveal">
-        <h2>NEON GENESIS EVANGELION COLAB</h2>
-        <p>
+        <h2
+          data-es="NEON GENESIS EVANGELION COLAB"
+          data-en="NEON GENESIS EVANGELION COLAB"
+        >
+          NEON GENESIS EVANGELION COLAB
+        </h2>
+        <p
+          data-es="Se me presentó el objetivo de crear diseños inspirados en los mechas que se muestran en la serie 'Neon Genesis Evangelion' de los 90s. Quería que los diseños fueran algo apto para todos los públicos (fans y no fans de la franquicia) pero con material suficiente para que los fans identificaran el homenaje a la serie original."
+          data-en="I was tasked with creating designs inspired by the mechas from the 'Neon Genesis Evangelion' series of the 90s. I wanted the designs to be suitable for all audiences (fans and non-fans alike) while providing enough detail for fans to recognize the homage to the original series."
+        >
           Se me presentó el objetivo de crear diseños inspirados en los mechas
-          que se muestran en la serie "Neon Genesis Evangelion" de los 90s.
-          <br />Quería que los diseños fueran algo apto para todos los públicos
-          (fans y no fans de la franquicia) pero con material suficiente para
-          que los fans identificaran el homenaje a la serie original.
+          que se muestran en la serie 'Neon Genesis Evangelion' de los 90s.
+          Quería que los diseños fueran algo apto para todos los públicos (fans
+          y no fans de la franquicia) pero con material suficiente para que los
+          fans identificaran el homenaje a la serie original.
         </p>
       </div>
     </section>
-    <!---------------------------------------------------------------------------------- eva draw -->
+
+    <!-------------------------------- EVA DRAW ------------------>
     <section class="galeria-interactiva scroll-reveal">
       <div class="tarjeta-imagen">
         <img src="assets/img/n00.png" alt="Original 1" class="img-base" />
@@ -156,17 +178,26 @@
         <img src="assets/img/02.png" alt="Variante 3" class="img-variante" />
       </div>
     </section>
-    <!---------------------------------------------------------------------------------- blender -->
-    <section class="simple-section scroll-reveal">
-      <h3 class="simple-title">CREACIÓN</h3>
 
+    <!-------------------------------- BLENDER ------------------>
+    <section class="simple-section scroll-reveal">
+      <h3 class="simple-title" data-es="CREACIÓN" data-en="CREATION">
+        CREACIÓN
+      </h3>
       <div class="simple-image">
         <img src="../assets/img/shirt.png" alt="Imagen descriptiva" />
       </div>
     </section>
-    <!---------------------------------------------------------------------------------- MODELO -->
+
+    <!-------------------------------- MODEL ------------------>
     <section class="simple-section scroll-reveal" id="model">
-      <h3 class="simple-title">MODELADO CINEMA4D</h3>
+      <h3
+        class="simple-title"
+        data-es="MODELADO CINEMA4D"
+        data-en="CINEMA4D MODELING"
+      >
+        MODELADO CINEMA4D
+      </h3>
 
       <div class="contenedor-horizontal">
         <div class="reveal-card">
@@ -181,44 +212,91 @@
       </div>
     </section>
 
+    <!-- ✅ JAVASCRIPT -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        /* ---------------- REVEAL CARDS---------------- */
+        /* ---------------- REVEAL CARDS & SECTIONS ---------------- */
         const cards = document.querySelectorAll(".reveal-card");
 
-        /* ---------------- SCROLL REVEAL GENERAL ---------------- */
         const sections = document.querySelectorAll(".scroll-reveal");
 
         if (!("IntersectionObserver" in window)) {
-          // Fallback: mostrar todo
           cards.forEach((card) => card.classList.add("is-visible"));
           sections.forEach((section) => section.classList.add("is-visible"));
-          return;
+        } else {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
+          );
+          cards.forEach((card) => observer.observe(card));
+          sections.forEach((section) => observer.observe(section));
         }
 
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.2,
-            rootMargin: "0px 0px -50px 0px",
-          }
-        );
+        /* ---------------- SCROLL SUAVE ---------------- */
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href").substring(1);
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
 
-        /* Observa ambos tipos */
-        cards.forEach((card) => observer.observe(card));
-        sections.forEach((section) => observer.observe(section));
+        /* ---------------- MENÚ MÓVIL ---------------- */
+        const menuToggle = document.getElementById("menu-toggle");
+        const closeBtn = document.querySelector(".close-menu");
+        function toggleBodyScroll() {
+          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+        }
+        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
+        if (closeBtn) {
+          closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            menuToggle.checked = false;
+            toggleBodyScroll();
+          });
+        }
+
+        /* =========================
+        IDIOMA
+        ========================= */
+        const langSelect = document.getElementById("lang-select");
+        function cambiarIdioma(lang) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          });
+          document.querySelectorAll("[data-es]").forEach((el) => {
+            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+          });
+        }
+
+        // Leer idioma guardado
+        const langGuardado = localStorage.getItem("lang") || "es";
+        langSelect.value = langGuardado;
+        cambiarIdioma(langGuardado);
+
+        // Detectar cambio de idioma
+        if (langSelect) {
+          langSelect.addEventListener("change", () => {
+            const lang = langSelect.value;
+            localStorage.setItem("lang", lang);
+            cambiarIdioma(lang);
+          });
+        }
       });
     </script>
 
     <footer>
-      <p>© 2025 AKO</p>
+      <p data-es="© 2025 AKO" data-en="© 2025 AKO">© 2025 AKO</p>
     </footer>
   </body>
 </html>

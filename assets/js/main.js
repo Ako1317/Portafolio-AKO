@@ -1,11 +1,8 @@
-// WEB ATELIER (UDIT) - Student Project Template JavaScript
-// Add your interactive functionality here
-
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize your project functionality
-  console.log("WEB ATELIER (UDIT) - Student project initialized");
+  console.log("AKO PORTFOLIO - Main JS Loaded");
 
-  // Example: Add smooth scrolling for anchor links
+  // Add smooth scrolling for anchor links
   const links = document.querySelectorAll('a[href^="#"]');
   links.forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -21,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Example: Add skip link functionality
+  // Add skip link functionality
   const skipLink = document.querySelector(".skip-link");
   if (skipLink) {
     skipLink.addEventListener("click", function (e) {

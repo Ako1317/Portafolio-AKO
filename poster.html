@@ -12,36 +12,75 @@
       <div class="logo">
         <img src="/assets/img/logo b.png" alt="Mi logo" />
       </div>
+      <!-- ENLACES desktop -->
       <ul class="nav-links desktop-links">
-        <li><a href="index.html#inicio">INICIO</a></li>
-        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
-        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
-        <li><a href="index.html#contacto">CONTACTO</a></li>
+        <li>
+          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
+        </li>
+        <li>
+          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
+            >SOBRE MI</a
+          >
+        </li>
+        <li>
+          <a
+            href="index.html#portafolio"
+            data-es="PORTAFOLIO"
+            data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
+            >CONTACTO</a
+          >
+        </li>
       </ul>
+      <!-- SELECTOR IDIOMA -->
       <div class="language-selector">
         <select id="lang-select">
           <option value="es">ES</option>
           <option value="en">EN</option>
         </select>
       </div>
+      <!-- HAMBURGUESA -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
       <label for="menu-toggle" class="menu-btn">☰</label>
+      <!-- MENU MOBILE -->
       <ul class="nav-links mobile-links">
-        <li><a href="index.html#inicio">INICIO</a></li>
-        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
-        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
-        <li><a href="index.html#contacto">CONTACTO</a></li>
+        <li>
+          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
+        </li>
+        <li>
+          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
+            >SOBRE MI</a
+          >
+        </li>
+        <li>
+          <a
+            href="index.html#portafolio"
+            data-es="PORTAFOLIO"
+            data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
+            >CONTACTO</a
+          >
+        </li>
         <li><a href="#" class="close-menu">✕</a></li>
       </ul>
     </nav>
-
-    <!----------------------------------------------------- HERO -->
     <main>
+      <!-- HERO -->
       <section class="motion-title reveal">
-        <h1 class="motion-title">POSTERS</h1>
+        <h1 class="motion-title" data-es="POSTERS" data-en="POSTERS">
+          POSTERS
+        </h1>
       </section>
 
-      <!--------------------------------------------------- PORTFOLIO -->
+      <!-- PORTFOLIO IMÁGENES -->
       <section class="image-section reveal">
         <div class="image-container">
           <img
@@ -51,6 +90,7 @@
           />
         </div>
       </section>
+
       <section class="image-section reveal right">
         <div class="image-container">
           <img
@@ -60,6 +100,7 @@
           />
         </div>
       </section>
+
       <section class="image-section reveal">
         <div class="image-container">
           <img
@@ -69,6 +110,7 @@
           />
         </div>
       </section>
+
       <section class="image-section reveal right">
         <div class="image-container">
           <img
@@ -78,6 +120,7 @@
           />
         </div>
       </section>
+
       <section class="image-section reveal">
         <div class="image-container">
           <img
@@ -87,6 +130,7 @@
           />
         </div>
       </section>
+
       <section class="image-section reveal right">
         <div class="image-container">
           <img
@@ -97,11 +141,10 @@
         </div>
       </section>
     </main>
-    <!--------------------------------------------------- FOOTER -->
-
+    <!-- =================== SCRIPT =================== -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // SCROLL REVEAL
+        // ===== SCROLL REVEAL =====
         const sections = document.querySelectorAll(".reveal");
         const observer = new IntersectionObserver(
           (entries) => {
@@ -115,7 +158,7 @@
         );
         sections.forEach((el) => observer.observe(el));
 
-        // HOVER / CLICK IMAGEN
+        // ===== HOVER / CLICK IMAGEN =====
         const images = document.querySelectorAll(".image-container img");
         images.forEach((img) => {
           const original = img.src;
@@ -125,15 +168,49 @@
           img.addEventListener("mouseenter", () => {
             if (!clicked) img.src = alt;
           });
-
           img.addEventListener("mouseleave", () => {
             if (!clicked) img.src = original;
           });
-
           img.addEventListener("click", () => {
             clicked = !clicked;
             img.src = clicked ? alt : original;
           });
+        });
+
+        // ===== CIERRE MENÚ MÓVIL =====
+        const menuToggle = document.getElementById("menu-toggle");
+        const closeBtn = document.querySelector(".close-menu");
+        function toggleBodyScroll() {
+          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+        }
+        menuToggle.addEventListener("change", toggleBodyScroll);
+        closeBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          menuToggle.checked = false;
+          toggleBodyScroll();
+        });
+
+        // ===== IDIOMA =====
+        const langSelect = document.getElementById("lang-select");
+        function cambiarIdioma(lang) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          });
+          document.querySelectorAll("[data-es]").forEach((el) => {
+            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+          });
+        }
+
+        // LEER IDIOMA GUARDADO
+        const langGuardado = localStorage.getItem("lang") || "es";
+        langSelect.value = langGuardado;
+        cambiarIdioma(langGuardado);
+
+        // DETECTAR CAMBIO
+        langSelect.addEventListener("change", () => {
+          const lang = langSelect.value;
+          localStorage.setItem("lang", lang);
+          cambiarIdioma(lang);
         });
       });
     </script>

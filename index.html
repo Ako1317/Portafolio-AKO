@@ -4,13 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO</title>
-    <link rel="stylesheet" href="../assets/css/AKO.css" />
+
+    <!-- Manifest y favicon -->
+    <link rel="manifest" href="manifesto.json" />
+    <link rel="icon" href="assets/img/logo n.png" />
+    <link rel="license" href="LICENSE.txt" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/AKO.css" />
   </head>
   <body>
+    <!-- NAVBAR -->
     <nav class="ako-nav">
-      <!-- LOGO -->
       <div class="logo">
-        <img src="../assets/img/logo b.png" alt="Mi logo" />
+        <img src="assets/img/logo b.png" alt="Mi logo" />
       </div>
 
       <!-- ENLACES desktop/tablet -->
@@ -37,13 +44,9 @@
         </select>
       </div>
 
-      <!-- CHECKBOX oculto -->
+      <!-- MENU MÓVIL -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-
-      <!-- BOTÓN hamburguesa -->
       <label for="menu-toggle" class="menu-btn">☰</label>
-
-      <!-- MENÚ FULLSCREEN MÓVIL -->
       <ul class="nav-links mobile-links">
         <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
         <li>
@@ -61,68 +64,92 @@
       </ul>
     </nav>
 
+    <!-- MAIN -->
     <main style="padding-top: 90px">
-      <!------------------------------------------------------- SECCIÓN INICIO CON VIDEO -->
+      <!-- INICIO: VIDEO -->
       <section id="inicio" class="video-section scroll-reveal">
         <div class="video-wrapper scroll-reveal">
           <video
             id="intro-video"
-            src="../assets/video/ako.mp4"
+            src="assets/video/ako.mp4"
             controls
             playsinline
           ></video>
         </div>
       </section>
-      <!-- SECCIÓN SOBRE MI -->
+
+      <!-- SOBRE MI -->
       <section id="sobre-mi" class="about-section scroll-reveal">
         <div class="about-container scroll-reveal">
-          <!-- Lado izquierdo: texto -->
           <div class="about-text scroll-reveal">
-            <h1>¡HOLA!</h1>
-            Mi nombre es Anahí, y ayudarte a encontrar soluciones es lo que hago
-            mejor.
-            <b> </b>
-            Mi misión es empatizar con las necesidades de mi cliente y llegar a
-            un resultado que cubra sus objetivos y las de su público.
-            <b> </b>Haber tenido la oportunidad de vivir, estudiar y trabajar en
-            países como México, Argentina, Italia, USA, Canadá, Suiza y España,
-            ha hecho que aumente mi interés y conocimientos sobre distintas
-            culturas, formas de comunicarse y resolver problemas.
-            <b> </b>“Conocimiento y entendimiento de múltiples culturas y por
-            ende múltiples audiencias”. <b> </b>Mi educación en UDIT
-            (Universidad de Diseño, Innovación y Tecnología) me ha permitido
-            aprender las bases técnicas de la comunicación audiovisual, Design
-            Thinking y marketing.
+            <h1 data-es="¡HOLA!" data-en="HELLO!">¡HOLA!</h1>
+            <span
+              data-es="Mi nombre es Anahí, y ayudarte a encontrar soluciones es lo que hago mejor."
+              data-en="My name is Anahí, and helping you find solutions is what I do best."
+            >
+              Mi nombre es Anahí, y ayudarte a encontrar soluciones es lo que
+              hago mejor.
+            </span>
+            <b></b>
+            <span
+              data-es="Mi misión es empatizar con las necesidades de mi cliente y llegar a un resultado que cubra sus objetivos y las de su público."
+              data-en="My mission is to empathize with my clients needs and achieve results that meet their goals and those of their audience."
+            >
+              Mi misión es empatizar con las necesidades de mi cliente y llegar
+              a un resultado que cubra sus objetivos y las de su público.
+            </span>
+            <b></b>
+            <span
+              data-es="Haber tenido la oportunidad de vivir, estudiar y trabajar en países como México, Argentina, Italia, USA, Canadá, Suiza y España ha hecho que aumente mi interés y conocimientos sobre distintas culturas, formas de comunicarse y resolver problemas."
+              data-en="Having had the opportunity to live, study, and work in countries such as Mexico, Argentina, Italy, the USA, Canada, Switzerland, and Spain has increased my interest and knowledge of different cultures, ways of communicating, and problem-solving approaches."
+            >
+              Haber tenido la oportunidad de vivir, estudiar y trabajar en
+              países como México, Argentina, Italia, USA, Canadá, Suiza y España
+              ha hecho que aumente mi interés y conocimientos sobre distintas
+              culturas, formas de comunicarse y resolver problemas.
+            </span>
+            <b></b>
+            <span
+              data-es="Conocimiento y entendimiento de múltiples culturas y por ende múltiples audiencias."
+              data-en="Knowledge and understanding of multiple cultures and therefore multiple audiences."
+            >
+              “Conocimiento y entendimiento de múltiples culturas y por ende
+              múltiples audiencias”.
+            </span>
+            <b></b>
+            <span
+              data-es="Mi educación en UDIT (Universidad de Diseño, Innovación y Tecnología) me ha permitido aprender las bases técnicas de la comunicación audiovisual, Design Thinking y marketing."
+              data-en="My education at UDIT (University of Design, Innovation and Technology) has allowed me to learn the technical foundations of audiovisual communication, Design Thinking, and marketing."
+            >
+              Mi educación en UDIT (Universidad de Diseño, Innovación y
+              Tecnología) me ha permitido aprender las bases técnicas de la
+              comunicación audiovisual, Design Thinking y marketing.
+            </span>
           </div>
 
-          <!-- Lado derecho: imagen interactiva -->
           <div class="about-image">
             <span class="image-hint">Toca o pasa el cursor</span>
-
-            <!-- Imagen principal -->
             <img
-              src="../assets/img/ako a.jpg"
+              src="assets/img/ako a.jpg"
               alt="Imagen principal"
               class="main-img"
             />
             <img
-              src="../assets/img/ako b.PNG"
+              src="assets/img/ako b.PNG"
               alt="Imagen principal alterna"
               class="main-img-alt"
             />
-
-            <!-- 10 logos pequeños -->
             <div class="mini-images">
-              <img src="../assets/img/after e.png" alt="after" />
-              <img src="../assets/img/blender.png" alt="blender" />
-              <img src="../assets/img/cinema 4d.png" alt="cinema 4d" />
-              <img src="../assets/img/figma.png" alt="figma" />
-              <img src="../assets/img/illustrator.png" alt="illustrator" />
-              <img src="../assets/img/indesign.png" alt="indesign" />
-              <img src="../assets/img/photoshop.png" alt="photoshop" />
-              <img src="../assets/img/premier.png" alt="premier" />
-              <img src="../assets/img/procreate.png" alt="procreate" />
-              <img src="../assets/img/vsc.png" alt="vsc" />
+              <img src="assets/img/after e.png" alt="after" />
+              <img src="assets/img/blender.png" alt="blender" />
+              <img src="assets/img/cinema 4d.png" alt="cinema 4d" />
+              <img src="assets/img/figma.png" alt="figma" />
+              <img src="assets/img/illustrator.png" alt="illustrator" />
+              <img src="assets/img/indesign.png" alt="indesign" />
+              <img src="assets/img/photoshop.png" alt="photoshop" />
+              <img src="assets/img/premier.png" alt="premier" />
+              <img src="assets/img/procreate.png" alt="procreate" />
+              <img src="assets/img/vsc.png" alt="vsc" />
             </div>
           </div>
         </div>
@@ -131,7 +158,6 @@
       <!-- PORTAFOLIO -->
       <section id="portafolio" class="portfolio-section scroll-reveal">
         <h2 class="portfolio-title">PORTAFOLIO</h2>
-
         <div class="portfolio-categories">
           <a href="ux.html" class="portfolio-item">UX/UI</a>
           <a href="motion.html" class="portfolio-item">MOTION GRAPHICS</a>
@@ -139,29 +165,21 @@
           <a href="poster.html" class="portfolio-item">POSTERS</a>
         </div>
       </section>
+
       <!-- CONTACTO -->
       <section id="contacto" class="contact-section scroll-reveal">
         <h2 class="contact-title">CONTACTO</h2>
-
-        <!-- OPCIONES DE CONTACTO -->
         <div class="contact-options">
-          <!-- CORREO -->
           <div class="contact-item">
             <img
-              src="../assets/img/correo.png"
+              src="assets/img/correo.png"
               alt="Correo"
               class="contact-icon"
             />
             <span class="contact-text">akoanko03@gmail.com</span>
           </div>
-
-          <!-- MÓVIL -->
           <div class="contact-item">
-            <img
-              src="../assets/img/phone.png"
-              alt="Móvil"
-              class="contact-icon"
-            />
+            <img src="assets/img/phone.png" alt="Móvil" class="contact-icon" />
             <span class="contact-text">+34 641 588 992</span>
           </div>
         </div>
@@ -169,66 +187,173 @@
     </main>
 
     <script>
+      // ============================
+      // 1. REFERENCIAS A ELEMENTOS HTML
+      // ============================
+
+      // Selector de idioma (ES / EN)
       const langSelect = document.getElementById("lang-select");
+
+      // Checkbox que controla la apertura del menú móvil
       const menuToggle = document.getElementById("menu-toggle");
+
+      // Botón ✕ para cerrar el menú en móvil
       const closeBtn = document.querySelector(".close-menu");
 
-      // storytelling
+      // ============================
+      // 2. STORYTELLING / SCROLL REVEAL
+      // ============================
+
+      // Selecciona todos los elementos que se animarán al hacer scroll
       const revealElements = document.querySelectorAll(".scroll-reveal");
 
+      // Función que comprueba si los elementos entran en pantalla
       function revealOnScroll() {
+        // Altura visible del navegador
         const windowHeight = window.innerHeight;
+
+        // Recorre cada elemento animable
         revealElements.forEach((el) => {
+          // Distancia del elemento respecto al top del viewport
           const elementTop = el.getBoundingClientRect().top;
-          const revealPoint = 150; // distancia desde la parte inferior del viewport
+
+          // Punto donde comienza la animación (150px antes del fondo)
+          const revealPoint = 150;
+
+          // Si el elemento está dentro del área visible
           if (elementTop < windowHeight - revealPoint) {
+            // Se añade la clase que activa la animación en CSS
             el.classList.add("visible");
           }
         });
       }
 
-      // Ejecutar al cargar la página y al hacer scroll
+      // Ejecuta la animación al cargar la página y al hacer scroll
       window.addEventListener("scroll", revealOnScroll);
       window.addEventListener("load", revealOnScroll);
 
-      // Cambio de idioma
+      // ============================
+      // 3. CAMBIO DE IDIOMA (MENÚ)
+      // ============================
+
+      // Detecta cuando el usuario cambia el idioma
       langSelect.addEventListener("change", () => {
+        // Idioma seleccionado: "es" o "en"
         const lang = langSelect.value;
+
+        // 🔹 Guarda el idioma elegido
+        localStorage.setItem("lang", lang);
+
+        // ============================
+        // 1. CAMBIO DE TEXTO EN EL MENÚ
+        // ============================
+
         document.querySelectorAll(".nav-links a").forEach((link) => {
-          if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          // Si existe el texto en ese idioma
+          if (link.dataset[lang]) {
+            // Cambia solo el texto visible (texto simple)
+            link.textContent = link.dataset[lang];
+          }
+        });
+
+        // ============================
+        // 2. CAMBIO DE TEXTOS COMPLEJOS (CON HTML)
+        // ============================
+
+        document.querySelectorAll("[data-es]").forEach((el) => {
+          // Para bloques con HTML interno (h1, b, etc.)
+          el.innerHTML = el.dataset[lang];
         });
       });
 
-      // Bloqueo de scroll cuando el menú está abierto
+      // ============================
+      // 4. BLOQUEO DE SCROLL (MENÚ MÓVIL)
+      // ============================
+
+      // Función que bloquea o desbloquea el scroll del body
       function toggleBodyScroll() {
+        // Si el menú está abierto → no scroll
+        // Si está cerrado → scroll normal
         document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
       }
+
+      // Se ejecuta cada vez que se abre o cierra el menú
       menuToggle.addEventListener("change", toggleBodyScroll);
 
-      // Cerrar menú con botón ✕ en móvil
+      // ============================
+      // 5. CIERRE DEL MENÚ CON BOTÓN ✕
+      // ============================
+
       closeBtn.addEventListener("click", (e) => {
+        // Evita el comportamiento por defecto del enlace
         e.preventDefault();
+
+        // Cierra el menú
         menuToggle.checked = false;
+
+        // Restaura el scroll de la página
         toggleBodyScroll();
       });
 
-      // Scroll suave y cierre del menú al hacer click
+      // ============================
+      // 6. SCROLL SUAVE + CIERRE AUTOMÁTICO
+      // ============================
+
+      // Selecciona solo enlaces internos (href que empieza con #)
       document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (e) => {
+          // Obtiene el id destino sin el #
           const targetId = link.getAttribute("href").substring(1);
-          const targetEl = document.getElementById(targetId);
-          if (targetEl) {
-            e.preventDefault();
-            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
 
-            // Cerrar menú si está abierto (móvil)
+          // Busca la sección correspondiente
+          const targetEl = document.getElementById(targetId);
+
+          // Si la sección existe
+          if (targetEl) {
+            // Evita el salto brusco por defecto
+            e.preventDefault();
+
+            // Scroll suave hasta la sección
+            targetEl.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+
+            // Si el menú está abierto (móvil)
             if (menuToggle.checked) {
+              // Se cierra automáticamente
               menuToggle.checked = false;
               toggleBodyScroll();
             }
           }
         });
       });
+      // ========================= FUNCIONES DE IDIOMA =========================
+      function cambiarIdioma(lang) {
+        // NAV LINKS
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          if (link.dataset[lang]) link.textContent = link.dataset[lang];
+        });
+        // CONTENIDO
+        document.querySelectorAll("[data-es]").forEach((el) => {
+          if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+        });
+      }
+
+      // LEER IDIOMA GUARDADO
+      const langGuardado = localStorage.getItem("lang") || "es";
+      langSelect.value = langGuardado;
+      cambiarIdioma(langGuardado);
+
+      // DETECTAR CAMBIO DE IDIOMA
+      langSelect.addEventListener("change", () => {
+        const lang = langSelect.value;
+        localStorage.setItem("lang", lang);
+        cambiarIdioma(lang);
+      });
     </script>
+    <footer>
+      <p data-es="© 2025 AKO." data-en="© 2025 AKO.">© 2025 AKO.</p>
+    </footer>
   </body>
 </html>

@@ -9,9 +9,7 @@
       /* ===== ESPACIO PARA NAVBAR ===== */
       .motion-hero,
       .video-section {
-        padding-top: calc(
-          var(--nav-height, 70px) + 60px
-        ); /* deja 60px extra sobre nav */
+        padding-top: calc(var(--nav-height, 70px) + 60px);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -25,7 +23,7 @@
         font-size: clamp(4rem, 8vw, 7rem);
         font-weight: 800;
         color: rgb(255, 138, 138);
-        margin-bottom: 40px; /* separa de las opciones */
+        margin-bottom: 40px;
         transition: all 0.3s ease;
       }
 
@@ -96,10 +94,27 @@
 
       <!-- ENLACES desktop/tablet -->
       <ul class="nav-links desktop-links">
-        <li><a href="index.html#inicio">INICIO</a></li>
-        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
-        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
-        <li><a href="index.html#contacto">CONTACTO</a></li>
+        <li>
+          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
+        </li>
+        <li>
+          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
+            >SOBRE MI</a
+          >
+        </li>
+        <li>
+          <a
+            href="index.html#portafolio"
+            data-es="PORTAFOLIO"
+            data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
+            >CONTACTO</a
+          >
+        </li>
       </ul>
 
       <!-- SELECTOR DE IDIOMA -->
@@ -118,20 +133,49 @@
 
       <!-- MENÚ FULLSCREEN MÓVIL -->
       <ul class="nav-links mobile-links">
-        <li><a href="index.html#inicio">INICIO</a></li>
-        <li><a href="index.html#sobre-mi">SOBRE MI</a></li>
-        <li><a href="index.html#portafolio">PORTAFOLIO</a></li>
-        <li><a href="index.html#contacto">CONTACTO</a></li>
+        <li>
+          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
+        </li>
+        <li>
+          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
+            >SOBRE MI</a
+          >
+        </li>
+        <li>
+          <a
+            href="index.html#portafolio"
+            data-es="PORTAFOLIO"
+            data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
+            >CONTACTO</a
+          >
+        </li>
         <li><a href="#" class="close-menu">✕</a></li>
       </ul>
     </nav>
 
     <!-------------------------------- MOTION GRAPHICS HERO ------------------>
     <section class="motion-hero scroll-reveal">
-      <h1 class="motion-title">MOTION GRAPHICS</h1>
+      <h1
+        class="motion-title"
+        data-es="MOTION GRAPHICS"
+        data-en="MOTION GRAPHICS"
+      >
+        MOTION GRAPHICS
+      </h1>
 
       <div class="motion-options scroll-reveal">
-        <a href="#madoka" class="motion-option">MADOKA</a>
+        <a
+          href="#madoka"
+          class="motion-option"
+          data-es="MADOKA"
+          data-en="MADOKA"
+          >MADOKA</a
+        >
       </div>
     </section>
 
@@ -146,115 +190,131 @@
         ></video>
       </div>
     </section>
-     <!------------------ info ------------------>
-     <div class="homura-block scroll-reveal">
-  <div class="homura-text">
-    <p>
-      Se me presentó el objetivo de crear los créditos de una película, serie o videojuego.
-      <br>Es así que elegí trabajar con la película Puella Magi Madoka Magica: Rebellion.
-      <br>Para la misma utilicé las herramientas Procreate, Photoshop y After Effects.
-      <br>Apliqué un estilo stop motion que complementa el collage y el estilo Gekidan INU Curry. 
-    </p>
-  </div>
 
-  <div class="homura-image scroll-reveal">
-    <img src="../assets/img/homura.jpg" alt="homura" />
-  </div>
-</div>
-</section>
-<!------------------ MATERIALES ------------------>
-<section class="seccion-fondo-completo scroll-reveal" style="background-image: url('assets/img/homu.png'); background-size: cover; min-height: 600px; display: flex;">
-  <div class="contenido-texto scroll-reveal">
-    <h2>MATERIALES</h2>
-    <p>
-      El material usado para la pieza consta tanto de elementos obtenidos del material original como de animaciones y collages hechos por mi misma.
-      <br>Busqué referencias de collage dadaísta así como animaciones rusas y checa.
-    </p>
-  </div>
-</section>
-<!-- ✅ JAVASCRIPT -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    /* =========================
-       SCROLL SUAVE (ANCHORS)
-    ========================= */
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const targetId = link.getAttribute("href").substring(1);
-        const targetEl = document.getElementById(targetId);
+    <!------------------ INFO ------------------>
+    <section class="homura-block scroll-reveal">
+      <div class="homura-text">
+        <p
+          data-es="Se me presentó el objetivo de crear los créditos de una película, serie o videojuego. Es así que elegí trabajar con la película Puella Magi Madoka Magica: Rebellion. Para la misma utilicé las herramientas Procreate, Photoshop y After Effects. Apliqué un estilo stop motion que complementa el collage y el estilo Gekidan INU Curry."
+          data-en="I was given the task of creating the credits for a movie, series, or video game. I chose to work with the movie Puella Magi Madoka Magica: Rebellion. I used Procreate, Photoshop, and After Effects, applying a stop motion style that complements the collage and Gekidan INU Curry style."
+        >
+          Se me presentó el objetivo de crear los créditos de una película,
+          serie o videojuego. Es así que elegí trabajar con la película Puella
+          Magi Madoka Magica: Rebellion. Para la misma utilicé las herramientas
+          Procreate, Photoshop y After Effects. Apliqué un estilo stop motion
+          que complementa el collage y el estilo Gekidan INU Curry.
+        </p>
+      </div>
 
-        if (targetEl) {
-          e.preventDefault();
-          targetEl.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
+      <div class="homura-image scroll-reveal">
+        <img src="../assets/img/homura.jpg" alt="homura" />
+      </div>
+    </section>
+
+    <!------------------ MATERIALES ------------------>
+    <section
+      class="seccion-fondo-completo scroll-reveal"
+      style="
+        background-image: url('assets/img/homu.png');
+        background-size: cover;
+        min-height: 600px;
+        display: flex;
+      "
+    >
+      <div class="contenido-texto scroll-reveal">
+        <h2 data-es="MATERIALES" data-en="MATERIALS">MATERIALES</h2>
+        <p
+          data-es="El material usado para la pieza consta tanto de elementos obtenidos del material original como de animaciones y collages hechos por mi misma. Busqué referencias de collage dadaísta así como animaciones rusas y checa."
+          data-en="The materials used for this piece consist of both elements obtained from the original material and animations and collages made by myself. I looked for Dadaist collage references as well as Russian and Czech animations."
+        >
+          El material usado para la pieza consta tanto de elementos obtenidos
+          del material original como de animaciones y collages hechos por mi
+          misma. Busqué referencias de collage dadaísta así como animaciones
+          rusas y checa.
+        </p>
+      </div>
+    </section>
+
+    <!-- ✅ JAVASCRIPT -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /* =========================
+           SCROLL SUAVE (ANCHORS)
+        ========================= */
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href").substring(1);
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+        const revealElements = document.querySelectorAll(".scroll-reveal");
+        function revealOnScroll() {
+          const windowHeight = window.innerHeight;
+          const revealPoint = 150;
+          revealElements.forEach((el) => {
+            const elementTop = el.getBoundingClientRect().top;
+            if (elementTop < windowHeight - revealPoint) {
+              el.classList.add("visible");
+            }
+          });
+        }
+        window.addEventListener("scroll", revealOnScroll);
+        window.addEventListener("load", revealOnScroll);
+
+        /* =========================
+           MENÚ MÓVIL
+        ========================= */
+        const menuToggle = document.getElementById("menu-toggle");
+        const closeBtn = document.querySelector(".close-menu");
+        function toggleBodyScroll() {
+          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+        }
+        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
+        if (closeBtn) {
+          closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            menuToggle.checked = false;
+            toggleBodyScroll();
+          });
+        }
+        /* =========================
+        IDIOMA
+        ========================= */
+        const langSelect = document.getElementById("lang-select");
+        function cambiarIdioma(lang) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          });
+          document.querySelectorAll("[data-es]").forEach((el) => {
+            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+          });
+        }
+
+        // Leer idioma guardado
+        const langGuardado = localStorage.getItem("lang") || "es";
+        langSelect.value = langGuardado;
+        cambiarIdioma(langGuardado);
+
+        // Detectar cambio de idioma
+        if (langSelect) {
+          langSelect.addEventListener("change", () => {
+            const lang = langSelect.value;
+            localStorage.setItem("lang", lang);
+            cambiarIdioma(lang);
           });
         }
       });
-    });
-
-    /* =========================
-       SCROLL REVEAL
-    ========================= */
-    const revealElements = document.querySelectorAll(".scroll-reveal");
-
-    function revealOnScroll() {
-      const windowHeight = window.innerHeight;
-      const revealPoint = 150;
-
-      revealElements.forEach((el) => {
-        const elementTop = el.getBoundingClientRect().top;
-
-        if (elementTop < windowHeight - revealPoint) {
-          el.classList.add("visible");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-
-    /* =========================
-       MENÚ MÓVIL
-    ========================= */
-    const menuToggle = document.getElementById("menu-toggle");
-    const closeBtn = document.querySelector(".close-menu");
-
-    function toggleBodyScroll() {
-      document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-    }
-
-    if (menuToggle) {
-      menuToggle.addEventListener("change", toggleBodyScroll);
-    }
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        menuToggle.checked = false;
-        toggleBodyScroll();
-      });
-    }
-
-    /* =========================
-       SELECTOR DE IDIOMA
-    ========================= */
-    const langSelect = document.getElementById("lang-select");
-
-    if (langSelect) {
-      langSelect.addEventListener("change", () => {
-        const lang = langSelect.value;
-
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-          if (link.dataset[lang]) {
-            link.textContent = link.dataset[lang];
-          }
-        });
-      });
-    }
-  });
-</script>
-<!-- ✅ FIN JAVASCRIPT -->
-<footer>
-  <p>© 2025 AKO.</p>
-</footer>
+    </script>
+    <footer>
+      <p data-es="© 2025 AKO." data-en="© 2025 AKO.">© 2025 AKO.</p>
+    </footer>
+  </body>
+</html>
