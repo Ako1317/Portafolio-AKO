@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO | Posters</title>
-    <link rel="stylesheet" href="/assets/css/poster.css" />
+    <link rel="stylesheet" href="assets/css/poster.css" />
   </head>
   <body>
     <!-- NAV -->
     <nav class="ako-nav">
       <div class="logo">
-        <img src="/assets/img/logo b.png" alt="Mi logo" />
+        <img src="assets/img/logo b.png" alt="Mi logo" />
       </div>
       <!-- ENLACES desktop -->
       <ul class="nav-links desktop-links">
@@ -72,6 +72,7 @@
         <li><a href="#" class="close-menu">✕</a></li>
       </ul>
     </nav>
+
     <main>
       <!-- HERO -->
       <section class="motion-title reveal">
@@ -84,8 +85,8 @@
       <section class="image-section reveal">
         <div class="image-container">
           <img
-            src="/assets/img/zoo.png"
-            data-alt="/assets/img/zoo r.png"
+            src="assets/img/zoo.png"
+            data-alt="assets/img/zoo r.png"
             alt="Imagen"
           />
         </div>
@@ -94,8 +95,8 @@
       <section class="image-section reveal right">
         <div class="image-container">
           <img
-            src="/assets/img/fish.png"
-            data-alt="/assets/img/fish r.png"
+            src="assets/img/fish.png"
+            data-alt="assets/img/fish r.png"
             alt="Imagen derecha"
           />
         </div>
@@ -104,8 +105,8 @@
       <section class="image-section reveal">
         <div class="image-container">
           <img
-            src="/assets/img/soda.png"
-            data-alt="/assets/img/soda r.png"
+            src="assets/img/soda.png"
+            data-alt="assets/img/soda r.png"
             alt="Imagen"
           />
         </div>
@@ -114,8 +115,8 @@
       <section class="image-section reveal right">
         <div class="image-container">
           <img
-            src="/assets/img/flamenco.png"
-            data-alt="/assets/img/flamenco r.png"
+            src="assets/img/flamenco.png"
+            data-alt="assets/img/flamenco r.png"
             alt="Imagen derecha"
           />
         </div>
@@ -124,8 +125,8 @@
       <section class="image-section reveal">
         <div class="image-container">
           <img
-            src="/assets/img/color.png"
-            data-alt="/assets/img/color r.png"
+            src="assets/img/color.png"
+            data-alt="assets/img/color r.png"
             alt="Imagen"
           />
         </div>
@@ -134,31 +135,30 @@
       <section class="image-section reveal right">
         <div class="image-container">
           <img
-            src="/assets/img/vela.png"
-            data-alt="/assets/img/vela r.png"
+            src="assets/img/vela.png"
+            data-alt="assets/img/vela r.png"
             alt="Imagen derecha"
           />
         </div>
       </section>
     </main>
-    <!-- =================== SCRIPT =================== -->
+
+    <!-- SCRIPT -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // ===== SCROLL REVEAL =====
+        // SCROLL REVEAL
         const sections = document.querySelectorAll(".reveal");
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
+              if (entry.isIntersecting) entry.target.classList.add("visible");
             });
           },
           { threshold: 0.3 }
         );
         sections.forEach((el) => observer.observe(el));
 
-        // ===== HOVER / CLICK IMAGEN =====
+        // HOVER / CLICK IMAGEN
         const images = document.querySelectorAll(".image-container img");
         images.forEach((img) => {
           const original = img.src;
@@ -177,7 +177,7 @@
           });
         });
 
-        // ===== CIERRE MENÚ MÓVIL =====
+        // MENÚ MÓVIL
         const menuToggle = document.getElementById("menu-toggle");
         const closeBtn = document.querySelector(".close-menu");
         function toggleBodyScroll() {
@@ -190,7 +190,7 @@
           toggleBodyScroll();
         });
 
-        // ===== IDIOMA =====
+        // IDIOMA
         const langSelect = document.getElementById("lang-select");
         function cambiarIdioma(lang) {
           document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -200,13 +200,9 @@
             if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
           });
         }
-
-        // LEER IDIOMA GUARDADO
         const langGuardado = localStorage.getItem("lang") || "es";
         langSelect.value = langGuardado;
         cambiarIdioma(langGuardado);
-
-        // DETECTAR CAMBIO
         langSelect.addEventListener("change", () => {
           const lang = langSelect.value;
           localStorage.setItem("lang", lang);
@@ -214,6 +210,7 @@
         });
       });
     </script>
+
     <footer>
       <p>© 2025 AKO.</p>
     </footer>

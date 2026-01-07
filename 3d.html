@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-  <link rel="icon" href="/assets/img/logo n.png" />
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO</title>
-    <link rel="stylesheet" href="/assets/css/3d.css" />
+    <link rel="icon" href="assets/img/logo n.png" />
+    <link rel="stylesheet" href="assets/css/3d.css" />
   </head>
 
   <body>
+    <!-- NAVBAR -->
     <nav class="ako-nav">
-      <!-- LOGO -->
       <div class="logo">
-        <img src="/assets/img/logo b.png" alt="Mi logo" />
+        <img src="assets/img/logo b.png" alt="Mi logo" />
       </div>
 
       <!-- ENLACES desktop/tablet -->
@@ -48,34 +48,28 @@
         </select>
       </div>
 
-      <!-- CHECKBOX oculto -->
+      <!-- MENÚ MÓVIL -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-
-      <!-- BOTÓN hamburguesa -->
       <label for="menu-toggle" class="menu-btn">☰</label>
-
-      <!-- MENÚ FULLSCREEN MÓVIL -->
       <ul class="nav-links mobile-links">
         <li>
-          <a href="/index.html#inicio" data-es="INICIO" data-en="HOME"
-            >INICIO</a
-          >
+          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
         </li>
         <li>
-          <a href="/index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
+          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
             >SOBRE MI</a
           >
         </li>
         <li>
           <a
-            href="/index.html#portafolio"
+            href="index.html#portafolio"
             data-es="PORTAFOLIO"
             data-en="PORTFOLIO"
             >PORTAFOLIO</a
           >
         </li>
         <li>
-          <a href="/index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
+          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
             >CONTACTO</a
           >
         </li>
@@ -83,11 +77,12 @@
       </ul>
     </nav>
 
-    <!-------------------------------- HERO ------------------>
+    <!-- HERO -->
     <section class="hero-section scroll-reveal">
       <h1 class="hero-title" data-es="3D" data-en="3D">3D</h1>
     </section>
 
+    <!-- OPCIONES -->
     <div class="motion-options scroll-reveal">
       <a
         href="#eva"
@@ -101,29 +96,24 @@
       >
     </div>
 
-    <!-------------------------------- EVA ------------------>
+    <!-- EVA -->
     <section class="triple-media scroll-reveal" id="eva">
-      <!-- Video izquierdo -->
       <video
         class="media-item gif"
-        src="../assets/video/01.mp4"
+        src="assets/video/01.mp4"
         autoplay
         loop
         muted
         playsinline
       ></video>
-
-      <!-- Imagen central -->
       <img
-        src="/assets/img/eva.png"
+        src="assets/img/eva.png"
         alt="Imagen central"
         class="media-item center-img"
       />
-
-      <!-- Video derecho -->
       <video
         class="media-item gif"
-        src="/assets/video/02.mp4"
+        src="assets/video/02.mp4"
         autoplay
         loop
         muted
@@ -131,7 +121,7 @@
       ></video>
     </section>
 
-    <!-------------------------------- EVA INFO ------------------>
+    <!-- EVA INFO -->
     <section
       class="seccion-fondo-completo scroll-reveal"
       style="
@@ -161,35 +151,33 @@
       </div>
     </section>
 
-    <!-------------------------------- EVA DRAW ------------------>
+    <!-- EVA DRAW -->
     <section class="galeria-interactiva scroll-reveal">
       <div class="tarjeta-imagen">
         <img src="assets/img/n00.png" alt="Original 1" class="img-base" />
         <img src="assets/img/00.png" alt="Variante 1" class="img-variante" />
       </div>
-
       <div class="tarjeta-imagen">
         <img src="assets/img/n01.png" alt="Original 2" class="img-base" />
         <img src="assets/img/01.png" alt="Variante 2" class="img-variante" />
       </div>
-
       <div class="tarjeta-imagen">
         <img src="assets/img/n02.png" alt="Original 3" class="img-base" />
         <img src="assets/img/02.png" alt="Variante 3" class="img-variante" />
       </div>
     </section>
 
-    <!-------------------------------- BLENDER ------------------>
+    <!-- BLENDER -->
     <section class="simple-section scroll-reveal">
       <h3 class="simple-title" data-es="CREACIÓN" data-en="CREATION">
         CREACIÓN
       </h3>
       <div class="simple-image">
-        <img src="/assets/img/shirt.png" alt="Imagen descriptiva" />
+        <img src="assets/img/shirt.png" alt="Imagen descriptiva" />
       </div>
     </section>
 
-    <!-------------------------------- MODEL ------------------>
+    <!-- MODEL -->
     <section class="simple-section scroll-reveal" id="model">
       <h3
         class="simple-title"
@@ -198,7 +186,6 @@
       >
         MODELADO CINEMA4D
       </h3>
-
       <div class="contenedor-horizontal">
         <div class="reveal-card">
           <img src="assets/img/perfu.jpg" alt="Silla 3D" />
@@ -212,12 +199,10 @@
       </div>
     </section>
 
-    <!-- ✅ JAVASCRIPT -->
+    <!-- JS -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        /* ---------------- REVEAL CARDS & SECTIONS ---------------- */
         const cards = document.querySelectorAll(".reveal-card");
-
         const sections = document.querySelectorAll(".scroll-reveal");
 
         if (!("IntersectionObserver" in window)) {
@@ -239,7 +224,7 @@
           sections.forEach((section) => observer.observe(section));
         }
 
-        /* ---------------- SCROLL SUAVE ---------------- */
+        // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach((link) => {
           link.addEventListener("click", (e) => {
             const targetId = link.getAttribute("href").substring(1);
@@ -251,7 +236,7 @@
           });
         });
 
-        /* ---------------- MENÚ MÓVIL ---------------- */
+        // Menú móvil
         const menuToggle = document.getElementById("menu-toggle");
         const closeBtn = document.querySelector(".close-menu");
         function toggleBodyScroll() {
@@ -266,9 +251,7 @@
           });
         }
 
-        /* =========================
-        IDIOMA
-        ========================= */
+        // Idioma
         const langSelect = document.getElementById("lang-select");
         function cambiarIdioma(lang) {
           document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -278,13 +261,9 @@
             if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
           });
         }
-
-        // Leer idioma guardado
         const langGuardado = localStorage.getItem("lang") || "es";
         langSelect.value = langGuardado;
         cambiarIdioma(langGuardado);
-
-        // Detectar cambio de idioma
         if (langSelect) {
           langSelect.addEventListener("change", () => {
             const lang = langSelect.value;

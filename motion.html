@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO</title>
-    <link rel="stylesheet" href="/assets/css/motion.css" />
+    <link rel="stylesheet" href="assets/css/motion.css" />
     <style>
       /* ===== ESPACIO PARA NAVBAR ===== */
       .motion-hero,
@@ -86,10 +86,10 @@
   </head>
 
   <body>
+    <!-- NAVBAR -->
     <nav class="ako-nav">
-      <!-- LOGO -->
       <div class="logo">
-        <img src="/assets/img/logo b.png" alt="Mi logo" />
+        <img src="assets/img/logo b.png" alt="Mi logo" />
       </div>
 
       <!-- ENLACES desktop/tablet -->
@@ -125,13 +125,9 @@
         </select>
       </div>
 
-      <!-- CHECKBOX oculto -->
+      <!-- MENÚ MÓVIL -->
       <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-
-      <!-- BOTÓN hamburguesa -->
       <label for="menu-toggle" class="menu-btn">☰</label>
-
-      <!-- MENÚ FULLSCREEN MÓVIL -->
       <ul class="nav-links mobile-links">
         <li>
           <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
@@ -158,7 +154,7 @@
       </ul>
     </nav>
 
-    <!-------------------------------- MOTION GRAPHICS HERO ------------------>
+    <!-- HERO -->
     <section class="motion-hero scroll-reveal">
       <h1
         class="motion-title"
@@ -179,19 +175,19 @@
       </div>
     </section>
 
-    <!------------------ VIDEO ------------------>
+    <!-- VIDEO -->
     <section id="madoka" class="video-section scroll-reveal">
       <div class="video-wrapper scroll-reveal">
         <video
           id="intro-video"
-          src="/assets/video/Madoka ako.mp4"
+          src="assets/video/Madoka ako.mp4"
           controls
           playsinline
         ></video>
       </div>
     </section>
 
-    <!------------------ INFO ------------------>
+    <!-- INFO -->
     <section class="homura-block scroll-reveal">
       <div class="homura-text">
         <p
@@ -207,11 +203,11 @@
       </div>
 
       <div class="homura-image scroll-reveal">
-        <img src="../assets/img/homura.jpg" alt="homura" />
+        <img src="assets/img/homura.jpg" alt="homura" />
       </div>
     </section>
 
-    <!------------------ MATERIALES ------------------>
+    <!-- MATERIALES -->
     <section
       class="seccion-fondo-completo scroll-reveal"
       style="
@@ -235,12 +231,10 @@
       </div>
     </section>
 
-    <!-- ✅ JAVASCRIPT -->
+    <!-- JAVASCRIPT -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        /* =========================
-           SCROLL SUAVE (ANCHORS)
-        ========================= */
+        // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach((link) => {
           link.addEventListener("click", (e) => {
             const targetId = link.getAttribute("href").substring(1);
@@ -252,9 +246,7 @@
           });
         });
 
-        /* =========================
-           SCROLL REVEAL
-        ========================= */
+        // Scroll reveal
         const revealElements = document.querySelectorAll(".scroll-reveal");
         function revealOnScroll() {
           const windowHeight = window.innerHeight;
@@ -269,9 +261,7 @@
         window.addEventListener("scroll", revealOnScroll);
         window.addEventListener("load", revealOnScroll);
 
-        /* =========================
-           MENÚ MÓVIL
-        ========================= */
+        // Menú móvil
         const menuToggle = document.getElementById("menu-toggle");
         const closeBtn = document.querySelector(".close-menu");
         function toggleBodyScroll() {
@@ -285,9 +275,8 @@
             toggleBodyScroll();
           });
         }
-        /* =========================
-        IDIOMA
-        ========================= */
+
+        // Idioma
         const langSelect = document.getElementById("lang-select");
         function cambiarIdioma(lang) {
           document.querySelectorAll(".nav-links a").forEach((link) => {
@@ -297,13 +286,9 @@
             if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
           });
         }
-
-        // Leer idioma guardado
         const langGuardado = localStorage.getItem("lang") || "es";
         langSelect.value = langGuardado;
         cambiarIdioma(langGuardado);
-
-        // Detectar cambio de idioma
         if (langSelect) {
           langSelect.addEventListener("change", () => {
             const lang = langSelect.value;
@@ -313,6 +298,7 @@
         }
       });
     </script>
+
     <footer>
       <p data-es="© 2025 AKO." data-en="© 2025 AKO.">© 2025 AKO.</p>
     </footer>
