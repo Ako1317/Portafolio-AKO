@@ -183,37 +183,89 @@ body {
 /* =========================
    SECCIÓN ABOUT
 ========================= */
+/* Sección principal */
 .about-section {
   padding: 150px 120px;
+  display: flex;
+  justify-content: center; /* centra el bloque horizontalmente */
+  align-items: center;
 }
 
+/* Contenedor del bloque */
 .about-container {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* centra el bloque interno */
   align-items: center;
-  gap: 80px; /* separación cómoda en laptop */
-  flex-wrap: wrap;
+  gap: 80px;
+  flex-wrap: wrap; /* se acomoda en móviles */
 }
 
+/* Bloque de texto cuadrado/rectangular centrado */
 .about-text {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-width: 70px;
-  padding: 10px 40px;
+  justify-content: center; /* centra verticalmente el contenido */
+
+  max-width: 550px; /* un poco más ancho para dar espacio */
+  min-width: 250px;
+  height: auto;
+  aspect-ratio: 1 / 1; /* mantiene proporción cuadrada si contenido es corto */
+
+  padding: 20px 30px; /* más espacio interno */
+  text-align: left;
+  line-height: 1.6; /* texto más respirable */
 }
 
+/* Título */
 .about-text h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: rgb(255, 138, 138);
-  margin-bottom: 50px;
+  margin-bottom: 25px; /* un poco más de separación del párrafo */
 }
 
+/* Párrafo */
 .about-text p {
   font-size: 1rem;
-  max-width: 300px;
   color: #d5d5d5;
+}
+
+/* Responsive: móvil */
+@media (max-width: 600px) {
+  .about-section {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center; /* centra todo horizontalmente */
+    align-items: center;
+  }
+
+  .about-container {
+    justify-content: center; /* centra el bloque */
+    width: 100%;
+  }
+
+  .about-text {
+    max-width: 50%; /* ocupa la mayor parte del ancho de la pantalla */
+    width: 530px; /* ancho mínimo */
+    height: auto; /* altura se ajusta al contenido */
+    aspect-ratio: auto; /* elimina la proporción cuadrada de laptop */
+    padding: 1px 20px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* empieza desde arriba */
+    align-items: flex-start; /* texto alineado a la izquierda dentro del bloque */
+    text-align: center; /* mantiene alineación izquierda */
+    line-height: 1.5; /* texto respirable */
+  }
+
+  .about-text h1 {
+    font-size: 2rem; /* tamaño de título adecuado para móvil */
+    margin-bottom: 15px;
+  }
+
+  .about-text p {
+    font-size: 0.95rem; /* tamaño de párrafo legible */
+  }
 }
 
 /* =========================
@@ -413,7 +465,7 @@ body {
 }
 /*------------------------------------//* PORTAFOLIO */
 .portfolio-section {
-  padding: 250px 40px;
+  padding: 120px 40px;
   text-align: center;
 }
 
@@ -675,3 +727,37 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/*------------------------------------//* footer */
+
+/* Footer principal */
+.site-footer {
+  display: flex;
+  justify-content: space-between; /* GitHub izquierda, nombre derecha */
+  align-items: center;
+  padding: 0 20px; /* margen horizontal */
+  height: 60px;
+  font-size: 14px;
+  color: #555;
+  background-color: rgba(18, 17, 17, 0.975); /* puedes cambiarlo por tu tema */
+}
+
+/* Enlace de GitHub */
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* espacio entre icono y texto */
+  color: #ff8e8eb6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-github:hover {
+  color: #ff4b4b; /* cambio de color al pasar el mouse */
+}
+
+/* Icono SVG */
+.github-icon {
+  display: inline-block;
+}
+
+/* Nombre y año a la derecha */

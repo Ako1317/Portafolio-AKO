@@ -1,3 +1,4 @@
+/* ===================================== GLOBAL RESET ===================================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,22 +7,24 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: rgb(0, 0, 0);
-  color: rgb(231, 231, 231);
+  background: #000;
+  color: #e7e7e7;
   scroll-behavior: smooth;
+  margin: 0; /* eliminado el margen gigante anterior */
+  padding: 0;
 }
 
-/* NAVBAR */
-
+/* ===================================== NAVBAR ===================================== */
 :root {
   --nav-height: 70px;
 }
+
 .ako-nav {
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(24, 24, 24, 0.882);
+  background: rgba(24, 24, 24, 0.88);
   padding: 5px 40px;
   display: flex;
   justify-content: space-between;
@@ -30,13 +33,11 @@ body {
   box-shadow: 0 4px 8px rgba(213, 88, 88, 0.696);
 }
 
-/* LOGO */
 .ako-nav .logo img {
   height: 70px;
   width: auto;
 }
 
-/* SELECTOR IDIOMA */
 .language-selector select {
   background: rgba(38, 38, 38, 0.9);
   color: #fff;
@@ -47,7 +48,6 @@ body {
   cursor: pointer;
 }
 
-/* ENLACES DESKTOP */
 .desktop-links {
   list-style: none;
   display: flex;
@@ -66,11 +66,10 @@ body {
   transform: translateY(-2px);
 }
 
-/* MENÚ MÓVIL */
+/* MÓVIL */
 .menu-toggle {
   display: none;
 }
-
 .menu-btn {
   display: none;
   font-size: 36px;
@@ -85,13 +84,10 @@ body {
   list-style: none;
 }
 
-/* MÓVIL */
 @media (max-width: 768px) {
   .desktop-links {
     display: none;
   }
-
-  /* Hamburguesa centrada */
   .menu-btn {
     display: block;
     position: absolute;
@@ -99,8 +95,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-
-  /* Menú fullscreen con fade + slide CSS */
   .mobile-links {
     display: flex;
     position: fixed;
@@ -120,45 +114,31 @@ body {
     transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 10000;
   }
-
   .menu-toggle:checked ~ .mobile-links {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
-
-  /* Enlaces solo texto, ligeramente grandes */
   .mobile-links a {
     font-size: 2rem;
     color: #fff;
     text-align: center;
     text-decoration: none;
-    width: auto;
-    padding: 0;
   }
-
-  /* Botón cerrar */
   .mobile-links a.close-menu {
     font-size: 1.5rem;
     color: rgb(255, 138, 138);
     margin-top: 20px;
   }
-
   .mobile-links a:hover {
     color: rgb(255, 138, 138);
   }
 }
 
-/* ---------------------------------------------------------------------------INICIO CONTENIDO 3D */
-body {
-  margin: 170px;
-  margin-bottom: 10px;
-  background: #000000;
-  font-family: sans-serif;
-}
-
+/* ===================================== HERO SECTION ===================================== */
 .hero-section {
   height: 150px;
+  margin-top: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,7 +156,7 @@ body {
   -webkit-text-stroke: 2px white;
 }
 
-/* ===== OPCIONES ===== */
+/* ===================================== MOTION OPTIONS ===================================== */
 .motion-options {
   display: flex;
   justify-content: center;
@@ -186,7 +166,6 @@ body {
   padding-bottom: 0.1px;
 }
 
-/* ======================== CADA OPCIÓN ===== */
 .motion-option {
   font-size: 1.8rem;
   font-weight: 600;
@@ -195,94 +174,85 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Hover individual */
 .motion-option:hover {
   transform: scale(1.3);
 }
-
-/* Efecto grupo */
 .motion-options:hover .motion-option {
   opacity: 0.4;
   transform: scale(0.9);
 }
-
 .motion-options:hover .motion-option:hover {
   opacity: 1;
   transform: scale(1.3);
 }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .motion-section {
-    padding-top: 120px; /* evita solaparse con el nav */
+    padding-top: 120px;
   }
-
   .motion-title {
     text-align: center;
   }
-
   .motion-options {
     flex-direction: column;
     gap: 30px;
   }
-
   .motion-option {
     font-size: 1.8rem;
   }
 }
-/* ======================================== EVA ===== */
+
+/* ===================================== TRIPLE MEDIA (EVA) ===================================== */
 .triple-media {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 20px;
-
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-top: 350px;
-  margin-bottom: 0px;
+  margin-top: 180px;
   padding: 10px;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 .media-item {
   max-width: 100%;
   height: auto;
   object-fit: contain;
-  pointer-events: none; /* 🔒 evita interacción */
+  pointer-events: none;
 }
 
 .gif {
   width: 25%;
 }
-
 .center-img {
   width: 40%;
 }
 
 @media (max-width: 768px) {
-  .gif {
-    width: 28%;
+  .triple-media {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 150px;
+    padding: 10px;
   }
-
+  .gif,
   .center-img {
-    width: 44%;
+    width: 100%;
+    max-width: 160px;
   }
 }
-/* ======================================== SECCIÓN CON FONDO PNG ===== */
+
+/* ===================================== SECCION FONDO COMPLETO ===================================== */
 .seccion-fondo-completo {
   width: 100%;
   min-height: 600px;
   display: flex;
-  align-items: center; /* Centra el "cuadrado" verticalmente */
-  justify-content: flex-start; /* Lo mantiene pegado a la izquierda */
-  padding-left: 10%; /* Espacio desde el borde de la pantalla */
-
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
   background-image: url("assets/img/homu.png");
   background-size: cover;
   background-position: center;
@@ -290,15 +260,12 @@ html {
 }
 
 .contenido-texto {
-  /* 1. CREAR EL CUADRADO */
-  background-color: rgba(0, 0, 0, 0.792);
+  background-color: rgba(0, 0, 0, 0.79);
   padding: 40px;
   width: 100%;
   max-width: 450px;
-
-  /* 2. ESTILO OPCIONAL */
   border: 2px solid rgb(199, 199, 199);
-  box-shadow: 10px 10px 0px rgb(199, 199, 199);
+  box-shadow: 10px 10px 0 rgb(199, 199, 199);
 }
 
 .contenido-texto h2 {
@@ -314,48 +281,104 @@ html {
   margin: 5px;
 }
 
-/* AJUSTE PARA MÓVIL */
 @media (max-width: 768px) {
   .seccion-fondo-completo {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    justify-content: center; /* Centra el cuadrado en pantallas pequeñas */
+    min-height: auto;
   }
-
   .contenido-texto {
-    max-width: 90%; /* El cuadrado ocupa casi todo el ancho en móvil */
+    width: 100%;
+    max-width: 600px;
+    padding: 30px;
+    height: auto;
+    aspect-ratio: 1.6 / 1; /* más horizontal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin: 0;
+  }
+  .contenido-texto h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  .contenido-texto p {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
-/* ======================================== GALERÍA INTERACTIVA ===== */
+
+/* ===================================== SIMPLE SECTION (BLENDER) ===================================== */
+.simple-section {
+  width: 100%;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.simple-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: rgb(230, 230, 230);
+}
+
+.simple-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.simple-image img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .simple-section {
+    padding: 60px 16px;
+  }
+  .simple-title {
+    font-size: 1.2rem;
+  }
+  .simple-image img {
+    max-width: 450px;
+  }
+}
+
+/* ===================================== GALERÍA INTERACTIVA ===================================== */
 .galeria-interactiva {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
-  gap: 80px; /* 🔹 Más separación horizontal (laptop) */
-  padding: 120px 20px; /* 🔹 Más aire arriba y abajo */
-
+  gap: 80px;
+  padding: 120px 20px;
   width: 100%;
 }
 
-/* ===== CONTENEDOR DE CADA IMAGEN ===== */
 .tarjeta-imagen {
   position: relative;
   cursor: pointer;
 }
 
-/* ===== IMÁGENES ===== */
 .tarjeta-imagen img {
   display: block;
-  max-width: 360px; /* 🔹 Más grandes en laptop */
+  max-width: 360px;
   width: 100%;
   height: auto;
-  object-fit: contain; /* ✔ respeta proporciones originales */
-
+  object-fit: contain;
   transition: opacity 0.5s ease;
 }
 
-/* Imagen variante inicia oculta */
 .tarjeta-imagen .img-variante {
   opacity: 0;
   position: absolute;
@@ -363,80 +386,24 @@ html {
   left: 0;
 }
 
-/* Hover → intercambio */
 .tarjeta-imagen:hover .img-base {
   opacity: 0;
 }
-
 .tarjeta-imagen:hover .img-variante {
   opacity: 1;
 }
-/* RESPONSIVE */
+
 @media (max-width: 700px) {
   .tarjeta-imagen img {
     max-width: 200px;
   }
 }
-/* ======================================== BLENDER ===== */
-/* ===== SECCIÓN SIMPLE ===== */
-.simple-section {
-  width: 100%;
-  padding: 80px 20px; /* aire arriba y abajo */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
 
-/* ===== TÍTULO ===== */
-.simple-title {
-  font-size: 1.4rem; /* pequeño pero legible */
-  font-weight: 600;
-  margin-bottom: 40px;
-  color: rgb(230, 230, 230);
-}
-
-/* ===== CONTENEDOR IMAGEN ===== */
-.simple-image {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-/* ===== IMAGEN ===== */
-.simple-image img {
-  max-width: 500px; /* tamaño controlado */
-  width: 100%;
-  height: auto;
-}
-
-/* ===== MÓVIL ===== */
-@media (max-width: 768px) {
-  .simple-section {
-    padding: 60px 16px;
-  }
-
-  .simple-title {
-    font-size: 1.2rem;
-  }
-
-  .simple-image img {
-    max-width: 450px;
-  }
-}
-/* ============================================================= MODELADO ===== */
+/* ===================================== MODELADO 3D ===================================== */
 .seccion-animada-3d {
   width: 100%;
   padding: 50px 15px;
-  box-sizing: border-box;
   text-align: center;
-}
-
-.simple-title {
-  font-size: 1.4rem; /* pequeño pero legible */
-  font-weight: 600;
-  margin-bottom: 40px;
-  color: rgb(230, 230, 230);
 }
 
 .contenedor-horizontal {
@@ -452,7 +419,6 @@ html {
   background: #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -470,21 +436,31 @@ html {
   transform: translateY(0);
 }
 
-/* Efecto cascada */
-.reveal-card:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.reveal-card:nth-child(3) {
-  transition-delay: 0.4s;
-}
-/* ============================================================= scroll ===== */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(80px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+/* ===================================== FOOTER ===================================== */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  font-size: 14px;
+  color: #555;
+  background-color: rgba(18, 17, 17, 0.975);
 }
 
-.scroll-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff8e8eb6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-github:hover {
+  color: #ff4b4b;
+}
+
+.github-icon {
+  display: inline-block;
 }

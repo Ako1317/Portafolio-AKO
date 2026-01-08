@@ -312,3 +312,37 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/*------------------------------------//* footer */
+
+/* Footer principal */
+.site-footer {
+  display: flex;
+  justify-content: space-between; /* GitHub izquierda, nombre derecha */
+  align-items: center;
+  padding: 0 20px; /* margen horizontal */
+  height: 60px;
+  font-size: 14px;
+  color: #555;
+  background-color: rgba(18, 17, 17, 0.975); /* puedes cambiarlo por tu tema */
+}
+
+/* Enlace de GitHub */
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* espacio entre icono y texto */
+  color: #ff8e8eb6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-github:hover {
+  color: #ff4b4b; /* cambio de color al pasar el mouse */
+}
+
+/* Icono SVG */
+.github-icon {
+  display: inline-block;
+}
+
+/* Nombre y año a la derecha */
