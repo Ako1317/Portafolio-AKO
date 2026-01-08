@@ -464,3 +464,27 @@ body {
 .github-icon {
   display: inline-block;
 }
+
+/* ===================================== Reveal ===================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards */
+.reveal-card {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}

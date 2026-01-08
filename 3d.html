@@ -201,77 +201,82 @@
 
     <!-- JS -->
     <script>
+      // Scroll reveal
       document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".reveal-card");
-        const sections = document.querySelectorAll(".scroll-reveal");
+        const elements = document.querySelectorAll(
+          ".scroll-reveal, .reveal-card"
+        );
 
         if (!("IntersectionObserver" in window)) {
-          cards.forEach((card) => card.classList.add("is-visible"));
-          sections.forEach((section) => section.classList.add("is-visible"));
-        } else {
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("is-visible");
-                  observer.unobserve(entry.target);
-                }
-              });
-            },
-            { threshold: 0.2, rootMargin: "0px 0px -50px 0px" }
-          );
-          cards.forEach((card) => observer.observe(card));
-          sections.forEach((section) => observer.observe(section));
+          elements.forEach((el) => el.classList.add("is-visible"));
+          return;
         }
 
-        // Scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach((link) => {
-          link.addEventListener("click", (e) => {
-            const targetId = link.getAttribute("href").substring(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-              e.preventDefault();
-              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
-        });
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.2,
+            rootMargin: "0px 0px -100px 0px",
+          }
+        );
 
-        // Menú móvil
-        const menuToggle = document.getElementById("menu-toggle");
-        const closeBtn = document.querySelector(".close-menu");
-        function toggleBodyScroll() {
-          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-        }
-        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
-        if (closeBtn) {
-          closeBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            menuToggle.checked = false;
-            toggleBodyScroll();
-          });
-        }
-
-        // Idioma
-        const langSelect = document.getElementById("lang-select");
-        function cambiarIdioma(lang) {
-          document.querySelectorAll(".nav-links a").forEach((link) => {
-            if (link.dataset[lang]) link.textContent = link.dataset[lang];
-          });
-          document.querySelectorAll("[data-es]").forEach((el) => {
-            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-          });
-        }
-        const langGuardado = localStorage.getItem("lang") || "es";
-        langSelect.value = langGuardado;
-        cambiarIdioma(langGuardado);
-        if (langSelect) {
-          langSelect.addEventListener("change", () => {
-            const lang = langSelect.value;
-            localStorage.setItem("lang", lang);
-            cambiarIdioma(lang);
-          });
-        }
+        elements.forEach((el) => observer.observe(el));
       });
+
+      // Scroll suave
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href").substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Menú móvil
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeBtn = document.querySelector(".close-menu");
+      function toggleBodyScroll() {
+        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+      }
+      if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
+      if (closeBtn) {
+        closeBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          menuToggle.checked = false;
+          toggleBodyScroll();
+        });
+      }
+
+      // Idioma
+      const langSelect = document.getElementById("lang-select");
+      function cambiarIdioma(lang) {
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          if (link.dataset[lang]) link.textContent = link.dataset[lang];
+        });
+        document.querySelectorAll("[data-es]").forEach((el) => {
+          if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+        });
+      }
+      const langGuardado = localStorage.getItem("lang") || "es";
+      langSelect.value = langGuardado;
+      cambiarIdioma(langGuardado);
+      if (langSelect) {
+        langSelect.addEventListener("change", () => {
+          const lang = langSelect.value;
+          localStorage.setItem("lang", lang);
+          cambiarIdioma(lang);
+        });
+      }
     </script>
     <!-- ==================== FOOTER ==================== -->
     <footer class="site-footer">
