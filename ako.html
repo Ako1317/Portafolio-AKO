@@ -11,59 +11,11 @@
     <link rel="license" href="LICENSE.txt" />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/AKO.css" />
+    <link rel="stylesheet" href="assets/css/ako.css" />
   </head>
   <body>
     <!-- NAVBAR -->
-    <nav class="ako-nav">
-      <div class="logo">
-        <img src="assets/img/logo b.png" alt="Mi logo" />
-      </div>
-
-      <!-- ENLACES desktop/tablet -->
-      <ul class="nav-links desktop-links">
-        <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
-        <li>
-          <a href="#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME">SOBRE MI</a>
-        </li>
-        <li>
-          <a href="#portafolio" data-es="PORTAFOLIO" data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="#contacto" data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
-        </li>
-      </ul>
-
-      <!-- SELECTOR DE IDIOMA -->
-      <div class="language-selector">
-        <select id="lang-select">
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-
-      <!-- MENU MÓVIL -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">☰</label>
-      <ul class="nav-links mobile-links">
-        <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
-        <li>
-          <a href="#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME">SOBRE MI</a>
-        </li>
-        <li>
-          <a href="#portafolio" data-es="PORTAFOLIO" data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="#contacto" data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
-        </li>
-        <li><a href="#" class="close-menu">✕</a></li>
-      </ul>
-    </nav>
-
+    <div id="navbar-placeholder"></div>
     <!-- MAIN -->
     <main style="padding-top: 90px">
       <!-- INICIO: VIDEO -->
@@ -71,9 +23,13 @@
         <div class="video-wrapper scroll-reveal">
           <video
             id="intro-video"
-            src="assets/video/ako.mp4"
+            src="https://ik.imagekit.io/Akoqito/ako.mp4"
             controls
             playsinline
+            autoplay
+            muted
+            loop
+            poster="https://ik.imagekit.io/Akoqito/ako-poster.jpg"
           ></video>
         </div>
       </section>
@@ -128,7 +84,13 @@
           </div>
 
           <div class="about-image">
-            <span class="image-hint">Toca o pasa el cursor</span>
+            <span
+              class="image-hint"
+              data-es="Toca o pasa el cursor"
+              data-en="touch or hover over me"
+            >
+              Toca o pasa el cursor</span
+            >
             <img
               src="assets/img/ako a.jpg"
               alt="Imagen principal"
@@ -157,7 +119,9 @@
 
       <!-- PORTAFOLIO -->
       <section id="portafolio" class="portfolio-section scroll-reveal">
-        <h2 class="portfolio-title">PORTAFOLIO</h2>
+        <h2 class="portfolio-title" data-es="PORTAFOLIO" data-en="PORTFOLIO">
+          PORTAFOLIO
+        </h2>
         <div class="portfolio-categories">
           <a href="ux.html" class="portfolio-item">UX/UI</a>
           <a href="motion.html" class="portfolio-item">MOTION GRAPHICS</a>
@@ -168,7 +132,9 @@
 
       <!-- CONTACTO -->
       <section id="contacto" class="contact-section scroll-reveal">
-        <h2 class="contact-title">CONTACTO</h2>
+        <h2 class="contact-title" data-es="CONTACTO" data-en="CONTACT">
+          CONTACTO
+        </h2>
         <div class="contact-options">
           <a
             href="mailto:akoanko03@gmail.com?subject=Contacto%20desde%20la%20web&body=Hola%20AKO,%0A%0ATe%20escribo%20desde%20tu%20portfolio."
@@ -189,182 +155,46 @@
         </div>
       </section>
     </main>
-
+    <!-- ============================ -->
+    <!-- SCRIPT: Nav bar dinámico -->
+    <!-- ============================ -->
+    <script src="assets/js/nav.js"></script>
     <script>
-      // ============================
-      // 1. REFERENCIAS A ELEMENTOS HTML
-      // ============================
-
-      // Selector de idioma (ES / EN)
-      const langSelect = document.getElementById("lang-select");
-
-      // Checkbox que controla la apertura del menú móvil
-      const menuToggle = document.getElementById("menu-toggle");
-
-      // Botón ✕ para cerrar el menú en móvil
-      const closeBtn = document.querySelector(".close-menu");
-
-      // ============================
-      // 2. STORYTELLING / SCROLL REVEAL
-      // ============================
-
-      // Selecciona todos los elementos que se animarán al hacer scroll
+      // Cargar nav.html dinámicamente
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+          initNav(); // inicializa idioma + scroll suave
+        })
+        .catch((err) => console.error("Error cargando nav:", err));
+    </script>
+    <!-- ============================ -->
+    <!-- SCRIPT: Scroll reveal para main content -->
+    <!-- ============================ -->
+    <script>
       const revealElements = document.querySelectorAll(".scroll-reveal");
-
-      // Función que comprueba si los elementos entran en pantalla
       function revealOnScroll() {
-        // Altura visible del navegador
         const windowHeight = window.innerHeight;
-
-        // Recorre cada elemento animable
         revealElements.forEach((el) => {
-          // Distancia del elemento respecto al top del viewport
           const elementTop = el.getBoundingClientRect().top;
-
-          // Punto donde comienza la animación (150px antes del fondo)
           const revealPoint = 150;
-
-          // Si el elemento está dentro del área visible
           if (elementTop < windowHeight - revealPoint) {
-            // Se añade la clase que activa la animación en CSS
             el.classList.add("visible");
           }
         });
       }
-
-      // Ejecuta la animación al cargar la página y al hacer scroll
       window.addEventListener("scroll", revealOnScroll);
       window.addEventListener("load", revealOnScroll);
-
-      // ============================
-      // 3. CAMBIO DE IDIOMA (MENÚ)
-      // ============================
-
-      // Detecta cuando el usuario cambia el idioma
-      langSelect.addEventListener("change", () => {
-        // Idioma seleccionado: "es" o "en"
-        const lang = langSelect.value;
-
-        // 🔹 Guarda el idioma elegido
-        localStorage.setItem("lang", lang);
-
-        // ============================
-        // 1. CAMBIO DE TEXTO EN EL MENÚ
-        // ============================
-
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-          // Si existe el texto en ese idioma
-          if (link.dataset[lang]) {
-            // Cambia solo el texto visible (texto simple)
-            link.textContent = link.dataset[lang];
-          }
-        });
-
-        // ============================
-        // 2. CAMBIO DE TEXTOS COMPLEJOS (CON HTML)
-        // ============================
-
-        document.querySelectorAll("[data-es]").forEach((el) => {
-          // Para bloques con HTML interno (h1, b, etc.)
-          el.innerHTML = el.dataset[lang];
-        });
-      });
-
-      // ============================
-      // 4. BLOQUEO DE SCROLL (MENÚ MÓVIL)
-      // ============================
-
-      // Función que bloquea o desbloquea el scroll del body
-      function toggleBodyScroll() {
-        // Si el menú está abierto → no scroll
-        // Si está cerrado → scroll normal
-        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-      }
-
-      // Se ejecuta cada vez que se abre o cierra el menú
-      menuToggle.addEventListener("change", toggleBodyScroll);
-
-      // ============================
-      // 5. CIERRE DEL MENÚ CON BOTÓN ✕
-      // ============================
-
-      closeBtn.addEventListener("click", (e) => {
-        // Evita el comportamiento por defecto del enlace
-        e.preventDefault();
-
-        // Cierra el menú
-        menuToggle.checked = false;
-
-        // Restaura el scroll de la página
-        toggleBodyScroll();
-      });
-
-      // ============================
-      // 6. SCROLL SUAVE + CIERRE AUTOMÁTICO
-      // ============================
-
-      // Selecciona solo enlaces internos (href que empieza con #)
-      document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
-        link.addEventListener("click", (e) => {
-          // Obtiene el id destino sin el #
-          const targetId = link.getAttribute("href").substring(1);
-
-          // Busca la sección correspondiente
-          const targetEl = document.getElementById(targetId);
-
-          // Si la sección existe
-          if (targetEl) {
-            // Evita el salto brusco por defecto
-            e.preventDefault();
-
-            // Scroll suave hasta la sección
-            targetEl.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-
-            // Si el menú está abierto (móvil)
-            if (menuToggle.checked) {
-              // Se cierra automáticamente
-              menuToggle.checked = false;
-              toggleBodyScroll();
-            }
-          }
-        });
-      });
-      // ========================= FUNCIONES DE IDIOMA =========================
-      function cambiarIdioma(lang) {
-        // NAV LINKS
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-          if (link.dataset[lang]) link.textContent = link.dataset[lang];
-        });
-        // CONTENIDO
-        document.querySelectorAll("[data-es]").forEach((el) => {
-          if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-        });
-      }
-
-      // LEER IDIOMA GUARDADO
-      const langGuardado = localStorage.getItem("lang") || "es";
-      langSelect.value = langGuardado;
-      cambiarIdioma(langGuardado);
-
-      // DETECTAR CAMBIO DE IDIOMA
-      langSelect.addEventListener("change", () => {
-        const lang = langSelect.value;
-        localStorage.setItem("lang", lang);
-        cambiarIdioma(lang);
-      });
     </script>
+
     <footer class="site-footer">
-      <!-- Izquierda: GitHub -->
       <a
         href="https://github.com/Ako1317/Portafolio-AKO?tab=readme-ov-file"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-github"
       >
-        <!-- Icono de GitHub SVG -->
         <svg
           class="github-icon"
           height="16"
@@ -379,8 +209,6 @@
         </svg>
         View on GitHub
       </a>
-
-      <!-- Derecha: Nombre y año -->
       <span class="footer-right">© 2026 AKO</span>
     </footer>
   </body>

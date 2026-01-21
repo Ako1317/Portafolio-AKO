@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKO</title>
+
+    <!-- Manifest y favicon -->
+    <link rel="manifest" href="manifesto.json" />
+    <link rel="icon" href="assets/img/logo n.png" />
+    <link rel="license" href="LICENSE.txt" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/nav.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="ako-nav">
+      <div class="logo">
+        <img src="assets/img/logo b.png" alt="Mi logo" />
+      </div>
+
+      <!-- ENLACES desktop/tablet -->
+      <ul class="nav-links desktop-links">
+        <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
+        <li>
+          <a href="#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME">SOBRE MI</a>
+        </li>
+        <li>
+          <a href="#portafolio" data-es="PORTAFOLIO" data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="#contacto" data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
+        </li>
+      </ul>
+
+      <!-- SELECTOR DE IDIOMA -->
+      <div class="language-selector">
+        <select id="lang-select">
+          <option value="es">ES</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+
+      <!-- MENU MÓVIL -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="menu-btn">☰</label>
+      <ul class="nav-links mobile-links">
+        <li><a href="#inicio" data-es="INICIO" data-en="HOME">INICIO</a></li>
+        <li>
+          <a href="#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME">SOBRE MI</a>
+        </li>
+        <li>
+          <a href="#portafolio" data-es="PORTAFOLIO" data-en="PORTFOLIO"
+            >PORTAFOLIO</a
+          >
+        </li>
+        <li>
+          <a href="#contacto" data-es="CONTACTO" data-en="CONTACT">CONTACTO</a>
+        </li>
+      </ul>
+    </nav>
+    <script src="assets/js/nav.js"></script>
+  </body>
+  -
+</html>
