@@ -4,26 +4,77 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO | UX/UI</title>
-    <link rel="stylesheet" href="assets/css/ux2.css" />
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="./assets/css/index.css" />
   </head>
+
   <body>
     <!-- NAVBAR -->
     <div id="navbar-placeholder"></div>
-    <!-- MAIN -->
+
     <!-- HERO UX/UI -->
-    <section class="ux-hero scroll-reveal">
-      <h1 class="ux-title" data-es="UX / UI" data-en="UX / UI">UX / UI</h1>
-      <div class="ux-options scroll-reveal"></div>
+    <section class="hero scroll-reveal">
+      <h1 class="title">UX</h1>
+      <div class="options"></div>
     </section>
 
-    <div>
-      <p class="projects-intro">
-        Una selección de proyectos de UX/UI que he realizado recientemente.
-      </p>
-      <span class="projects-hero__cta-arrow" aria-hidden="true">🡣🡣🡣</span>
-    </div>
+    <!-- INTRO -->
+    <section class="project intro">
+      <p>Una selección de proyectos de UX que he realizado recientemente.</p>
+      <span class="arrow">🡣🡣🡣</span>
+    </section>
 
-    <!-- Projects Catalog (Horizontal Film Strip) -->
+    <!------------------------------------------------------------------ PROJECT -->
+    <!-- Sección de tarjetas -->
+    <section class="project-cards">
+      <div
+        class="project-card"
+        onclick="
+          openModal(
+            'assets/img/fmc 1.png',
+            'Título del Proyecto',
+            'Una pequeña descripción del proyecto...',
+            'Aquí puedes poner más información sobre el proyecto. Este es el texto largo que se desplaza.',
+            'assets/img/fmc 2.png',
+          )
+        "
+      >
+        <div class="project-card__media">
+          <img src="assets/img/fmc 1.png" alt="Imagen de proyecto" />
+        </div>
+        <div class="project-card__info">
+          <h3 class="project-card__title">Título del Proyecto</h3>
+          <p class="project-card__short-description">
+            Una pequeña descripción del proyecto...
+          </p>
+        </div>
+      </div>
+      <!-- Puedes añadir más tarjetas aquí -->
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="modal-left">
+          <img
+            id="modal-image"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23ddd' width='400' height='300'/%3C/svg%3E"
+            alt="Imagen de contenido"
+          />
+        </div>
+        <div class="modal-right">
+          <h2 id="modal-title">Detalles del Proyecto</h2>
+          <p id="modal-description">
+            Aquí puedes poner más información sobre el proyecto.
+          </p>
+          <div id="modal-details">
+            <!-- Sección de detalles (desplazable) -->
+          </div>
+          <button onclick="closeModal()">Cerrar</button>
+        </div>
+      </div>
+    </div>
 
     <!-- ============================ -->
     <!-- SCRIPT: Nav bar dinámico -->
@@ -56,6 +107,48 @@
       }
       window.addEventListener("scroll", revealOnScroll);
       window.addEventListener("load", revealOnScroll);
+
+      /////////// Función para abrir el modal
+      // Función para abrir el modal
+      // Función para abrir el modal
+      function openModal(
+        imageSrc,
+        title,
+        shortDescription,
+        description,
+        extraImage,
+      ) {
+        // Asignamos la imagen, el título, la descripción corta y la imagen adicional al modal
+        document.getElementById("modal-image").src = imageSrc;
+        document.getElementById("modal-title").innerText = title;
+        document.getElementById("modal-description").innerText =
+          shortDescription;
+
+        // Agregamos los detalles al modal (contenido desplazable)
+        const modalDetailsContainer = document.getElementById("modal-details");
+        modalDetailsContainer.innerHTML = ""; // Limpiar contenido anterior
+
+        // Aquí puedes agregar detalles dinámicos, como más texto o imágenes
+        modalDetailsContainer.innerHTML = `
+    <p>${description}</p>
+    <img src="${extraImage}" alt="Imagen adicional del proyecto" style="width: 100%; height: auto; object-fit: cover;">
+  `;
+
+        // Mostrar el modal
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      // Función para cerrar el modal
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+
+      // Si el usuario hace clic fuera del contenido del modal, cerrarlo
+      window.onclick = function (event) {
+        if (event.target === document.getElementById("modal")) {
+          closeModal();
+        }
+      };
     </script>
 
     <footer class="site-footer">
