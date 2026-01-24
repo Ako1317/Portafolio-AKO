@@ -1,0 +1,112 @@
+/*------------------------------------*\
+  RESET
+\*------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: rgba(18, 17, 17, 0.975);
+  color: rgb(231, 231, 231);
+  scroll-margin-top: var(--nav-height); /* Funciona con scroll-behavior */
+}
+/*------------------------------------*\
+  VARIABLES
+\*------------------------------------*/
+:root {
+  --nav-height: 110px; /* altura real del navbar desktop */
+}
+/*------------------------------------*\
+  INICIO CONTENIDO UX/UI
+\*------------------------------------*/
+/* HERO UX/UI */
+.ux-hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+/* ===== SECCIÓN UX/UI ===== */
+.ux-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* TÍTULO */
+.ux-title {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.ux-title:hover {
+  color: transparent;
+  -webkit-text-stroke: 2px white;
+}
+/*------------------------------------*\
+  PROJECT GRID & CARDS
+\*------------------------------------*/
+
+/*------------------------------------*\
+  SCROLL REVEAL
+\*------------------------------------*/
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*------------------------------------*\
+  FOOTER
+\*------------------------------------*/
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  font-size: 14px;
+  color: #555;
+  background-color: rgba(18, 17, 17, 0.975);
+}
+
+.footer-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ff8e8eb6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-github:hover {
+  color: #ff4b4b;
+}
+
+.github-icon {
+  display: inline-block;
+}
+
+/*------------------------------------*\
+  MEDIA QUERIES
+\*------------------------------------*/
