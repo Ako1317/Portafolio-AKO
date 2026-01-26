@@ -1,81 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO | Posters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="assets/css/poster.css" />
   </head>
   <body>
     <!-- NAV -->
-    <nav class="ako-nav">
-      <div class="logo">
-        <img src="assets/img/logo b.png" alt="Mi logo" />
-      </div>
-      <!-- ENLACES desktop -->
-      <ul class="nav-links desktop-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-      </ul>
-      <!-- SELECTOR IDIOMA -->
-      <div class="language-selector">
-        <select id="lang-select">
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-      <!-- HAMBURGUESA -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">☰</label>
-      <!-- MENU MOBILE -->
-      <ul class="nav-links mobile-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-        <li><a href="#" class="close-menu">✕</a></li>
-      </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <main>
       <!-- HERO -->
-      <section class="motion-title reveal">
+      <section class="hero-section reveal">
         <h1 class="motion-title" data-es="POSTERS" data-en="POSTERS">
           POSTERS
         </h1>
@@ -87,7 +30,7 @@
           <img
             src="assets/img/zoo.png"
             data-alt="assets/img/zoo r.png"
-            alt="Imagen"
+            alt="Zoo Poster"
           />
         </div>
       </section>
@@ -97,7 +40,7 @@
           <img
             src="assets/img/fish.png"
             data-alt="assets/img/fish r.png"
-            alt="Imagen derecha"
+            alt="Fish Poster"
           />
         </div>
       </section>
@@ -107,7 +50,7 @@
           <img
             src="assets/img/soda.png"
             data-alt="assets/img/soda r.png"
-            alt="Imagen"
+            alt="Soda Poster"
           />
         </div>
       </section>
@@ -117,7 +60,7 @@
           <img
             src="assets/img/flamenco.png"
             data-alt="assets/img/flamenco r.png"
-            alt="Imagen derecha"
+            alt="Flamenco Poster"
           />
         </div>
       </section>
@@ -127,7 +70,7 @@
           <img
             src="assets/img/color.png"
             data-alt="assets/img/color r.png"
-            alt="Imagen"
+            alt="Color Poster"
           />
         </div>
       </section>
@@ -137,89 +80,20 @@
           <img
             src="assets/img/vela.png"
             data-alt="assets/img/vela r.png"
-            alt="Imagen derecha"
+            alt="Vela Poster"
           />
         </div>
       </section>
     </main>
 
-    <!-- SCRIPT -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // SCROLL REVEAL
-        const sections = document.querySelectorAll(".reveal");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) entry.target.classList.add("visible");
-            });
-          },
-          { threshold: 0.3 }
-        );
-        sections.forEach((el) => observer.observe(el));
-
-        // HOVER / CLICK IMAGEN
-        const images = document.querySelectorAll(".image-container img");
-        images.forEach((img) => {
-          const original = img.src;
-          const alt = img.dataset.alt;
-          let clicked = false;
-
-          img.addEventListener("mouseenter", () => {
-            if (!clicked) img.src = alt;
-          });
-          img.addEventListener("mouseleave", () => {
-            if (!clicked) img.src = original;
-          });
-          img.addEventListener("click", () => {
-            clicked = !clicked;
-            img.src = clicked ? alt : original;
-          });
-        });
-
-        // MENÚ MÓVIL
-        const menuToggle = document.getElementById("menu-toggle");
-        const closeBtn = document.querySelector(".close-menu");
-        function toggleBodyScroll() {
-          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-        }
-        menuToggle.addEventListener("change", toggleBodyScroll);
-        closeBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          menuToggle.checked = false;
-          toggleBodyScroll();
-        });
-
-        // IDIOMA
-        const langSelect = document.getElementById("lang-select");
-        function cambiarIdioma(lang) {
-          document.querySelectorAll(".nav-links a").forEach((link) => {
-            if (link.dataset[lang]) link.textContent = link.dataset[lang];
-          });
-          document.querySelectorAll("[data-es]").forEach((el) => {
-            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-          });
-        }
-        const langGuardado = localStorage.getItem("lang") || "es";
-        langSelect.value = langGuardado;
-        cambiarIdioma(langGuardado);
-        langSelect.addEventListener("change", () => {
-          const lang = langSelect.value;
-          localStorage.setItem("lang", lang);
-          cambiarIdioma(lang);
-        });
-      });
-    </script>
-    <!-- ==================== FOOTER ==================== -->
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <!-- Izquierda: GitHub -->
       <a
         href="https://github.com/Ako1317/Portafolio-AKO?tab=readme-ov-file"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-github"
       >
-        <!-- Icono de GitHub SVG -->
         <svg
           class="github-icon"
           height="16"
@@ -234,9 +108,102 @@
         </svg>
         View on GitHub
       </a>
-
-      <!-- Derecha: Nombre y año -->
       <span class="footer-right">© 2026 AKO</span>
     </footer>
+
+    <!-- SCRIPTS -->
+    <!-- Nav bar dinámico -->
+    <script src="assets/js/nav.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Cargar nav.html dinámicamente
+        fetch("nav.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+            if (typeof initNav === "function") {
+              initNav();
+            }
+          })
+          .catch((err) => console.error("Error cargando nav:", err));
+
+        // SCROLL REVEAL
+        const sections = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+              }
+            });
+          },
+          { threshold: 0.2 },
+        );
+        sections.forEach((el) => observer.observe(el));
+
+        // HOVER / CLICK IMAGEN
+        const images = document.querySelectorAll(".image-container img");
+        images.forEach((img) => {
+          const original = img.src;
+          const alt = img.dataset.alt;
+          let clicked = false;
+
+          img.addEventListener("mouseenter", () => {
+            if (!clicked && alt) img.src = alt;
+          });
+          img.addEventListener("mouseleave", () => {
+            if (!clicked) img.src = original;
+          });
+          img.addEventListener("click", () => {
+            if (alt) {
+              clicked = !clicked;
+              img.src = clicked ? alt : original;
+            }
+          });
+        });
+
+        // MENÚ MÓVIL (si existe)
+        const menuToggle = document.getElementById("menu-toggle");
+        const closeBtn = document.querySelector(".close-menu");
+
+        if (menuToggle) {
+          function toggleBodyScroll() {
+            document.body.style.overflow = menuToggle.checked
+              ? "hidden"
+              : "auto";
+          }
+          menuToggle.addEventListener("change", toggleBodyScroll);
+
+          if (closeBtn) {
+            closeBtn.addEventListener("click", (e) => {
+              e.preventDefault();
+              menuToggle.checked = false;
+              toggleBodyScroll();
+            });
+          }
+        }
+
+        // IDIOMA (si existe)
+        const langSelect = document.getElementById("lang-select");
+        if (langSelect) {
+          function cambiarIdioma(lang) {
+            document.querySelectorAll(".nav-links a").forEach((link) => {
+              if (link.dataset[lang]) link.textContent = link.dataset[lang];
+            });
+            document.querySelectorAll("[data-es]").forEach((el) => {
+              if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+            });
+          }
+          const langGuardado = localStorage.getItem("lang") || "es";
+          langSelect.value = langGuardado;
+          cambiarIdioma(langGuardado);
+          langSelect.addEventListener("change", () => {
+            const lang = langSelect.value;
+            localStorage.setItem("lang", lang);
+            cambiarIdioma(lang);
+          });
+        }
+      });
+    </script>
   </body>
 </html>

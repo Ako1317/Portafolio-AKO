@@ -4,411 +4,494 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO | UX/UI</title>
-    <link rel="stylesheet" href="assets/css/ux.css" />
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="./assets/css/index.css" />
   </head>
+
   <body>
     <!-- NAVBAR -->
-    <nav class="ako-nav">
-      <div class="logo">
-        <img src="assets/img/logo b.png" alt="Mi logo" />
-      </div>
-
-      <ul class="nav-links desktop-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-      </ul>
-
-      <div class="language-selector">
-        <select id="lang-select">
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">☰</label>
-
-      <ul class="nav-links mobile-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-        <li><a href="#" class="close-menu">✕</a></li>
-      </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- HERO UX/UI -->
-    <section class="ux-hero scroll-reveal">
-      <h1 class="ux-title" data-es="UX / UI" data-en="UX / UI">UX / UI</h1>
-      <div class="ux-options scroll-reveal">
-        <a href="#colors" class="ux-option" data-es="COLORES" data-en="COLORS"
-          >COLORES</a
-        >
-        <a
-          href="#bikemore"
-          class="ux-option"
-          data-es="BIKEMORE"
-          data-en="BIKEMORE"
-          >BIKEMORE</a
-        >
-        <a href="#monster" class="ux-option" data-es="MONSTER" data-en="MONSTER"
-          >MONSTER</a
-        >
+    <section class="hero scroll-reveal">
+      <h1 class="title">UX</h1>
+      <div class="options"></div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="project intro">
+      <p>Una selección de proyectos de UX que he realizado recientemente.</p>
+      <span class="arrow">🡣🡣🡣</span>
+    </section>
+
+    <!------------------------------------------------------------------ PROJECT -->
+    <!-- ==================== PROYECTOS UX ==================== -->
+    <section class="projects-section">
+      <div class="cards-grid">
+        <!-- TARJETA 1 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/img/fmc 1.png" alt="Proyecto 1" />
+          </div>
+          <div class="card__content">
+            <h2 class="card__title">Find my Colors</h2>
+            <p
+              class="card__subtitle"
+              data-es="Juego narrativo"
+              data-en="Narrative game"
+            ></p>
+            <button class="card__btn" onclick="openModal('modal-1')">
+              More
+            </button>
+          </div>
+        </article>
+
+        <!-- TARJETA 2 (con video) -->
+        <article class="card">
+          <div class="card__media">
+            <video muted loop poster="assets/img/bm 1.png">
+              <source src="assets/img/bm 1.png" type="video/mp4" />
+            </video>
+          </div>
+          <div class="card__content">
+            <h2 class="card__title">Bike More</h2>
+            <p
+              class="card__subtitle"
+              data-es="Tienda Online"
+              data-en="Online Store"
+            ></p>
+            <button class="card__btn" onclick="openModal('modal-2')">
+              More
+            </button>
+          </div>
+        </article>
+
+        <!-- TARJETA 3 -->
+        <article class="card">
+          <div class="card__media">
+            <img src="assets/img/juice.png" alt="Proyecto 3" />
+          </div>
+          <div class="card__content">
+            <h2 class="card__title">Monster Juice</h2>
+            <p class="card__subtitle" data-es="Rediseño" data-en="Redesign"></p>
+            <button class="card__btn" onclick="openModal('modal-3')">
+              More
+            </button>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- FIND MY COLORS -->
-    <section id="colors" class="colors-section scroll-reveal">
-      <div class="colors-hero">
-        <h2
-          class="colors-title scroll-reveal"
-          data-es="Find my Colors"
-          data-en="Find my Colors"
-        >
-          Find my Colors
-        </h2>
-        <div class="colors-mockup scroll-reveal">
-          <img src="assets/img/fmc 1.png" alt="Colors mockup" />
-        </div>
-      </div>
+    <!-- ==================== MODALES ==================== -->
 
-      <div class="colors-block scroll-reveal">
-        <div class="colors-text">
-          <p
-            data-es="Se planteó crear una aplicación con una narrativa. Para esta propuesta decidí crear un pequeño juego con selección múltiple."
-            data-en="The idea was to create an application with a narrative. For this proposal, I decided to create a small multiple-choice game."
-          >
-            Se planteó crear una aplicación con una narrativa. Para esta
-            propuesta decidí crear un pequeño juego con selección múltiple.
-          </p>
-          <p
-            data-es="Conforme progresas o decides terminar la historia se presentan múltiples finales.
+    <!--------------------------------------------------------------------------- MODAL 1 -->
+    <div class="modal-overlay" id="modal-1">
+      <div class="modal">
+        <button class="modal__close" onclick="closeModal('modal-1')">
+          &times;
+        </button>
+        <div class="modal__container">
+          <nav class="modal__nav">
+            <ul class="modal__nav-list">
+              <li
+                class="modal__nav-item active"
+                data-section="m1-overview"
+                data-es="Resumen"
+                data-en="Summary"
+              >
+                Resumen
+              </li>
+              <li
+                class="modal__nav-item"
+                data-section="m1-gallery"
+                data-es="Galería"
+                data-en="Gallery"
+              >
+                Galería
+              </li>
+              <li
+                class="modal__nav-item"
+                data-section="m1-tech"
+                data-es="Herramientas"
+                data-en="Tools"
+              >
+                Herramientas
+              </li>
+            </ul>
+          </nav>
+          <div class="modal__content">
+            <section class="modal__section active" id="m1-overview">
+              <div class="modal__text">
+                <h2>Find my Colors</h2>
+                <p></p>
+                <p
+                  data-es="Se planteó crear una aplicación con una narrativa. Para esta propuesta decidí crear un pequeño juego con selección múltiple."
+                  data-en="The idea was to create an application with a narrative. For this proposal, I decided to create a small multiple-choice game."
+                >
+                  Se planteó crear una aplicación con una narrativa. Para esta
+                  propuesta decidí crear un pequeño juego con selección
+                  múltiple.
+                </p>
+                <p
+                  data-es="Conforme progresas o decides terminar la historia se presentan múltiples finales.
 "
-            data-en=" As you progress or decide to end the story, multiple endings are presented."
-          >
-            Conforme progresas o decides terminar la historia se presentan
-            múltiples finales.
-          </p>
-        </div>
+                  data-en=" As you progress or decide to end the story, multiple endings are presented."
+                >
+                  Conforme progresas o decides terminar la historia se presentan
+                  múltiples finales.
+                </p>
+              </div>
 
-        <div class="colors-animation">
-          <img
-            src="assets/img/pipo 1.png"
-            alt="Mascota frame 1"
-            class="mascot-frame frame-1"
-          />
-          <img
-            src="assets/img/pipo 2.png"
-            alt="Mascota frame 2"
-            class="mascot-frame frame-2"
-          />
-        </div>
-
-        <div class="colors-second-block scroll-reveal">
-          <div class="colors-text">
-            <p
-              data-es="Para el juego decidí mantener un estilo limpio y vectorizado. 
+              <div class="modal__media">
+                <img src="assets/img/fmc 1.png" alt="Find My Colors" />
+              </div>
+            </section>
+            <section class="modal__section" id="m1-gallery">
+              <div class="modal__text">
+                <h2 data-es=" Galería" data-en=" Gallery"></h2>
+                <p
+                  data-es="Para el juego decidí mantener un estilo limpio y vectorizado. 
               Cree ilustraciones siguiendo dicho estilo con Illustrator y animando dentro de figma.
               Para la organización de la aplicación mantuve un orden horizontal al igual que un libro."
-              data-en="For the game, I decided to maintain a clean, vectorised style. 
+                  data-en="For the game, I decided to maintain a clean, vectorised style. 
               I created illustrations in this style using Illustrator and animated them in Figma.
-              For the organisation of the application, I maintained a horizontal order, similar to a book."
-            >
-              Para el juego decidí mantener un estilo limpio y vectorizado. Cree
-              ilustraciones siguiendo dicho estilo con Illustrator y animando
-              dentro de figma. Para la organización de la aplicación mantuve un
-              orden horizontal al igual que un libro.
-            </p>
-          </div>
-          <div class="colors-image">
-            <img src="assets/img/fmc 2.png" alt="Colors extra" />
+              For the app layout i maintained a horizontal order, similar to a book."
+                >
+                  Para el juego decidí mantener un estilo limpio y vectorizado.
+                  Cree ilustraciones siguiendo dicho estilo con Illustrator y
+                  animando dentro de figma. Para la organización de la
+                  aplicación mantuve un orden horizontal al igual que un libro.
+                </p>
+              </div>
+              <div class="modal__media modal__media--gallery">
+                <img src="assets/img/pipo7.png" alt="Vista 1" />
+                <img src="assets/img/pipo5.png" alt="Vista 2" />
+                <img src="assets/img/pipo4.png" alt="Vista 3" />
+              </div>
+            </section>
+            <section class="modal__section" id="m1-tech">
+              <div class="modal__text">
+                <h2>Tools</h2>
+                <div class="tech-tags">
+                  <span class="tech-tag">Figma</span>
+                  <span class="tech-tag">Illustrator</span>
+                  <span class="tech-tag">Procreate</span>
+                </div>
+              </div>
+              <div class="modal__media">
+                <img src="assets/img/fmc 2.png" alt="Código" />
+              </div>
+            </section>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- BIKE MORE -->
-    <section id="bikemore" class="bikemore-section scroll-reveal">
-      <div class="bikemore-hero">
-        <h2
-          class="bikemore-title scroll-reveal"
-          data-es="BikeMore"
-          data-en="BikeMore"
-        >
-          BikeMore
-        </h2>
-        <div class="bikemore-mockup scroll-reveal">
-          <img src="assets/img/bm 1.png" alt="bikemore mockup" />
-        </div>
-      </div>
-
-      <div class="bikemore-block scroll-reveal">
-        <div class="bikemore-text scroll-reveal">
-          <p
-            data-es=" Se planteó crear una pagina dedicada a la venta de productos para ciclistas.
+    <!----------------------------------------------------------------------- MODAL 2 -->
+    <div class="modal-overlay" id="modal-2">
+      <div class="modal">
+        <button class="modal__close" onclick="closeModal('modal-2')">
+          &times;
+        </button>
+        <div class="modal__container">
+          <nav class="modal__nav">
+            <ul class="modal__nav-list">
+              <li
+                class="modal__nav-item active"
+                data-section="m2-overview"
+                data-es="Resumen"
+                data-en="Summary"
+              >
+                Resumen
+              </li>
+              <li
+                class="modal__nav-item"
+                data-section="m2-gallery"
+                data-es="Galería"
+                data-en="Gallery"
+              >
+                Galería
+              </li>
+              <li
+                class="modal__nav-item"
+                data-section="m2-tech"
+                data-es="Herramientas"
+                data-en="Tools"
+              >
+                Herramientas
+              </li>
+            </ul>
+          </nav>
+          <div class="modal__content">
+            <section class="modal__section active" id="m2-overview">
+              <div class="modal__text">
+                <h2>Bike More</h2>
+                <p
+                  data-es=" Se planteó crear una pagina dedicada a la venta de productos para ciclistas.
             Para esta propuesta trabajé sobre las necesidades de un target especifico. Necesidades que van desde la interacción hasta la experiencia visual."
-            data-en=" The idea was to create a website dedicated to selling products for cyclists.
+                  data-en=" The idea was to create a website dedicated to selling products for cyclists.
             For this proposal, I worked on the needs of a specific target audience. These needs ranged from interaction to visual experience."
-          >
-            Se planteó crear una pagina dedicada a la venta de productos para
-            ciclistas. Para esta propuesta trabajé sobre las necesidades de un
-            target especifico. Necesidades que van desde la interacción hasta la
-            experiencia visual.
-          </p>
-        </div>
-
-        <div class="bikemore-animation">
-          <img
-            src="assets/img/bike 1.png"
-            alt="bike frame 1"
-            class="bike-frame frame-1"
-          />
-          <img
-            src="assets/img/bike 2.png"
-            alt="bike frame 2"
-            class="bike-frame frame-2"
-          />
-          <img
-            src="assets/img/bike 3.png"
-            alt="bike frame 3"
-            class="bike-frame frame-3"
-          />
-          <img
-            src="assets/img/bike 4.png"
-            alt="bike frame 4"
-            class="bike-frame frame-4"
-          />
-        </div>
-
-        <div class="bikemore-second-block scroll-reveal">
-          <div class="bikemore-text">
-            <p
-              data-es="Para la pagina decidí  trabajar sobre un estilo moderno, en donde predomine el negro y el blanco.
+                >
+                  Se planteó crear una pagina dedicada a la venta de productos
+                  para ciclistas. Para esta propuesta trabajé sobre las
+                  necesidades de un target especifico. Necesidades que van desde
+                  la interacción hasta la experiencia visual.
+                </p>
+              </div>
+              <div class="modal__media">
+                <img src="assets/img/bm 1.png" alt="Bike More" />
+              </div>
+            </section>
+            <section class="modal__section" id="m2-gallery">
+              <div class="modal__text">
+                <h2 data-es="Galería" data-en="Gallery">Galería</h2>
+                <p
+                  data-es="Para la pagina decidí  trabajar sobre un estilo moderno, en donde predomine el negro y el blanco.
               La información presentada va directo al punto, siguiendo las necesidades de los clientes que se me presentaron.
               Junto a este estilo se encuentran fotografías y pequeñas animaciones para hacer la experiencia más atractiva. Además de un diseño responsivo capaz de adaptarse a múltiples plataformas. "
-              data-en="For the website, I decided to work with a modern style, predominantly black and white.
+                  data-en="For the website, I decided to work with a modern style, predominantly black and white.
               The information presented gets straight to the point, following the needs of the clients who approached me.
               Alongside this style are photographs and small animations to make the experience more appealing. In addition, the design is responsive and capable of adapting to multiple platforms."
-            >
-              Para la pagina decidí trabajar sobre un estilo moderno, en donde
-              predomine el negro y el blanco. La información presentada va
-              directo al punto, siguiendo las necesidades de los clientes que se
-              me presentaron. Junto a este estilo se encuentran fotografías y
-              pequeñas animaciones para hacer la experiencia más atractiva.
-              Además de un diseño responsivo capaz de adaptarse a múltiples
-              plataformas.
-            </p>
-          </div>
-          <div class="bikemore-image">
-            <img src="assets/img/bm 2.png" alt="bikemore extra" />
+                >
+                  Para la pagina decidí trabajar sobre un estilo moderno, en
+                  donde predomine el negro y el blanco. La información
+                  presentada va directo al punto, siguiendo las necesidades de
+                  los clientes que se me presentaron. Junto a este estilo se
+                  encuentran fotografías y pequeñas animaciones para hacer la
+                  experiencia más atractiva. Además de un diseño responsivo
+                  capaz de adaptarse a múltiples plataformas.
+                </p>
+              </div>
+              <div class="modal__media modal__media--gallery">
+                <img src="assets/img/bm5.png" alt="Vista 1" />
+                <img src="assets/img/bm6.png" alt="Vista 2" />
+                <img src="assets/img/bm7.png" alt="Vista 3" />
+              </div>
+            </section>
+            <section class="modal__section" id="m2-tech">
+              <div class="modal__text">
+                <h2 data-es="Herramientas" data-en="Tools">Herramientas</h2>
+                <div class="tech-tags">
+                  <span class="tech-tag">Figma</span>
+                  <span class="tech-tag">Illustrator</span>
+                  <span class="tech-tag">Photoshop</span>
+                </div>
+              </div>
+              <div class="modal__media">
+                <img src="assets/img/bm 2.png" alt="Código" />
+              </div>
+            </section>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- MONSTER -->
-    <section id="monster" class="monster-section scroll-reveal">
-      <div class="monster-hero">
-        <h2 class="monster-title" data-es="Monster" data-en="Monster">
-          Monster
-        </h2>
-        <video
-          id="intro-video"
-          src="assets/video/monster.mp4"
-          controls
-          playsinline
-        ></video>
-      </div>
-
-      <div class="monster-block scroll-reveal">
-        <div class="monster-text">
-          <p
-            data-es="Se planteó crear una rediseño de un apartado de una pagina existente.
+    </div>
+    <!---------------------------------------------------------------------------------- MODAL 3 -->
+    <div class="modal-overlay" id="modal-3">
+      <div class="modal">
+        <button class="modal__close" onclick="closeModal('modal-3')">
+          &times;
+        </button>
+        <div class="modal__container">
+          <nav class="modal__nav">
+            <ul class="modal__nav-list">
+              <li
+                class="modal__nav-item active"
+                data-section="m3-overview"
+                data-es="Resumen"
+                data-en="Summary"
+              >
+                Resumen
+              </li>
+              <li
+                class="modal__nav-item"
+                data-section="m3-gallery"
+                data-es="Galería"
+                data-en="Gallery"
+              >
+                Galería
+              </li>
+              <li
+                class="modal__nav-item"
+                data-section="m3-tech"
+                data-es="Herramientas"
+                data-en="Tools"
+              >
+                Herramientas
+              </li>
+            </ul>
+          </nav>
+          <div class="modal__content">
+            <section class="modal__section active" id="m3-overview">
+              <div class="modal__text">
+                <h2>Monster Juiced</h2>
+                <p
+                  data-es="Se planteó crear una rediseño de un apartado de una pagina existente.
             Para este trabajo decidí enfocarme en la pagina web de Monster Energy Drink. 
             Específicamente la colección de Monster Juice"
-            data-en="The idea was to redesign a section of an existing page.
+                  data-en="The idea was to redesign a section of an existing page.
             For this project, I decided to focus on the Monster Energy Drink website. 
             Specifically, the Monster Juice collection."
-          >
-            Se planteó crear una rediseño de un apartado de una pagina
-            existente. Para este trabajo decidí enfocarme en la pagina web de
-            Monster Energy Drink. Específicamente la colección de Monster Juice
-          </p>
-        </div>
-
-        <div class="monster-animation scroll-reveal">
-          <img
-            src="assets/img/can 1.png"
-            alt="can 1"
-            class="can-frame frame-1"
-          />
-          <img
-            src="assets/img/can 2.png"
-            alt="can 2"
-            class="can-frame frame-2"
-          />
-          <img
-            src="assets/img/can 3.png"
-            alt="can 3"
-            class="can-frame frame-3"
-          />
-          <img
-            src="assets/img/can 4.png"
-            alt="can 4"
-            class="can-frame frame-4"
-          />
-          <img
-            src="assets/img/can 5.png"
-            alt="can 5"
-            class="can-frame frame-5"
-          />
-          <img
-            src="assets/img/can 6.png"
-            alt="can 6"
-            class="can-frame frame-6"
-          />
-          <img
-            src="assets/img/can 7.png"
-            alt="can 7"
-            class="can-frame frame-7"
-          />
-        </div>
-      </div>
-
-      <div class="monster-second-block scroll-reveal">
-        <div class="monster-image">
-          <img src="assets/img/monster 2.png" alt="monster" />
-        </div>
-        <div class="monster-text">
-          <p
-            data-es="Con el rediseño jugué con los diseños y colores de cada lata de Monster Juiced, convirtiendo la experiencia del usuario en una actividad más inmersiva, en la que tienes la opción de ir directamente a tu selección o explorar las otras opciones."
-            data-en="With the redesign, I played around with the designs and colours of each Monster Juiced can, turning the user experience into a more immersive activity, where you have the option to go directly to your selection or explore the other options."
-          >
-            Con el rediseño jugué con los diseños y colores de cada lata de
-            Monster Juiced, convirtiendo la experiencia del usuario en una
-            actividad más inmersiva, en la que tienes la opción de ir
-            directamente a tu selección o explorar las otras opciones.
-          </p>
+                >
+                  Se planteó crear una rediseño de un apartado de una pagina
+                  existente. Para este trabajo decidí enfocarme en la pagina web
+                  de Monster Energy Drink. Específicamente la colección de
+                  Monster Juice
+                </p>
+              </div>
+              <div class="modal__media">
+                <img src="assets/img/m4.png" alt="Proyecto 3" />
+              </div>
+            </section>
+            <section class="modal__section" id="m3-gallery">
+              <div class="modal__text">
+                <h2 data-es="Galería" data-en="Gallery">Galería</h2>
+                <p
+                  data-es="Con el rediseño jugué con los diseños y colores de cada lata de Monster Juiced, convirtiendo la experiencia del usuario en una actividad más inmersiva, en la que tienes la opción de ir directamente a tu selección o explorar las otras opciones."
+                  data-en="With the redesign, I played around with the designs and colours of each Monster Juiced can, turning the user experience into a more immersive activity, where you have the option to go directly to your selection or explore the other options."
+                >
+                  Con el rediseño jugué con los diseños y colores de cada lata
+                  de Monster Juiced, convirtiendo la experiencia del usuario en
+                  una actividad más inmersiva, en la que tienes la opción de ir
+                  directamente a tu selección o explorar las otras opciones.
+                </p>
+              </div>
+              <div class="modal__media modal__media--gallery">
+                <img src="assets/img/m6.png" alt="Vista 1" />
+                <img src="assets/img/m5.png" alt="Vista 2" />
+                <img src="assets/img/m3.png" alt="Vista 3" />
+              </div>
+            </section>
+            <section class="modal__section" id="m3-tech">
+              <div class="modal__text">
+                <h2 data-es="Herramientas" data-en="Tools">Herramientas</h2>
+                <div class="tech-tags">
+                  <span class="tech-tag">Figma</span>
+                  <span class="tech-tag">Photoshop</span>
+                </div>
+              </div>
+              <div class="modal__media">
+                <img src="assets/img/monster 2.png" alt="Herramientas" />
+              </div>
+            </section>
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- ==================== JAVASCRIPT ==================== -->
+    </div>
+    <!-- ============================ -->
+    <!-- SCRIPT: Nav bar dinámico -->
+    <!-- ============================ -->
+    <script src="assets/js/nav.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // SCROLL SUAVE
-        document.querySelectorAll('a[href^="#"]').forEach((link) => {
-          link.addEventListener("click", (e) => {
-            const targetId = link.getAttribute("href").substring(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-              e.preventDefault();
-              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
-        });
-
-        // SCROLL REVEAL
-        const revealElements = document.querySelectorAll(".scroll-reveal");
-        function revealOnScroll() {
-          const windowHeight = window.innerHeight;
+      // Cargar nav.html dinámicamente
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+          initNav(); // inicializa idioma + scroll suave
+        })
+        .catch((err) => console.error("Error cargando nav:", err));
+    </script>
+    <!-- ============================ -->
+    <!-- SCRIPT: Scroll reveal para main content -->
+    <!-- ============================ -->
+    <script>
+      const revealElements = document.querySelectorAll(".scroll-reveal");
+      function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        revealElements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
           const revealPoint = 150;
-          revealElements.forEach((el) => {
-            const elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - revealPoint)
-              el.classList.add("visible");
-          });
+          if (elementTop < windowHeight - revealPoint) {
+            el.classList.add("visible");
+          }
+        });
+      }
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // ============================ -->
+      // MODAL -->
+      // ============================ -->
+      // Abrir modal
+      function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add("active");
+          document.body.style.overflow = "hidden";
         }
-        window.addEventListener("scroll", revealOnScroll);
-        window.addEventListener("load", revealOnScroll);
+      }
 
-        // MENÚ MÓVIL
-        const menuToggle = document.getElementById("menu-toggle");
-        const closeBtn = document.querySelector(".close-menu");
-        function toggleBodyScroll() {
-          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+      // Cerrar modal
+      function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
         }
-        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
-        if (closeBtn)
-          closeBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            menuToggle.checked = false;
-            toggleBodyScroll();
-          });
+      }
 
-        // IDIOMA
-        const langSelect = document.getElementById("lang-select");
-        function cambiarIdioma(lang) {
-          document.querySelectorAll(".nav-links a").forEach((link) => {
-            if (link.dataset[lang]) link.textContent = link.dataset[lang];
-          });
-          document.querySelectorAll("[data-es]").forEach((el) => {
-            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-          });
+      // Cerrar con Escape o clic fuera
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document
+            .querySelectorAll(".modal-overlay.active")
+            .forEach((modal) => {
+              modal.classList.remove("active");
+              document.body.style.overflow = "";
+            });
         }
+      });
 
-        // Leer idioma guardado
-        const langGuardado = localStorage.getItem("lang") || "es";
-        langSelect.value = langGuardado;
-        cambiarIdioma(langGuardado);
+      document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) {
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+          }
+        });
+      });
 
-        // Detectar cambio de idioma
-        if (langSelect) {
-          langSelect.addEventListener("change", () => {
-            const lang = langSelect.value;
-            localStorage.setItem("lang", lang);
-            cambiarIdioma(lang);
+      // Navegación dentro del modal
+      document.querySelectorAll(".modal__nav-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const modal = item.closest(".modal");
+          const sectionId = item.dataset.section;
+
+          // Actualizar navegación activa
+          modal
+            .querySelectorAll(".modal__nav-item")
+            .forEach((nav) => nav.classList.remove("active"));
+          item.classList.add("active");
+
+          // Mostrar sección correspondiente
+          modal
+            .querySelectorAll(".modal__section")
+            .forEach((section) => section.classList.remove("active"));
+          document.getElementById(sectionId)?.classList.add("active");
+        });
+      });
+
+      // Auto-play videos en hover de tarjetas
+      document.querySelectorAll(".card").forEach((card) => {
+        const video = card.querySelector("video");
+        if (video) {
+          card.addEventListener("mouseenter", () => video.play());
+          card.addEventListener("mouseleave", () => {
+            video.pause();
+            video.currentTime = 0;
           });
         }
       });
     </script>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer class="site-footer">
-      <!-- Izquierda: GitHub -->
       <a
         href="https://github.com/Ako1317/Portafolio-AKO?tab=readme-ov-file"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-github"
       >
-        <!-- Icono de GitHub SVG -->
         <svg
           class="github-icon"
           height="16"
@@ -423,8 +506,6 @@
         </svg>
         View on GitHub
       </a>
-
-      <!-- Derecha: Nombre y año -->
       <span class="footer-right">© 2026 AKO</span>
     </footer>
   </body>

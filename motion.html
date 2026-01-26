@@ -1,158 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AKO | Motion</title>
     <link rel="stylesheet" href="assets/css/motion.css" />
-    <style>
-      /* ===== ESPACIO PARA NAVBAR ===== */
-      .motion-hero,
-      .video-section {
-        padding-top: calc(var(--nav-height, 70px) + 60px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      /* ===== TÍTULO HERO ===== */
-      .motion-title {
-        width: 100%;
-        text-align: center;
-        font-size: clamp(4rem, 8vw, 7rem);
-        font-weight: 800;
-        color: rgb(255, 138, 138);
-        margin-bottom: 40px;
-        transition: all 0.3s ease;
-      }
-
-      .motion-title:hover {
-        color: transparent;
-        -webkit-text-stroke: 2px rgb(255, 138, 138);
-      }
-
-      /* ===== OPCIONES ===== */
-      .motion-options {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 100px;
-        flex-wrap: wrap;
-      }
-
-      .motion-option {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: rgb(230, 230, 230);
-        text-decoration: none;
-        transition: all 0.3s ease;
-      }
-
-      .motion-option:hover {
-        transform: scale(1.3);
-      }
-
-      .motion-options:hover .motion-option {
-        opacity: 0.4;
-        transform: scale(0.9);
-      }
-
-      .motion-options:hover .motion-option:hover {
-        opacity: 1;
-        transform: scale(1.3);
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 768px) {
-        .motion-hero {
-          padding-top: calc(var(--nav-height, 70px) + 100px);
-        }
-
-        .motion-title {
-          font-size: clamp(3rem, 10vw, 5rem);
-        }
-
-        .motion-options {
-          flex-direction: column;
-          gap: 30px;
-        }
-
-        .motion-option {
-          font-size: 1.8rem;
-        }
-      }
-    </style>
   </head>
-
   <body>
     <!-- NAVBAR -->
-    <nav class="ako-nav">
-      <div class="logo">
-        <img src="assets/img/logo b.png" alt="Mi logo" />
-      </div>
-
-      <!-- ENLACES desktop/tablet -->
-      <ul class="nav-links desktop-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-      </ul>
-
-      <!-- SELECTOR DE IDIOMA -->
-      <div class="language-selector">
-        <select id="lang-select">
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-
-      <!-- MENÚ MÓVIL -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">☰</label>
-      <ul class="nav-links mobile-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-        <li><a href="#" class="close-menu">✕</a></li>
-      </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <!-- HERO -->
     <section class="motion-hero scroll-reveal">
@@ -208,15 +64,7 @@
     </section>
 
     <!-- MATERIALES -->
-    <section
-      class="seccion-fondo-completo scroll-reveal"
-      style="
-        background-image: url('assets/img/homu.png');
-        background-size: cover;
-        min-height: 600px;
-        display: flex;
-      "
-    >
+    <section class="seccion-fondo-completo scroll-reveal">
       <div class="contenido-texto scroll-reveal">
         <h2 data-es="MATERIALES" data-en="MATERIALS">MATERIALES</h2>
         <p
@@ -231,83 +79,14 @@
       </div>
     </section>
 
-    <!-- JAVASCRIPT -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach((link) => {
-          link.addEventListener("click", (e) => {
-            const targetId = link.getAttribute("href").substring(1);
-            const targetEl = document.getElementById(targetId);
-            if (targetEl) {
-              e.preventDefault();
-              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-          });
-        });
-
-        // Scroll reveal
-        const revealElements = document.querySelectorAll(".scroll-reveal");
-        function revealOnScroll() {
-          const windowHeight = window.innerHeight;
-          const revealPoint = 150;
-          revealElements.forEach((el) => {
-            const elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - revealPoint) {
-              el.classList.add("visible");
-            }
-          });
-        }
-        window.addEventListener("scroll", revealOnScroll);
-        window.addEventListener("load", revealOnScroll);
-
-        // Menú móvil
-        const menuToggle = document.getElementById("menu-toggle");
-        const closeBtn = document.querySelector(".close-menu");
-        function toggleBodyScroll() {
-          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-        }
-        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
-        if (closeBtn) {
-          closeBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            menuToggle.checked = false;
-            toggleBodyScroll();
-          });
-        }
-
-        // Idioma
-        const langSelect = document.getElementById("lang-select");
-        function cambiarIdioma(lang) {
-          document.querySelectorAll(".nav-links a").forEach((link) => {
-            if (link.dataset[lang]) link.textContent = link.dataset[lang];
-          });
-          document.querySelectorAll("[data-es]").forEach((el) => {
-            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-          });
-        }
-        const langGuardado = localStorage.getItem("lang") || "es";
-        langSelect.value = langGuardado;
-        cambiarIdioma(langGuardado);
-        if (langSelect) {
-          langSelect.addEventListener("change", () => {
-            const lang = langSelect.value;
-            localStorage.setItem("lang", lang);
-            cambiarIdioma(lang);
-          });
-        }
-      });
-    </script>
-    <!-- ==================== FOOTER ==================== -->
+    <!-- FOOTER -->
     <footer class="site-footer">
-      <!-- Izquierda: GitHub -->
       <a
         href="https://ako1317.github.io/Portafolio-AKO/"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-github"
       >
-        <!-- Icono de GitHub SVG -->
         <svg
           class="github-icon"
           height="16"
@@ -322,9 +101,86 @@
         </svg>
         View on GitHub
       </a>
-
-      <!-- Derecha: Nombre y año -->
       <span class="footer-right">© 2026 AKO</span>
     </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+      // Cargar nav.html dinámicamente
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+          initNavExternal(); // ← Redirige a index.html#seccion
+        });
+      // Scroll suave
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+          const targetId = link.getAttribute("href").substring(1);
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // Scroll reveal
+      const revealElements = document.querySelectorAll(".scroll-reveal");
+      function revealOnScroll() {
+        const windowHeight = window.innerHeight;
+        const revealPoint = 150;
+        revealElements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
+          if (elementTop < windowHeight - revealPoint) {
+            el.classList.add("visible");
+          }
+        });
+      }
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("load", revealOnScroll);
+
+      // Menú móvil
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeBtn = document.querySelector(".close-menu");
+      function toggleBodyScroll() {
+        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+      }
+      if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
+      if (closeBtn) {
+        closeBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          menuToggle.checked = false;
+          toggleBodyScroll();
+        });
+      }
+
+      // Idioma
+      const langSelect = document.getElementById("lang-select");
+      function cambiarIdioma(lang) {
+        document.querySelectorAll(".nav-links a").forEach((link) => {
+          if (link.dataset[lang]) link.textContent = link.dataset[lang];
+        });
+        document.querySelectorAll("[data-es]").forEach((el) => {
+          if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+        });
+      }
+
+      // Verificar que langSelect existe antes de usarlo
+      if (langSelect) {
+        const langGuardado = localStorage.getItem("lang") || "es";
+        langSelect.value = langGuardado;
+        cambiarIdioma(langGuardado);
+        langSelect.addEventListener("change", () => {
+          const lang = langSelect.value;
+          localStorage.setItem("lang", lang);
+          cambiarIdioma(lang);
+        });
+      } else {
+        // Aplicar idioma guardado aunque no exista el selector aún
+        const langGuardado = localStorage.getItem("lang") || "es";
+        cambiarIdioma(langGuardado);
+      }
+    </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -10,72 +10,8 @@
 
   <body>
     <!-- NAVBAR -->
-    <nav class="ako-nav">
-      <div class="logo">
-        <img src="assets/img/logo b.png" alt="Mi logo" />
-      </div>
-
-      <!-- ENLACES desktop/tablet -->
-      <ul class="nav-links desktop-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-      </ul>
-
-      <!-- SELECTOR DE IDIOMA -->
-      <div class="language-selector">
-        <select id="lang-select">
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-        </select>
-      </div>
-
-      <!-- MENÚ MÓVIL -->
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
-      <label for="menu-toggle" class="menu-btn">☰</label>
-      <ul class="nav-links mobile-links">
-        <li>
-          <a href="index.html#inicio" data-es="INICIO" data-en="HOME">INICIO</a>
-        </li>
-        <li>
-          <a href="index.html#sobre-mi" data-es="SOBRE MI" data-en="ABOUT ME"
-            >SOBRE MI</a
-          >
-        </li>
-        <li>
-          <a
-            href="index.html#portafolio"
-            data-es="PORTAFOLIO"
-            data-en="PORTFOLIO"
-            >PORTAFOLIO</a
-          >
-        </li>
-        <li>
-          <a href="index.html#contacto" data-es="CONTACTO" data-en="CONTACT"
-            >CONTACTO</a
-          >
-        </li>
-        <li><a href="#" class="close-menu">✕</a></li>
-      </ul>
-    </nav>
+    <!-- NAV -->
+    <div id="navbar-placeholder"></div>
 
     <!-- HERO -->
     <section class="hero-section scroll-reveal">
@@ -125,7 +61,7 @@
     <section
       class="seccion-fondo-completo scroll-reveal"
       style="
-        background-image: url('assets/img/nerf.png');
+        background-image: url(&quot;assets/img/nerf.png&quot;);
         background-size: cover;
         min-height: 500px;
         display: flex;
@@ -199,85 +135,6 @@
       </div>
     </section>
 
-    <!-- JS -->
-    <script>
-      // Scroll reveal
-      document.addEventListener("DOMContentLoaded", () => {
-        const elements = document.querySelectorAll(
-          ".scroll-reveal, .reveal-card"
-        );
-
-        if (!("IntersectionObserver" in window)) {
-          elements.forEach((el) => el.classList.add("is-visible"));
-          return;
-        }
-
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.2,
-            rootMargin: "0px 0px -100px 0px",
-          }
-        );
-
-        elements.forEach((el) => observer.observe(el));
-      });
-
-      // Scroll suave
-      document.querySelectorAll('a[href^="#"]').forEach((link) => {
-        link.addEventListener("click", (e) => {
-          const targetId = link.getAttribute("href").substring(1);
-          const targetEl = document.getElementById(targetId);
-          if (targetEl) {
-            e.preventDefault();
-            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
-          }
-        });
-      });
-
-      // Menú móvil
-      const menuToggle = document.getElementById("menu-toggle");
-      const closeBtn = document.querySelector(".close-menu");
-      function toggleBodyScroll() {
-        document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
-      }
-      if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
-      if (closeBtn) {
-        closeBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          menuToggle.checked = false;
-          toggleBodyScroll();
-        });
-      }
-
-      // Idioma
-      const langSelect = document.getElementById("lang-select");
-      function cambiarIdioma(lang) {
-        document.querySelectorAll(".nav-links a").forEach((link) => {
-          if (link.dataset[lang]) link.textContent = link.dataset[lang];
-        });
-        document.querySelectorAll("[data-es]").forEach((el) => {
-          if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-        });
-      }
-      const langGuardado = localStorage.getItem("lang") || "es";
-      langSelect.value = langGuardado;
-      cambiarIdioma(langGuardado);
-      if (langSelect) {
-        langSelect.addEventListener("change", () => {
-          const lang = langSelect.value;
-          localStorage.setItem("lang", lang);
-          cambiarIdioma(lang);
-        });
-      }
-    </script>
     <!-- ==================== FOOTER ==================== -->
     <footer class="site-footer">
       <!-- Izquierda: GitHub -->
@@ -306,5 +163,97 @@
       <!-- Derecha: Nombre y año -->
       <span class="footer-right">© 2026 AKO</span>
     </footer>
+
+    <!-- JS -->
+    <script src="assets/js/nav.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Cargar nav.html dinámicamente
+
+        fetch("nav.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("navbar-placeholder").innerHTML = data;
+            initNavExternal(); // ← Redirige a index.html#seccion
+          });
+
+        // Scroll reveal
+        const elements = document.querySelectorAll(
+          ".scroll-reveal, .reveal-card",
+        );
+
+        if (!("IntersectionObserver" in window)) {
+          elements.forEach((el) => el.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.2,
+            rootMargin: "0px 0px -100px 0px",
+          },
+        );
+
+        elements.forEach((el) => observer.observe(el));
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", (e) => {
+            const targetId = link.getAttribute("href").substring(1);
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+
+        // Menú móvil
+        const menuToggle = document.getElementById("menu-toggle");
+        const closeBtn = document.querySelector(".close-menu");
+        function toggleBodyScroll() {
+          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
+        }
+        if (menuToggle) menuToggle.addEventListener("change", toggleBodyScroll);
+        if (closeBtn) {
+          closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            menuToggle.checked = false;
+            toggleBodyScroll();
+          });
+        }
+
+        // Idioma
+        const langSelect = document.getElementById("lang-select");
+        function cambiarIdioma(lang) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          });
+          document.querySelectorAll("[data-es]").forEach((el) => {
+            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+          });
+        }
+        const langGuardado = localStorage.getItem("lang") || "es";
+        if (langSelect) {
+          langSelect.value = langGuardado;
+          cambiarIdioma(langGuardado);
+          langSelect.addEventListener("change", () => {
+            const lang = langSelect.value;
+            localStorage.setItem("lang", lang);
+            cambiarIdioma(lang);
+          });
+        } else {
+          cambiarIdioma(langGuardado);
+        }
+      });
+    </script>
   </body>
 </html>
