@@ -104,183 +104,437 @@
    SECCIÓN: GRID DE PROYECTOS
    Define cómo se organizan las tarjetas de proyectos en columnas responsivas
    ========================================================================== */
-/* Estilos generales para la tarjeta */
-.project-cards {
+/* ==================== VARIABLES Y RESET ==================== */
+/* ==========================================================================
+   TARJETAS Y MODALES - PROYECTOS UX
+   ========================================================================== */
+
+/* ==================== SECCIÓN DE PROYECTOS ==================== */
+.projects-section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ==================== GRID DE TARJETAS ==================== */
+.cards-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  ); /* Crea una cuadrícula responsiva */
-  gap: 40px;
-  padding: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
-.project-card {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgb(0, 0, 0);
-  cursor: pointer;
+/* ==================== TARJETA (CARD) ==================== */
+.card {
+  background: rgba(30, 30, 30, 0.9);
+  border-radius: 16px;
   overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 40px rgba(255, 138, 138, 0.15);
+}
+
+.card__media {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1; /* Hace que la tarjeta sea cuadrada */
-  margin: 20px; /* Aumenta el margen alrededor de la tarjeta */
+  height: 200px;
+  overflow: hidden;
 }
 
-.project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.project-card__info {
-  padding: 20px;
-  text-align: center;
-}
-
-.project-card__title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 15px; /* Separación del título de la miniatura */
-}
-
-.project-card__media img {
+.card__media img,
+.card__media video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 15px;
+  transition: transform 0.5s ease;
 }
 
-.project-card__short-description {
-  font-size: 1rem;
-  color: #515151;
-  margin: 15px 0;
-  padding-bottom: 10px;
-  padding-top: 10px;
+.card:hover .card__media img,
+.card:hover .card__media video {
+  transform: scale(1.05);
 }
-.project-card__button {
-  padding: 10px 20px;
-  background-color: rgb(255, 255, 255);
-  color: rgb(100, 100, 100);
-  border: 2px solid #000000; /* Borde visible de 2px de grosor y color negro */
-  border-radius: 5px; /* Bordes redondeados */
+
+.card__content {
+  padding: 25px;
+}
+
+.card__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: rgb(244, 244, 244);
+}
+
+.card__subtitle {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  margin-bottom: 20px;
+}
+
+.card__btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: rgb(255, 138, 138);
+  color: rgb(18, 17, 17);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.project-card__button:hover {
-  background-color: #000000; /* Cambio de fondo al pasar el mouse */
-  transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el mouse */
-  color: rgb(255, 255, 255);
-  border: 2px solid #ffffff;
-  border-radius: 5px;
+.card__btn:hover {
+  background: #ff4b4b;
+  transform: scale(1.02);
 }
 
-/* ==========================================================================/* Modal */
-/* Modal */
-.modal {
-  display: none; /* Inicialmente oculto */
+/* ==================== MODAL OVERLAY ==================== */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
-}
-
-.modal-content {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
   display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  border-radius: 15px;
-  overflow: hidden;
-  width: 80%;
-  max-width: 1200px;
-  max-height: 80vh; /* Limita la altura máxima */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
   padding: 20px;
 }
 
-/* Contenedor de todas las secciones */
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Hace scroll si el contenido es largo */
-  max-height: calc(80vh - 60px); /* Resta espacio para el botón de cerrar */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-/* Cada sección de contenido (Imagen izquierda y texto derecha) */
-.modal-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center; /* Asegura que la imagen y el texto estén alineados */
-  margin-bottom: 20px;
+/* ==================== MODAL ==================== */
+.modal {
+  background: rgb(18, 17, 17);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 138, 138, 0.2);
 }
 
-/* Imagen a la izquierda */
-.modal-left {
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modal-overlay.active .modal {
+  transform: scale(1) translateY(0);
 }
 
-.modal-left img {
-  width: 100%; /* Asegura que la imagen ocupe el 100% del espacio disponible */
-  max-width: 500px; /* Limita el tamaño máximo de la imagen */
-  height: auto;
-  object-fit: contain; /* Asegura que la imagen no se distorsione */
-  border-radius: 10px;
-}
-
-/* Texto a la derecha */
-.modal-right {
-  flex: 1;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.modal-right h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #3c3c3c;
-}
-
-.modal-right p {
-  font-size: 1.1rem;
-  color: #2c2c2c;
-}
-
-/* Botón de cierre */
-.close-btn {
-  padding: 10px 20px;
-  background-color: #000000;
-  color: white;
+.modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(30, 30, 30, 0.9);
   border: none;
-  border-radius: 5px;
-  border-color: #000000;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  color: #a0a0a0;
   cursor: pointer;
-  font-size: 1rem;
-  margin-top: 20px;
-  align-self: flex-end; /* Lo alinea al final */
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
-.close-btn:hover {
-  color: white;
-  background-color: #000000b6;
+.modal__close:hover {
+  background: rgb(255, 138, 138);
+  color: rgb(18, 17, 17);
+  transform: rotate(90deg);
 }
 
+/* ==================== MODAL CONTAINER ==================== */
+.modal__container {
+  display: flex;
+  height: 80vh;
+  max-height: 700px;
+}
+
+/* ==================== NAVEGACIÓN VERTICAL ==================== */
+.modal__nav {
+  width: 200px;
+  min-width: 200px;
+  background: rgba(30, 30, 30, 0.95);
+  padding: 30px 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal__nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal__nav-item {
+  padding: 15px 25px;
+  color: #a0a0a0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  font-weight: 500;
+}
+
+.modal__nav-item:hover {
+  color: rgb(244, 244, 244);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.modal__nav-item.active {
+  color: rgb(255, 138, 138);
+  border-left-color: rgb(255, 138, 138);
+  background: rgba(255, 138, 138, 0.1);
+}
+
+/* ==================== CONTENIDO DEL MODAL ==================== */
+.modal__content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.modal__section {
+  display: none;
+  gap: 30px;
+}
+
+.modal__section.active {
+  display: flex;
+}
+
+/* ==================== TEXTO DEL MODAL ==================== */
+.modal__text {
+  flex: 1;
+  min-width: 250px;
+}
+
+.modal__text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: rgb(244, 244, 244);
+}
+
+.modal__text h3 {
+  font-size: 1.2rem;
+  margin: 25px 0 10px;
+  color: rgb(255, 138, 138);
+}
+
+.modal__text p {
+  color: #a0a0a0;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.modal__text ul {
+  list-style: none;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.modal__text ul li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #a0a0a0;
+}
+
+.modal__text ul li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: rgb(255, 138, 138);
+}
+
+/* ==================== MEDIA DEL MODAL ==================== */
+.modal__media {
+  flex: 1;
+  min-width: 300px;
+}
+
+.modal__media img,
+.modal__media video {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal__media--gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.modal__media--gallery img,
+.modal__media--gallery video {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* ==================== TECH TAGS ==================== */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.tech-tag {
+  padding: 6px 14px;
+  background: rgba(255, 138, 138, 0.2);
+  color: rgb(255, 138, 138);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ==================== RESPONSIVE MODALES ==================== */
+@media (max-width: 900px) {
+  .modal__container {
+    flex-direction: column;
+    height: auto;
+    max-height: 85vh;
+  }
+
+  .modal__nav {
+    width: 100%;
+    min-width: auto;
+    padding: 15px;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
+  }
+
+  .modal__nav-list {
+    display: flex;
+    gap: 5px;
+  }
+
+  .modal__nav-item {
+    padding: 10px 20px;
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 8px;
+  }
+
+  .modal__nav-item.active {
+    border-left-color: transparent;
+    border-bottom-color: rgb(255, 138, 138);
+  }
+
+  .modal__content {
+    overflow-y: auto;
+    max-height: 60vh;
+  }
+
+  .modal__section.active {
+    flex-direction: column;
+  }
+
+  .modal__media {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 30px 15px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card__media {
+    height: 180px;
+  }
+
+  .card__content {
+    padding: 20px;
+  }
+
+  .card__title {
+    font-size: 1.2rem;
+  }
+
+  .modal {
+    border-radius: 8px;
+    max-height: 95vh;
+  }
+
+  .modal__close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+
+  .modal__nav-item {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .modal__content {
+    padding: 20px;
+  }
+
+  .modal__text h2 {
+    font-size: 1.4rem;
+  }
+
+  .modal__media--gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .modal__media--gallery img,
+  .modal__media--gallery video {
+    height: 150px;
+  }
+}
+
+/* ==================== SCROLLBAR MODAL ==================== */
+.modal__content::-webkit-scrollbar,
+.modal__nav::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.modal__content::-webkit-scrollbar-track,
+.modal__nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal__content::-webkit-scrollbar-thumb,
+.modal__nav::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
+
+.modal__content::-webkit-scrollbar-thumb:hover,
+.modal__nav::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 138, 138);
+}
 /* ==========================================================================
   SCROLL REVEAL
 ========================================================================== */

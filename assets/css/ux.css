@@ -7,7 +7,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: rgb(0, 0, 0);
+  background: rgb(255, 255, 255);
   color: rgb(231, 231, 231);
   scroll-behavior: smooth;
 }
@@ -22,7 +22,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(24, 24, 24, 0.882);
+  background: rgba(255, 255, 255, 0.882);
   padding: 5px 40px;
   display: flex;
   justify-content: space-between;
@@ -59,7 +59,9 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.2s, transform 0.2s;
+  transition:
+    color 0.2s,
+    transform 0.2s;
 }
 
 .desktop-links a:hover {
@@ -118,7 +120,9 @@ body {
     opacity: 0;
     pointer-events: none;
     transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
     z-index: 10000;
   }
 
@@ -238,7 +242,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 120px;
-  background-color: #000;
+  background-color: #ffffff;
   color: #d5d5d5;
 }
 
@@ -684,7 +688,9 @@ body {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(80px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
 }
 
 .scroll-reveal.visible {
