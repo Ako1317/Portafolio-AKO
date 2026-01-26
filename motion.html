@@ -105,14 +105,21 @@
     </footer>
 
     <!-- JAVASCRIPT -->
+
+    <!-- ============================ -->
+    <!-- SCRIPT: Nav bar dinámico -->
+    <!-- ============================ -->
+    <script src="assets/js/nav.js"></script>
     <script>
       // Cargar nav.html dinámicamente
       fetch("nav.html")
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("navbar-placeholder").innerHTML = data;
-          initNavExternal(); // ← Redirige a index.html#seccion
-        });
+          initNavExternal(); // ← redirige a index.html#seccion
+        })
+        .catch((err) => console.error("Error cargando nav:", err));
+
       // Scroll suave
       document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (e) => {

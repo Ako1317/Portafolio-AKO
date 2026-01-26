@@ -21,7 +21,13 @@
 
     <!-- INTRO -->
     <section class="project intro">
-      <p>Una selección de proyectos de UX que he realizado recientemente.</p>
+      <p
+        data-es="Una selección de proyectos de UX que he realizado recientemente.
+"
+        data-en="A selection of UX projects I have recently completed."
+      >
+        Una selección de proyectos de UX que he realizado recientemente.
+      </p>
       <span class="arrow">🡣🡣🡣</span>
     </section>
 
@@ -388,7 +394,7 @@
         .then((res) => res.text())
         .then((data) => {
           document.getElementById("navbar-placeholder").innerHTML = data;
-          initNav(); // inicializa idioma + scroll suave
+          initNavExternal(); // ← redirige a index.html#seccion
         })
         .catch((err) => console.error("Error cargando nav:", err));
     </script>
@@ -487,7 +493,7 @@
 
     <footer class="site-footer">
       <a
-        href="https://github.com/Ako1317/Portafolio-AKO?tab=readme-ov-file"
+        href="https://github.com/Ako1317/Portafolio-AKO"
         target="_blank"
         rel="noopener noreferrer"
         class="footer-github"

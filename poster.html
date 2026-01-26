@@ -112,98 +112,94 @@
     </footer>
 
     <!-- SCRIPTS -->
-    <!-- Nav bar dinámico -->
+    <!-- ============================ -->
+    <!-- SCRIPT: Nav bar dinámico -->
+    <!-- ============================ -->
     <script src="assets/js/nav.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Cargar nav.html dinámicamente
-        fetch("nav.html")
-          .then((res) => res.text())
-          .then((data) => {
-            document.getElementById("navbar-placeholder").innerHTML = data;
-            if (typeof initNav === "function") {
-              initNav();
-            }
-          })
-          .catch((err) => console.error("Error cargando nav:", err));
+      // Cargar nav.html dinámicamente
+      fetch("nav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-placeholder").innerHTML = data;
+          initNavExternal(); // ← redirige a index.html#seccion
+        })
+        .catch((err) => console.error("Error cargando nav:", err));
 
-        // SCROLL REVEAL
-        const sections = document.querySelectorAll(".reveal");
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-              }
-            });
-          },
-          { threshold: 0.2 },
-        );
-        sections.forEach((el) => observer.observe(el));
-
-        // HOVER / CLICK IMAGEN
-        const images = document.querySelectorAll(".image-container img");
-        images.forEach((img) => {
-          const original = img.src;
-          const alt = img.dataset.alt;
-          let clicked = false;
-
-          img.addEventListener("mouseenter", () => {
-            if (!clicked && alt) img.src = alt;
-          });
-          img.addEventListener("mouseleave", () => {
-            if (!clicked) img.src = original;
-          });
-          img.addEventListener("click", () => {
-            if (alt) {
-              clicked = !clicked;
-              img.src = clicked ? alt : original;
+      // SCROLL REVEAL
+      const sections = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
             }
           });
+        },
+        { threshold: 0.2 },
+      );
+      sections.forEach((el) => observer.observe(el));
+
+      // HOVER / CLICK IMAGEN
+      const images = document.querySelectorAll(".image-container img");
+      images.forEach((img) => {
+        const original = img.src;
+        const alt = img.dataset.alt;
+        let clicked = false;
+
+        img.addEventListener("mouseenter", () => {
+          if (!clicked && alt) img.src = alt;
         });
-
-        // MENÚ MÓVIL (si existe)
-        const menuToggle = document.getElementById("menu-toggle");
-        const closeBtn = document.querySelector(".close-menu");
-
-        if (menuToggle) {
-          function toggleBodyScroll() {
-            document.body.style.overflow = menuToggle.checked
-              ? "hidden"
-              : "auto";
+        img.addEventListener("mouseleave", () => {
+          if (!clicked) img.src = original;
+        });
+        img.addEventListener("click", () => {
+          if (alt) {
+            clicked = !clicked;
+            img.src = clicked ? alt : original;
           }
-          menuToggle.addEventListener("change", toggleBodyScroll);
+        });
+      });
 
-          if (closeBtn) {
-            closeBtn.addEventListener("click", (e) => {
-              e.preventDefault();
-              menuToggle.checked = false;
-              toggleBodyScroll();
-            });
-          }
+      // MENÚ MÓVIL (si existe)
+      const menuToggle = document.getElementById("menu-toggle");
+      const closeBtn = document.querySelector(".close-menu");
+
+      if (menuToggle) {
+        function toggleBodyScroll() {
+          document.body.style.overflow = menuToggle.checked ? "hidden" : "auto";
         }
+        menuToggle.addEventListener("change", toggleBodyScroll);
 
-        // IDIOMA (si existe)
-        const langSelect = document.getElementById("lang-select");
-        if (langSelect) {
-          function cambiarIdioma(lang) {
-            document.querySelectorAll(".nav-links a").forEach((link) => {
-              if (link.dataset[lang]) link.textContent = link.dataset[lang];
-            });
-            document.querySelectorAll("[data-es]").forEach((el) => {
-              if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
-            });
-          }
-          const langGuardado = localStorage.getItem("lang") || "es";
-          langSelect.value = langGuardado;
-          cambiarIdioma(langGuardado);
-          langSelect.addEventListener("change", () => {
-            const lang = langSelect.value;
-            localStorage.setItem("lang", lang);
-            cambiarIdioma(lang);
+        if (closeBtn) {
+          closeBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            menuToggle.checked = false;
+            toggleBodyScroll();
           });
         }
-      });
+      }
+
+      // IDIOMA (si existe)
+      const langSelect = document.getElementById("lang-select");
+      if (langSelect) {
+        function cambiarIdioma(lang) {
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            if (link.dataset[lang]) link.textContent = link.dataset[lang];
+          });
+          document.querySelectorAll("[data-es]").forEach((el) => {
+            if (el.dataset[lang]) el.innerHTML = el.dataset[lang];
+          });
+        }
+        const langGuardado = localStorage.getItem("lang") || "es";
+        langSelect.value = langGuardado;
+        cambiarIdioma(langGuardado);
+        langSelect.addEventListener("change", () => {
+          const lang = langSelect.value;
+          localStorage.setItem("lang", lang);
+          cambiarIdioma(lang);
+        });
+      }
     </script>
   </body>
 </html>
